@@ -13,9 +13,8 @@ export const keepService = {
     getPrevId
 }
 
-function query(dbKey = null) {
-    if (!dbKey) return storageService.query(DB_KEY)
-    else return storageService.query(dbKey);
+function query() {
+    return storageService.query(DB_KEY)
 }
 
 function remove(keepId) {
@@ -62,24 +61,24 @@ function initData() {
     var keepsList =
     [
        {
-            type: "NoteTxt",
+            type: "noteTxt",
             isPinned: true,
             info: {
                 txt: "Fullstack Me Baby!"
             }
         },
+        // {
+        //     type: "NoteImg",
+        //     info: {
+        //         url: "http://some-img/me",
+        //         title: "Me playing Mi"
+        //     },
+        //     style: {
+        //         backgroundColor: "#00d"
+        //     }
+        // },
         {
-            type: "NoteImg",
-            info: {
-                url: "http://some-img/me",
-                title: "Me playing Mi"
-            },
-            style: {
-                backgroundColor: "#00d"
-            }
-        },
-        {
-            type: "NoteTodos",
+            type: "noteTodos",
             info: {
                 label: "How was it:",
                 todos: [

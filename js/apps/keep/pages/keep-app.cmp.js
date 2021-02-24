@@ -1,14 +1,14 @@
 import noteTxt from '../cmps/note-text.cmp.js'
 import noteImg from '../cmps/note-img.cmp.js'
-import noteTodo from '../cmps/note-todo.cmp.js'
+import noteTodos from '../cmps/note-todo.cmp.js'
 import { keepService } from '../sevices/keep.service.js'
 
 
 export default {
     template: `
         <section class="keep-app">
-            <div v-for="(cmp, idx) in survey.cmps">
-                <component :is="cmp.type"  :info="cmp.info"></component>
+            <div v-for="(keep, idx) in keeps">
+                <component :is="keep.type" :info="keep.info"></component>
             </div>
         </section>
     `,
@@ -23,13 +23,15 @@ export default {
     methods: {
         loadKeeps() {
             keepService.query()
-                .then(keeps => this.keeps = keeps)
+                .then(keeps => {
+                    this.keeps = keeps
+                })
         }
     },
     components: {
         noteTxt,
         noteImg,
-        noteTodo,
+        noteTodos,
     }
 };
 
