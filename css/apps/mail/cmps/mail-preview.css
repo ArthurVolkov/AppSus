@@ -1,0 +1,24 @@
+/* MAIL-PREVIEW */
+
+.mail-preview * {
+    overflow: hidden;
+}
+
+.mail-preview-container {
+    background-color: bisque;
+    border: 1px solid black;
+    margin: 5px;
+}
+
+.mail-preview .mail-name, .mail-subject {
+    text-transform: capitalize;
+}
+
+.mail-preview p{
+    margin: 5px;
+    white-space: nowrap;
+}
+
+.mail-preview .not-readed {
+    font-weight: 900;
+}

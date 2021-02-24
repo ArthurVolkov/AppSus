@@ -1,0 +1,37 @@
+/* BACIS */
+@import './basic/basic.css';
+@import './basic/helpers.css';
+
+/* CMPS */
+@import './cmps/app-header.css';
+@import './cmps/user-msg.css';
+
+/* PAGES */
+
+@import './pages/about.css';
+@import './pages/home-page.css';
+
+/* MAIL-CMPS */
+@import './mail/cmps/mail-cide-bar.css';
+@import './mail/cmps/mail-filter.css';
+@import './mail/cmps/mail-preview.css';
+
+/* MAIL-PAGES */
+
+@import './mail/pages/mail-app.css';
+@import './mail/pages/mail-details.css';
+@import './mail/pages/mail-list.css';
+@import './mail/pages/mail-edit.css';
+
+/* KEEP-CMPS */
+
+@import './keep/cmps/note-img.css';
+@import './keep/cmps/note-text.css';
+@import './keep/cmps/note-todo.css';
+
+/* KEEP-PAGES */
+
+@import './keep/pages/keep-app.css';
+
+
+

@@ -3,13 +3,13 @@ import { mailService } from "../sevices/mail.service.js";
 export default {
     props:['mail'],
     template:`
-    <section class="mail-preview flex justify-between">
+    <li class="mail-preview flex justify-between">
         <p class="mail-name" :class="isReadedClass">{{name}}</p>
         <p :class="isReadedClass" class="mail-subject">{{subject}}</p>
         <p>{{body}}</p>
         <p :class="isReadedClass">{{sentAt}}</p>
         <!-- <p>Is Read: {{mail.isReaded}}</p> -->
-    </section>
+    </li>
     `,
     computed: {
         name() {
@@ -19,7 +19,7 @@ export default {
             return this.mail.subject + '-'
         },
         body() {
-            return this.mail.body.slice(0,69) + '...'
+            return this.mail.body.slice(0,39) + '...'
         },
 
         isReadedClass() {

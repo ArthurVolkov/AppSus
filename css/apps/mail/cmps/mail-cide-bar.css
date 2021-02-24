@@ -1,0 +1,20 @@
+.mail-side-bar {
+    margin: 5px;
+    width: 30%;
+}
+
+.mail-side-bar button {
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.mail-side-bar button:hover {
+    background-color: bisque;
+
+}
+
+
+

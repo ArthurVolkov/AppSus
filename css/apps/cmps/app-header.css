@@ -1,0 +1,10 @@
+/* APP-HEADER */
+
+.app-header {
+    background-color: aqua;
+    height: 60px;
+}
+
+.app-header .nav-bar li:not(:last-child){
+    margin-inline-end: 30px;
+}

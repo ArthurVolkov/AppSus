@@ -1,0 +1,41 @@
+/* MAIN */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 1rem;
+}
+
+body {
+    margin: 0;
+    user-select: none;
+}
+
+p {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* DEBUG */
+
+.debug {
+    outline: 1px solid gold;
+}
+
+
+/* LAYOUT */
+
+.main-container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 10px;
+}

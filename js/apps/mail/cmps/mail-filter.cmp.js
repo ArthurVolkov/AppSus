@@ -1,9 +1,7 @@
 export default {
     template: `
-    <section class="mail-filter">
-        <label> Search mail: </label>    
-        <input type="text" v-model="filterBy.bySubject">
-        <button @click="setFilter">Search</button>        
+    <section class="mail-filter flex">
+        <input type="text" @input="setFilter" v-model="filterBy.bySubject" placeholder="Search in mails" />
     </section>
     `,
     data() {

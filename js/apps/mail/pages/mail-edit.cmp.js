@@ -3,10 +3,10 @@ import { mailService } from '../sevices/mail.service.js'
 
 export default {
     template: `
-   <section v-if="mailToEdit" class="mail-edit app-main">
-        <h3>EDIT MAIL</h3>
-
-   </section>
+        <section v-if="mailToEdit" class="mail-edit app-main">
+                <h3>EDIT MAIL</h3>
+                
+        </section>
     `,
     data() {
         return {

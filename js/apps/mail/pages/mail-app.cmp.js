@@ -6,11 +6,9 @@ import mailSideBar from '../cmps/mail-side-bar.cmp.js'
 
 export default {
     template: `
-        <section class="mail-app">
-            <mail-filter @filtered="setFilter" />
-            <router-view />
+        <section class="mail-app main-container flex justify-between">
+            <mail-side-bar @filtered="setFilter"/>
             <mail-list :mails="mailsToShow" @selected="isReaded"/>
-            <mail-side-bar/>
         </section>
     `,
     data() {
