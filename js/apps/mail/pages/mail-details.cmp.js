@@ -1,38 +1,36 @@
 import { mailService } from '../sevices/mail.service.js'
 // import { eventBus } from '../services/event-bus.service.js'
 
-
 export default {
     template: `
-    <section v-if="mail" class="mail-details flex justify-between align-center">
-        <div class="mail-details-cintainer main-container flex justify-between align-center">
-            <div class="info-container flex flex-col justify-between align-center">
-                <div class="router-link-container flex justify-between">
-                    <!-- <router-link :to="prevMailLink">Prev book</router-link>
-                    <router-link :to="nextMailLink">Next book</router-link> -->
-                </div>
-                <div>MAIL</div>
-   
+    <section class="mail-details-container">
+        <h3>{{this.mail.subject}}</h3>
+        <ul class="review-list">
+            <li v-for="(review,idx) in reviews" class="review-preview-container" >
+                <book-review-preview :review="review"/>
+                <button @click="removeReview(idx)">X</button>
+            </li>
+        </ul>
+    </section>        
                 <button @click="closeDetails" class="close-btn">X</button>
-            </div>
-        </div>
-    </section>
     `,
     data() {
         return {
-            mail: null,
+            mails: [],
             isMore: false,
-
         }
     },
     methods: {
-        loadMail() {
+        loadMails() {
             const id = this.$route.params.mailId
-            mailService.getById(id)
+            mailService.getChainById(id)
                 .then(mail => {
                     this.mail = mail
+<<<<<<< HEAD:js/apps/mail/pages/details.cmp.js
                     // console.log('mail:', mail)
         
+=======
+>>>>>>> c844a025c16b91d17ad0bf743a25e9c5b972458f:js/apps/mail/pages/mail-details.cmp.js
                 })
         },
         closeDetails() {

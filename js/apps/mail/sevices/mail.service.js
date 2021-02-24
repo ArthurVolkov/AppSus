@@ -11,7 +11,8 @@ export const mailService = {
     getById,
     getNextId,
     getPrevId,
-    update
+    update,
+    getChainById
 }
 
 function query() {
@@ -54,6 +55,19 @@ function getById(id) {
 
 function update(mail) {
     return storageService.put(DB_KEY, mail)
+}
+
+
+function getChainById(id) {
+    return getById(id)
+        .then(mail => {
+            return storageService.query(DB_KEY)
+                .then(mails => {
+                    return mails.filter(currMail => {
+                        return currMail.subject === mail.subject && currMail.mailAddress === mail.mailAddress
+                    })
+                })
+        })
 }
 
 function _createMails() {
