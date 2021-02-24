@@ -1,7 +1,48 @@
+import { mailService } from '../sevices/mail.service.js'
+import mailFilter from '../cmps/mail-filter.cmp.js'
+import mailList from '../cmps/mail-list.cmp.js'
+import mailSideBar from '../cmps/mail-side-bar.cmp.js'
+
+
 export default {
-    template:`
-    <section class="home app-main">
-        <h1>Mail</h1>
-    </section>
+    template: `
+        <section class="mail-app">
+            <mail-filter @filtered="setFilter" />
+            <mail-list :mails="mailsToShow"/>
+            <mail-side-bar/>
+        </section>
     `,
+    data() {
+        return {
+            mails: [],
+            filterBy: null
+        }
+    },
+    methods: {
+        loadMails() {
+            mailService.query()
+                .then(mails => this.mails = mails)
+        },
+        setFilter(filterBy) {
+            this.filterBy = filterBy
+        },
+    },
+    computed: {
+        mailsToShow() {
+            if (!this.filterBy) return this.mails
+            const searchStr = this.filterBy.bySubject.toLowerCase()
+            const mailsToShow = this.mails.filter(mail => {
+                return mail.subject.toLowerCase().includes(searchStr)
+            })
+            return mailsToShow
+        }
+    },
+    created() {
+        this.loadMails();
+    },
+    components: {
+        mailFilter,
+        mailList,
+        mailSideBar
+    }
 }
