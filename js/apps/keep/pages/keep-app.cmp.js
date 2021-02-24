@@ -27,10 +27,9 @@ export default {
         }
     },
     components: {
-        selectBox,
-        textBox,
-        linearScale,
-        photoTuner
+        noteTxt,
+        noteImg,
+        noteTodo,
     }
 };
 
