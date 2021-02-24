@@ -9,7 +9,6 @@ export default {
     `,
     methods: {
         select(mail) {
-            // console.log('mail:', mail)
             this.$router.push(`/mail/${mail.id}`)
         }
     },
