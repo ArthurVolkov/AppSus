@@ -9,7 +9,7 @@ export default {
         <section class="mail-app">
             <mail-filter @filtered="setFilter" />
             <router-view />
-            <mail-list :mails="mailsToShow"/>
+            <mail-list :mails="mailsToShow" @selected="isReaded"/>
             <mail-side-bar/>
         </section>
     `,
@@ -27,6 +27,12 @@ export default {
         setFilter(filterBy) {
             this.filterBy = filterBy
         },
+        isReaded(mail) {
+            mail.isReaded = true
+            console.log('mail:', mail)
+            mailService.update(mail)
+                .then(() => this.loadMails)
+        }
     },
     computed: {
         mailsToShow() {

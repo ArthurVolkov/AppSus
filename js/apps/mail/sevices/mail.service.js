@@ -10,7 +10,8 @@ export const mailService = {
     getEmptyMail,
     getById,
     getNextId,
-    getPrevId
+    getPrevId,
+    update
 }
 
 function query() {
@@ -40,7 +41,7 @@ function getEmptyMail() {
         'subject': '',
         'mailAddress': '',
         'body': '',
-        'isRead': false,
+        'isReaded': false,
         'isImporant': false,
         'isIncoming': false,
         'sentAt': null
@@ -49,6 +50,10 @@ function getEmptyMail() {
 
 function getById(id) {
     return storageService.get(DB_KEY, id)
+}
+
+function update(mail) {
+    return storageService.put(DB_KEY, mail)
 }
 
 function _createMails() {
@@ -68,53 +73,115 @@ function initData() {
         [
             {
                 'id': '11111',
-                'subject': 'hello1',
-                'mailAddress': 'leumi@gmail.com',
+                'subject': 'account deleting',
+                'mailAddress': 'gmail@gmail.com',
                 'body': 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem corporis deserunt, enim officia repudiandae dolorum ipsa. Incidunt quo iste, eius impedit debitis eos consequatur molestiae laboriosam assumenda eum nam tenetur? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem corporis deserunt, enim officia repudiandae dolorum ipsa. Incidunt quo iste, eius impedit debitis eos consequatur molestiae laboriosam assumenda eum nam tenetur?',
                 'sentAt': 0,
                 'isImporant': true,
                 'isIncoming': true,
-                'isRead': false,
+                'isReaded': true,
+                'sentAt' : Date.now() - 1000*60*60*24*5
+
             },
             {
                 'id': '22222',
-                'subject': 'hello1',
-                'mailAddress': 'leumi@gmail.com',
+                'subject': 'account information',
+                'mailAddress': 'gmail@gmail.com',
                 'body': 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem corporis deserunt, enim officia repudiandae dolorum ipsa. Incidunt quo iste, eius impedit debitis eos consequatur molestiae laboriosam assumenda eum nam tenetur? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem corporis deserunt, enim officia repudiandae dolorum ipsa. Incidunt quo iste, eius impedit debitis eos consequatur molestiae laboriosam assumenda eum nam tenetur?',
                 'sentAt': 0,
-                'isImporant': true,
+                'isImporant': false,
                 'isIncoming': true,
-                'isRead': false,
+                'isReaded': false,
+                'sentAt' : Date.now() - 1000*60*60*24*2
+
             },
             {
                 'id': '33333',
-                'subject': 'hello1',
-                'mailAddress': 'leumi@gmail.com',
+                'subject': 'mas ahnasa',
+                'mailAddress': 'misim@gmail.com',
                 'body': 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem corporis deserunt, enim officia repudiandae dolorum ipsa. Incidunt quo iste, eius impedit debitis eos consequatur molestiae laboriosam assumenda eum nam tenetur? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem corporis deserunt, enim officia repudiandae dolorum ipsa. Incidunt quo iste, eius impedit debitis eos consequatur molestiae laboriosam assumenda eum nam tenetur?',
                 'sentAt': 0,
                 'isImporant': true,
-                'isIncoming': true,
-                'isRead': false,
+                'isIncoming': false,
+                'isReaded': false,
+                'sentAt' : Date.now() - 1000*60*60*24*8
             },
             {
                 'id': '44444',
-                'subject': 'hello1',
+                'subject': 'from bank',
                 'mailAddress': 'leumi@gmail.com',
                 'body': 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem corporis deserunt, enim officia repudiandae dolorum ipsa. Incidunt quo iste, eius impedit debitis eos consequatur molestiae laboriosam assumenda eum nam tenetur? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem corporis deserunt, enim officia repudiandae dolorum ipsa. Incidunt quo iste, eius impedit debitis eos consequatur molestiae laboriosam assumenda eum nam tenetur?',
                 'sentAt': 0,
                 'isImporant': true,
-                'isIncoming': true,
-                'isRead': false,
+                'isIncoming': false,
+                'isReaded': true,
+                'sentAt' : Date.now() - 1000*60*60*24*15
             },
             {
                 'id': '55555',
-                'subject': 'hello1',
-                'mailAddress': 'leumi@gmail.com',
+                'subject': 'new jobs for you',
+                'mailAddress': 'jobmaster@gmail.com',
+                'body': 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem corporis deserunt, enim officia repudiandae dolorum ipsa. Incidunt quo iste, eius impedit debitis eos consequatur molestiae laboriosam assumenda eum nam tenetur? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem corporis deserunt, enim officia repudiandae dolorum ipsa. Incidunt quo iste, eius impedit debitis eos consequatur molestiae laboriosam assumenda eum nam tenetur?',
+                'sentAt': 0,
+                'isImporant': false,
+                'isIncoming': true,
+                'isReaded': false,
+                'sentAt' : Date.now() - 1000*60*60*24*4
+            },
+            {
+                'id': '66666',
+                'subject': 'mas ahnasa',
+                'mailAddress': 'misim@gmail.com',
                 'body': 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem corporis deserunt, enim officia repudiandae dolorum ipsa. Incidunt quo iste, eius impedit debitis eos consequatur molestiae laboriosam assumenda eum nam tenetur? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem corporis deserunt, enim officia repudiandae dolorum ipsa. Incidunt quo iste, eius impedit debitis eos consequatur molestiae laboriosam assumenda eum nam tenetur?',
                 'sentAt': 0,
                 'isImporant': true,
                 'isIncoming': true,
-                'isRead': false,
+                'isReaded': true,
+                'sentAt' : Date.now() - 1000*60*60*24*43
+            },
+            {
+                'id': '77777',
+                'subject': 'dropbox overloaded',
+                'mailAddress': 'dropbox@gmail.com',
+                'body': 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem corporis deserunt, enim officia repudiandae dolorum ipsa. Incidunt quo iste, eius impedit debitis eos consequatur molestiae laboriosam assumenda eum nam tenetur? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem corporis deserunt, enim officia repudiandae dolorum ipsa. Incidunt quo iste, eius impedit debitis eos consequatur molestiae laboriosam assumenda eum nam tenetur?',
+                'sentAt': 0,
+                'isImporant': true,
+                'isIncoming': true,
+                'isReaded': false,
+                'sentAt' : Date.now() - 1000*60*60*24*13
+            },
+            {
+                'id': '88888',
+                'subject': 'have you started?',
+                'mailAddress': 'webhost@gmail.com',
+                'body': 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem corporis deserunt, enim officia repudiandae dolorum ipsa. Incidunt quo iste, eius impedit debitis eos consequatur molestiae laboriosam assumenda eum nam tenetur? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem corporis deserunt, enim officia repudiandae dolorum ipsa. Incidunt quo iste, eius impedit debitis eos consequatur molestiae laboriosam assumenda eum nam tenetur?',
+                'sentAt': 0,
+                'isImporant': true,
+                'isIncoming': true,
+                'isReaded': false,
+                'sentAt' : Date.now() - 1000*60*60*24*6
+            },
+            {
+                'id': '99999',
+                'subject': 'account information',
+                'mailAddress': 'gmail@gmail.com',
+                'body': 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem corporis deserunt, enim officia repudiandae dolorum ipsa. Incidunt quo iste, eius impedit debitis eos consequatur molestiae laboriosam assumenda eum nam tenetur? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem corporis deserunt, enim officia repudiandae dolorum ipsa. Incidunt quo iste, eius impedit debitis eos consequatur molestiae laboriosam assumenda eum nam tenetur?',
+                'sentAt': 0,
+                'isImporant': true,
+                'isIncoming': true,
+                'isReaded': false,
+                'sentAt' : Date.now() - 1000*60*60*24*74
+            },
+            {
+                'id': '10101',
+                'subject': 'have you started?',
+                'mailAddress': 'webhost@gmail.com',
+                'body': 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem corporis deserunt, enim officia repudiandae dolorum ipsa. Incidunt quo iste, eius impedit debitis eos consequatur molestiae laboriosam assumenda eum nam tenetur? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem corporis deserunt, enim officia repudiandae dolorum ipsa. Incidunt quo iste, eius impedit debitis eos consequatur molestiae laboriosam assumenda eum nam tenetur?',
+                'sentAt': 0,
+                'isImporant': false,
+                'isIncoming': true,
+                'isReaded': false,
+                'sentAt' : Date.now() - 1000*60*60*24*18
             },
 
         ]

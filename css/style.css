@@ -9,6 +9,9 @@ body {
     user-select: none;
 }
 
+p {
+    margin: 0;
+}
 
 
 /* LAYOUT */
@@ -39,6 +42,24 @@ body {
     background-color: bisque;
     border: 1px solid black;
     margin: 5px;
+}
+
+/* MAIL-REVIEW */
+
+.mail-preview {
+    
+}
+
+.mail-preview .mail-name, .mail-subject {
+    text-transform: capitalize;
+}
+
+.mail-preview p{
+ margin: 5px;
+}
+
+.mail-preview .readed {
+    font-weight: 900;
 }
 
 /* MAIL-APP -------------------------------------------------------------------------------------*/

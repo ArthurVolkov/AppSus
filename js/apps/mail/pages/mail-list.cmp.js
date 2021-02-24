@@ -10,6 +10,7 @@ export default {
     methods: {
         select(mail) {
             // console.log('mail:', mail)
+            this.$emit('selected', mail)
             this.$router.push(`/mail/${mail.id}`)
         }
     },
