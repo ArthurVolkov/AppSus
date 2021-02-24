@@ -6,9 +6,9 @@ export default {
           `,
     props: ["info"],
     data() {
-      return {
-        val: ""
-      };
+        return {
+            val: ""
+        };
     },
     methods: {
     },
@@ -17,5 +17,4 @@ export default {
     created() {
         this.val = this.info.txt;
     }
-  };
-  
+};

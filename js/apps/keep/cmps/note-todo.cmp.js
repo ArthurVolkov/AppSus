@@ -12,8 +12,8 @@ export default {
           `,
     props: ["info"],
     data() {
-      return {
-      }
+        return {
+        }
     },
     methods: {
     },
@@ -21,5 +21,5 @@ export default {
     },
     created() {
     }
-  };
-  
+};
+

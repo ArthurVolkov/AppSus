@@ -18,7 +18,7 @@ body {
     margin: 0 auto;
     padding: 0 10px;
 }
-
+/* MAIL-APP ---------------------------------------------------------------------------------*/
 
 /* COMPONENTS */
 
@@ -33,6 +33,15 @@ body {
     margin-inline-end: 30px;
 }
 
+/* MAIL-LIST */
+
+.mail-preview-container {
+    background-color: bisque;
+    border: 1px solid black;
+    margin: 5px;
+}
+
+/* MAIL-APP -------------------------------------------------------------------------------------*/
 
 
 

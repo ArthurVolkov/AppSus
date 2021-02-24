@@ -1,5 +1,5 @@
 export default {
-    template:`
+    template: `
     <section class="mail-preview">
         <p>image</p>
 
