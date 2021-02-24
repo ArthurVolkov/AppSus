@@ -10,7 +10,6 @@ const options = {
             <user-msg />
             <app-header />
             <router-view />
-            <footer><p> &copy; Coffeerights 2021</p></footer>
         </section>
     `,
     components:{

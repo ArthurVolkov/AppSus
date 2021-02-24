@@ -1,0 +1,73 @@
+/* MAIN */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    user-select: none;
+}
+
+
+
+/* LAYOUT */
+
+.main-container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+
+/* COMPONENTS */
+
+/* APP-HEADER */
+
+.app-header {
+    background-color: aqua;
+    height: 60px;
+}
+
+.app-header .nav-bar li:not(:last-child){
+    margin-inline-end: 30px;
+}
+
+
+
+
+/* HELPERS */
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.clean-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.pointer {
+    cursor: pointer;
+}

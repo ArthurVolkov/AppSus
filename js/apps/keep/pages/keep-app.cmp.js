@@ -1,11 +1,11 @@
-import { bookService } from '../services/book-service.js'
-import bookFilter from '../cmps/book-filter.cmp.js'
-import bookList from '../cmps/book-list.cmp.js'
+// import { bookService } from '../services/book-service.js'
+// import bookFilter from '../cmps/book-filter.cmp.js'
+// import bookList from '../cmps/book-list.cmp.js'
 
 export default {
     template: `
-        <section class="">
-
+        <section class="home app-main">
+            <h1>Keep</h1>
         </section>
     `,
     data() {
@@ -18,7 +18,7 @@ export default {
     },
     computed: {
 
-        }
+    }
     ,
     created() {
 
