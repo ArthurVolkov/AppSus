@@ -15,7 +15,6 @@ export default {
     computed: {
     },
     created() {
-        console.log('info.txt',this.info.txt)
         this.val = this.info.txt;
     }
   };
