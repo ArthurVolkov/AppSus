@@ -26,11 +26,8 @@ export default {
             mailService.getChainById(id)
                 .then(mail => {
                     this.mail = mail
-<<<<<<< HEAD:js/apps/mail/pages/details.cmp.js
                     // console.log('mail:', mail)
         
-=======
->>>>>>> c844a025c16b91d17ad0bf743a25e9c5b972458f:js/apps/mail/pages/mail-details.cmp.js
                 })
         },
         closeDetails() {
