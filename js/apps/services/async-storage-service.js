@@ -14,9 +14,6 @@ function query(entityType) {
     return Promise.resolve(entities);
 }
 
-function getChain(entityType,subject,mailAddress){
-    return query(entityType)
-}
 
 function get(entityType, entityId) {
     return query(entityType)

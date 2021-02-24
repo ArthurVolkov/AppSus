@@ -4,38 +4,43 @@ import { mailService } from '../sevices/mail.service.js'
 export default {
     template: `
     <section class="mail-details-container">
-        <h3>{{this.mail.subject}}</h3>
+        <h3>{{mailSubject}}</h3>
         <ul class="review-list">
-            <li v-for="(review,idx) in reviews" class="review-preview-container" >
-                <book-review-preview :review="review"/>
-                <button @click="removeReview(idx)">X</button>
+            <li v-for="mail in mails" class="mail-preview-container" >
+                <p>Id: {{mail.id}}</p>
+                <p>Subject: {{mail.subject}}</p>
+                <p>Body: {{mail.body}}</p>
+                <p>Is Read: {{mail.isRead}}</p>
+                <p>Timestamp: {{sentAtToShow(mail.sentAt)}}</p>
             </li>
         </ul>
+    <button @click="closeDetails" class="close-btn">X</button>
     </section>        
-                <button @click="closeDetails" class="close-btn">X</button>
     `,
     data() {
         return {
             mails: [],
-            isMore: false,
+            mailSubject: null
         }
     },
     methods: {
         loadMails() {
             const id = this.$route.params.mailId
             mailService.getChainById(id)
-                .then(mail => {
-                    this.mail = mail
-                    // console.log('mail:', mail)
-        
+                .then(mails => {
+                    this.mails = mails.sort((mail1, mail2)=> {return mail1.sentAt - mail2.sentAt})
+                    this.mailSubject = this.mails[0].subject;
                 })
         },
         closeDetails() {
-            this.$router.push(`/mail`)
-        },  
+             this.$router.push(`/mail`)
+        },
+        sentAtToShow(sentAt) {
+            const sentDate = new Date(sentAt)
+            return sentDate.toISOString().substr(0, 10)
+        }
     },
     computed: {
-  
     },
     // watch: {
     //     '$route.params.mailId'(id) {
@@ -43,7 +48,7 @@ export default {
     //     }
     // },
     created() {
-        this.loadMail()
+        this.loadMails()
     },
     components: {
 
