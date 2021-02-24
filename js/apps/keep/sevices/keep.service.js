@@ -67,14 +67,24 @@ function initData() {
                 txt: "Fullstack Me Baby!"
             }
         },
+        {
+            type: "noteImg",
+            info: {
+                url: "https://robohash.org/arthur.png",
+                title: "Me playing Mi"
+            },
+            style: {
+                backgroundColor: "blue"
+            }
+        },
         // {
-        //     type: "NoteImg",
+        //     type: "NoteVideo",
         //     info: {
-        //         url: "http://some-img/me",
+        //         url: "https://robohash.org/arthur.png",
         //         title: "Me playing Mi"
         //     },
         //     style: {
-        //         backgroundColor: "#00d"
+        //         backgroundColor: "red"
         //     }
         // },
         {
@@ -84,6 +94,16 @@ function initData() {
                 todos: [
                         { txt: "Do that", doneAt: null },
                         { txt: "Do this", doneAt: 187111111 }]
+            }
+        },
+        {
+            type: "noteImg",
+            info: {
+                url: "https://robohash.org/itzik.png",
+                title: "Me playing Mi"
+            },
+            style: {
+                backgroundColor: "yellow"
             }
         }
     ]

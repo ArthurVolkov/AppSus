@@ -1,10 +1,10 @@
 export default {
+    props: ["keep"],
     template: `
           <section>
             <input type="text" v-model="val" />
           </section>
           `,
-    props: ["info"],
     data() {
         return {
             val: ""
@@ -15,6 +15,6 @@ export default {
     computed: {
     },
     created() {
-        this.val = this.info.txt;
+        this.val = this.keep.info.txt;
     }
 };
