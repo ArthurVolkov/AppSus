@@ -55,10 +55,11 @@ p {
 }
 
 .mail-preview p{
- margin: 5px;
+    margin: 5px;
+    white-space: nowrap;
 }
 
-.mail-preview .readed {
+.mail-preview .not-readed {
     font-weight: 900;
 }
 

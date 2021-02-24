@@ -19,11 +19,11 @@ export default {
             return this.mail.subject + '-'
         },
         body() {
-            return this.mail.body.slice(0,69)
+            return this.mail.body.slice(0,69) + '...'
         },
 
         isReadedClass() {
-            return this.mail.isReaded ? 'readed' : ''
+            return this.mail.isReaded ? '' : 'not-readed'
         },
         sentAt() {
             const sentDate = new Date(this.mail.sentAt)
