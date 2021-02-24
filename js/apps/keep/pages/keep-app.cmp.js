@@ -1,29 +1,36 @@
-// import { bookService } from '../services/book-service.js'
-// import bookFilter from '../cmps/book-filter.cmp.js'
-// import bookList from '../cmps/book-list.cmp.js'
+import noteTxt from '../cmps/note-text.cmp.js'
+import noteImg from '../cmps/note-img.cmp.js'
+import noteTodo from '../cmps/note-todo.cmp.js'
+import { keepService } from '../sevices/keep.service.js'
+
 
 export default {
     template: `
-        <section class="home app-main">
-            <h1>Keep</h1>
+        <section class="keep-app">
+            <div v-for="(cmp, idx) in survey.cmps">
+                <component :is="cmp.type"  :info="cmp.info"></component>
+            </div>
         </section>
     `,
     data() {
         return {
-
+            keeps: []
         }
     },
-    methods: {
-
-    },
-    computed: {
-
-    }
-    ,
     created() {
-
+        this.loadKeeps();
+    },
+    methods: {
+        loadKeeps() {
+            keepService.query()
+                .then(keeps => this.keeps = keeps)
+        }
     },
     components: {
-
+        selectBox,
+        textBox,
+        linearScale,
+        photoTuner
     }
-}
+};
+

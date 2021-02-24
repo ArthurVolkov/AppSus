@@ -1,21 +1,21 @@
 export default {
     template: `
-    <section class="mail-search flex justify-center align-center">
-        <h4>Search in mails: </h4>
-        <form @submit.prevent="search">
-            <input v-model="bookName" type="search">
-
-        </form>
+    <section class="mail-filter">
+        <label> Search mail: </label>    
+        <input type="text" v-model="filterBy.bySubject">
+        <button @click="setFilter">Search</button>        
     </section>
     `,
     data() {
         return {
-            // bookName: 'harry potter'
+            filterBy: {
+                bySubject: '',
+            }
         }
     },
-    methods: {
-        search() {
-            // this.$emit('search', this.bookName)
+    methods:{
+        setFilter(){
+            this.$emit('filtered',JSON.parse(JSON.stringify(this.filterBy)));
         }
     }
 }
