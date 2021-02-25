@@ -12,7 +12,7 @@ export default {
     `,
     data() {
         return {
-            keeps: []
+            keeps: null
         }
     },
     created() {
@@ -27,7 +27,8 @@ export default {
         },
         addNewKeep(keep){
             console.log('keep to show:',keep);
-            keepService.save(keep);
+            keepService.save(keep)
+            .then (()=>loadKeeps())
         }
     },
     components: {
