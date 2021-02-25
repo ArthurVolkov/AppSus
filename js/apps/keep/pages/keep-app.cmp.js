@@ -12,7 +12,7 @@ export default {
     `,
     data() {
         return {
-            keeps: []
+            keeps: null
         }
     },
     methods: {
@@ -24,10 +24,16 @@ export default {
                 })
         },
         addNewKeep(keep){
+<<<<<<< HEAD
+            console.log('keep to show:',keep);
+            keepService.save(keep)
+            .then (()=>loadKeeps())
+=======
             keepService.save(keep)
             .then((keep) => {
                 this.loadKeeps()
                 })
+>>>>>>> b203127d56cfd6bfd44339a360860b63f6a21ed4
         }
     },
     components: {
