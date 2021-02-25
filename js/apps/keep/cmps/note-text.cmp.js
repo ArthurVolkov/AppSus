@@ -2,7 +2,7 @@ export default {
     props: ["keep"],
     template: `
           <section>
-            <input type="text" v-model="val" />
+            <textarea v-model="val"></textarea>
           </section>
           `,
     data() {
@@ -15,6 +15,8 @@ export default {
     computed: {
     },
     created() {
-        this.val = this.keep.info.txt;
+        for (var i=0;i<this.keep.info.txts.length;i++){
+            this.val += this.keep.info.txts[i].txt + '\n';
+        }
     }
 };

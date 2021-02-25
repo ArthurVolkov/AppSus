@@ -64,7 +64,18 @@ function initData() {
             type: "noteTxt",
             isPinned: true,
             info: {
-                txt: "Fullstack Me Baby!"
+                label: "here i am",
+                txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
+                       { txt: "hey Me Baby!", doneAt: null}]
+            }
+        },
+        {
+            type: "noteTodos",
+            info: {
+                label: "How was it:",
+                txts: [
+                        { txt: "Do that", doneAt: null },
+                        { txt: "Do this", doneAt: 187111111 }]
             }
         },
         {
@@ -87,15 +98,6 @@ function initData() {
         //         backgroundColor: "red"
         //     }
         // },
-        {
-            type: "noteTodos",
-            info: {
-                label: "How was it:",
-                todos: [
-                        { txt: "Do that", doneAt: null },
-                        { txt: "Do this", doneAt: 187111111 }]
-            }
-        },
         {
             type: "noteImg",
             info: {
