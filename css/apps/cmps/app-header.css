@@ -2,7 +2,7 @@
 
 .app-header {
     background-color: aqua;
-    height: 60px;
+    height: 10vh;
 }
 
 .app-header .nav-bar li:not(:last-child){

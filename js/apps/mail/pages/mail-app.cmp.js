@@ -2,19 +2,22 @@ import { mailService } from '../sevices/mail.service.js'
 import mailFilter from '../cmps/mail-filter.cmp.js'
 import mailList from './mail-list.cmp.js'
 import mailSideBar from '../cmps/mail-side-bar.cmp.js'
+import mailEdit from './mail-edit.cmp.js'
 
 
 export default {
     template: `
         <section class="mail-app main-container flex justify-between">
-            <mail-side-bar @filtered="setFilter"/>
+            <mail-side-bar @filtered="setFilter" @compose="openEdit"/>
             <mail-list :mails="mailsToShow" @selected="isReaded"/>
+            <mail-edit v-if="isEdit" @closeEdit="closeEdit" />
         </section>
     `,
     data() {
         return {
             mails: [],
-            filterBy: null
+            filterBy: null,
+            isEdit: false
         }
     },
     methods: {
@@ -30,6 +33,12 @@ export default {
             console.log('mail:', mail)
             mailService.update(mail)
                 .then(() => this.loadMails)
+        },
+        openEdit() {
+            this.isEdit = true
+        },
+        closeEdit() {
+            this.isEdit = false
         }
     },
     computed: {
@@ -48,6 +57,7 @@ export default {
     components: {
         mailFilter,
         mailList,
-        mailSideBar
+        mailSideBar,
+        mailEdit
     }
 }

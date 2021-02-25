@@ -5,6 +5,7 @@ export default {
     template:`
     <li class="mail-preview flex justify-between">
         <p class="mail-name" :class="isReadedClass">{{name}}</p>
+        <button class="mail-star" @click.stop="setStar">{{star}}</button>
         <p :class="isReadedClass" class="mail-subject">{{subject}}</p>
         <p>{{body}}</p>
         <p :class="isReadedClass">{{sentAt}}</p>
@@ -28,6 +29,14 @@ export default {
         sentAt() {
             const sentDate = new Date(this.mail.sentAt)
             return sentDate.toISOString().substr(0, 10)
+        },
+        star() {
+            return this.mail.isImporant ? '★' : '☆'
+        }
+    },
+    methods: {
+        setStar() {
+            this.mail.isImporant = !this.mail.isImporant
         }
     }
 }

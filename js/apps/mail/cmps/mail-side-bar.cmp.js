@@ -2,10 +2,10 @@ import mailFilter from './mail-filter.cmp.js'
 
 export default {
     // props:['mail'],
-    template:`
+    template: `
         <section class="mail-side-bar flex flex-col">
             <mail-filter @filtered="setFilter"/>
-            <button>Compose</button>
+            <button @click="compose">Compose</button>
             <button>Inbox</button>
             <button>Sent</button>
             <button>Stared</button>
@@ -13,9 +13,12 @@ export default {
     `,
     computed: {
     },
-    methods:{
-        setFilter(filterBy){
+    methods: {
+        setFilter(filterBy) {
             this.$emit('filtered', filterBy);
+        },
+        compose() {
+            this.$emit('compose')
         }
     },
     components: {

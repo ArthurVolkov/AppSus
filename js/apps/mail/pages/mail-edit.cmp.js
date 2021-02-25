@@ -2,19 +2,42 @@ import { mailService } from '../sevices/mail.service.js'
 // import { eventBus } from '../../services/event-bus-service'
 
 export default {
+    props: ['mailToEdit'],
     template: `
-        <section v-if="mailToEdit" class="mail-edit app-main">
-                <h3>EDIT MAIL</h3>
+        <section :class="isFullClass" class="mail-edit flex flex-col">
+            <div class="edit-header flex justify-between align-center">
+                <p>New Message</p>
+                <div class="edit-buttons-container">
+                    <button @click="toggleFull" class="toggle-full-btn">↔</button>
+                    <button @click="closeEdit">x</button>
+                </div>
+            </div>
+            <form @submit="" class="edit-input-container flex flex-col">
+                <input type="text" class="reciever-input" placeholder="Reciever">
+                <input type="text" class="subject-input" placeholder="Subject">
+                <textarea class="mailbody-input" ></textarea>
+                <button @click="send">Send</button>
+            </form>
                 
         </section>
     `,
     data() {
         return {
-            mailToEdit: null
+            mail: null,
+            isFull: false
         }
     },
 
     methods: {
+        closeEdit() {
+            this.$emit('closeEdit')
+        },
+        toggleFull() {
+            this.isFull = !this.isFull
+        },
+        send() {
+            
+        }
         // save() {
         //     carService.save(this.carToEdit)
         //         .then(car => {
@@ -37,6 +60,9 @@ export default {
         // }
     },
     computed: {
+        isFullClass() {
+            return this.isFull ? 'edit-full' : ''
+        }
         // title() {
         //     return this.carId ? 'Car Edit' : 'Car Add'
         // },
@@ -45,6 +71,7 @@ export default {
         // }
     },
     created() {
+        this.male = this.mailToEdit
         // if (this.carId) {
         //     carService.getById(this.carId).then(car => this.carToEdit = car)
         // } else {
