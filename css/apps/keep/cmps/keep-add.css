@@ -17,12 +17,11 @@
 
 }
 
-.keep-add textarea {
-    padding: 10px;
-    flex-grow: 1;
+.keep-add input {
+    /* flex-grow: 1; */
     border: none;
     outline: none;
-    font-size: 1.31em;
+    font-size: 1em;
 }
 
 
