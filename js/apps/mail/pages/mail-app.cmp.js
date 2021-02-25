@@ -1,5 +1,5 @@
 import { mailService } from '../sevices/mail.service.js'
-import mailFilter from '../cmps/mail-filter.cmp.js'
+// import mailFilter from '../cmps/mail-filter.cmp.js'
 import mailList from './mail-list.cmp.js'
 import mailSideBar from '../cmps/mail-side-bar.cmp.js'
 import mailEdit from './mail-edit.cmp.js'
@@ -10,7 +10,7 @@ export default {
         <section class="mail-app main-container flex justify-between">
             <mail-side-bar @filtered="setFilter" @compose="openEdit"/>
             <mail-list :mails="mailsToShow" @selected="isReaded"/>
-            <mail-edit v-if="isEdit" @closeEdit="closeEdit" />
+            <mail-edit v-if="isEdit" @closeEdit="closeEdit" @afterSend="afterSend" />
         </section>
     `,
     data() {
@@ -30,7 +30,6 @@ export default {
         },
         isReaded(mail) {
             mail.isReaded = true
-            console.log('mail:', mail)
             mailService.update(mail)
                 .then(() => this.loadMails)
         },
@@ -39,15 +38,32 @@ export default {
         },
         closeEdit() {
             this.isEdit = false
+        },
+        afterSend() {
+            this.loadMails()
+            this.closeEdit()
         }
     },
     computed: {
         mailsToShow() {
             if (!this.filterBy) return this.mails
+
+            let filterParam = null
+            if (this.filterBy.isIncoming) filterParam = ['isIncoming', true]
+            else if (this.filterBy.isSent) filterParam = ['isIncoming', false]
+            else if (this.filterBy.isImporant) filterParam = ['isImporant', true]
+            
+
             const searchStr = this.filterBy.bySubject.toLowerCase()
             const mailsToShow = this.mails.filter(mail => {
-                return mail.subject.toLowerCase().includes(searchStr)
+                if (!filterParam) return mail.subject.toLowerCase().includes(searchStr)
+                else return mail.subject.toLowerCase().includes(searchStr) &&
+                    mail[filterParam[0]] === filterParam[1]
+                    
+                    // mail.isIncoming === this.filterBy.isIncoming && 
+                    // mail.isImportant === this.filterBy.isStared
             })
+
             return mailsToShow
         }
     },
@@ -55,7 +71,7 @@ export default {
         this.loadMails();
     },
     components: {
-        mailFilter,
+        // mailFilter,
         mailList,
         mailSideBar,
         mailEdit

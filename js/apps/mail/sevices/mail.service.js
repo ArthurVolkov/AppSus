@@ -38,7 +38,7 @@ function save(mail) {
 }
 
 function getEmptyMail() {
-    return {
+    return Promise.resolve({
         'subject': '',
         'mailAddress': '',
         'body': '',
@@ -46,7 +46,7 @@ function getEmptyMail() {
         'isImporant': false,
         'isIncoming': false,
         'sentAt': null
-    }
+    })
 }
 
 function getById(id) {

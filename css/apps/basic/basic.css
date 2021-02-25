@@ -26,6 +26,10 @@ button {
     cursor: pointer;
 }
 
+textarea {
+    resize: none;
+}
+
 /* DEBUG */
 
 .debug {

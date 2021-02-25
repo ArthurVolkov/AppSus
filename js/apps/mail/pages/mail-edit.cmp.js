@@ -7,16 +7,19 @@ export default {
         <section :class="isFullClass" class="mail-edit flex flex-col">
             <div class="edit-header flex justify-between align-center">
                 <p>New Message</p>
-                <div class="edit-buttons-container">
+                <div class="edit-btns-container">
                     <button @click="toggleFull" class="toggle-full-btn">↔</button>
                     <button @click="closeEdit">x</button>
                 </div>
             </div>
             <form @submit="" class="edit-input-container flex flex-col">
-                <input type="text" class="reciever-input" placeholder="Reciever">
-                <input type="text" class="subject-input" placeholder="Subject">
-                <textarea class="mailbody-input" ></textarea>
-                <button @click="send">Send</button>
+                <input v-model="mailAddress" type="email" class="to-input" placeholder="To" required>
+                <input v-model="subject" type="text" class="subject-input" placeholder="Subject" required>
+                <textarea v-model="body" class="mailbody-input" required></textarea>
+                <div class="form-btns-container flex justify-between">
+                    <button @click.prevent="send" class="send-btn">Send</button>
+                    <button  @click="closeEdit" class="remove-edit">🗑</button>
+                </div>
             </form>
                 
         </section>
@@ -24,7 +27,10 @@ export default {
     data() {
         return {
             mail: null,
-            isFull: false
+            isFull: false,
+            mailAddress: '',
+            subject: '',
+            body: ''
         }
     },
 
@@ -36,7 +42,21 @@ export default {
             this.isFull = !this.isFull
         },
         send() {
-            
+            mailService.getEmptyMail()
+                .then(mail => {
+                    mail.mailAddress = this.mailAddress,
+                    mail.subject = this.subject,
+                    mail.body = this.body
+                    mailService.save(mail)
+                        .then(() => this.$emit('afterSend'))
+                })
+
+            // const newMail = {
+            //     mailAddress: this.mailAddress,
+            //     subject: this.subject,
+            //     body: this.body
+            // }
+            // console.log('newMail:', newMail)
         }
         // save() {
         //     carService.save(this.carToEdit)
