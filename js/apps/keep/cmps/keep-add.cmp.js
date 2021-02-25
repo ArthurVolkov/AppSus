@@ -7,13 +7,18 @@ export default {
 
         <img v-if="curImage.imageUrl" :src="curImage.imageUrl" alt="image" />
 
-        <div class="add-textarea-container flex justify-center">
+        <div class="add-textarea-container flex flex-col justify-center">
             <ul v-if="isTodo" class="checkbox-container clean-list">
                 <li v-for="row in rowsCount">
                     <input type="checkbox" />
                 </li>
             </ul>
-            <textarea :rows="rowsCount"  v-model="keepToAddTxt"></textarea>
+            <!-- <textarea :rows="rowsCount"  v-model="keepToAddTxt"></textarea> -->
+
+
+            <input v-for="(row, idx) in keep.info.txts.length+1" :key="idx" :ref="'element' + idx" @keydown="newLine($event, idx)" type="text" v-model="keep[idx]" />
+
+
         </div>
 
         <div class="add-input-container flex justify-around">
@@ -39,7 +44,8 @@ export default {
             curImage: {
                 image: null,
                 imageUrl: null
-            }
+            },
+            // index: 1
         }
     },
     computed: {
@@ -70,13 +76,27 @@ export default {
                 this.keep.type = "noteVideo";
             }
             this.$emit('addNewKeep', this.keep);
-            this.keep = keepService.getEmptyKeep();
+            keepService.getEmptyKeep()
         },
         toTodo() {
             this.isTodo = !this.isTodo
+        },
+        newLine(ev, idx) {
+            console.log('idx:', idx)
+            // console.log('ev:', ev)
+            if (ev.which === 13) {
+                
+                // this.index ++
+                
+                let rowidx = 'element' + idx
+                this.keep.info.txts.push('')
+                 this.$refs[rowidx].focus()
+                console.log('this.$refs.idx:', this.$refs[rowidx])
+            }
         }
     },
     created() {
         this.keep = keepService.getEmptyKeep();
-    }
+    },
+    
 }
