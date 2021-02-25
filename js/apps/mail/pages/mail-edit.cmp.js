@@ -47,6 +47,7 @@ export default {
                     mail.mailAddress = this.mailAddress,
                     mail.subject = this.subject,
                     mail.body = this.body
+                    mail.sentAt = Date.now()
                     mailService.save(mail)
                         .then(() => this.$emit('afterSend'))
                 })

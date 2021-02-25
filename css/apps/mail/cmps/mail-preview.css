@@ -7,7 +7,7 @@
 .mail-preview-container {
     background-color: bisque;
     border: 1px solid black;
-    margin: 5px;
+    margin: 5px 0;
 }
 
 .mail-preview .mail-name, .mail-subject {
@@ -17,8 +17,37 @@
 .mail-preview p{
     margin: 5px;
     white-space: nowrap;
+    font-size: .8em;
+    text-overflow: ellipsis;
 }
 
 .mail-preview .not-readed {
     font-weight: 900;
+}
+
+.mail-star {
+    font-size: 1.7em;
+    font-weight: 700;
+    color: darkgrey;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    margin-bottom: .15em;
+    min-width: 2em;
+}
+
+.mail-preview .name-container {
+    width: 10em;
+}
+
+.mail-star:hover {
+    color: black;
+}
+
+.marked-star {
+    color: gold;
+}
+
+.marked-star:hover {
+    color: goldenrod;
 }

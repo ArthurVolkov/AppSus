@@ -4,11 +4,18 @@ export default {
     props:['mail'],
     template:`
     <li class="mail-preview flex justify-between">
-        <p class="mail-name" :class="isReadedClass">{{name}}</p>
-        <button class="mail-star" @click.stop="setStar">{{star}}</button>
-        <p :class="isReadedClass" class="mail-subject">{{subject}}</p>
-        <p>{{body}}</p>
-        <p :class="isReadedClass">{{sentAt}}</p>
+        <div class="name-container flex align-center">
+            <button :class="markedStar" class="mail-star" @click.stop="setStar">{{star}}</button>
+            <p class="mail-name" :class="isReadedClass">{{name}}</p>
+        </div>
+
+        <div class="flex justify-between grow">
+            <div class="flex justify-center align-center">
+                <p :class="isReadedClass" class="mail-subject">{{subject}}</p>
+                <p>{{body}}</p>
+            </div>
+            <p :class="isReadedClass">{{sentAt}}</p>
+        </div>
         <!-- <p>Is Read: {{mail.isReaded}}</p> -->
     </li>
     `,
@@ -32,6 +39,9 @@ export default {
         },
         star() {
             return this.mail.isImporant ? '★' : '☆'
+        },
+        markedStar() {
+            return this.mail.isImporant ? 'marked-star' : ''
         }
     },
     methods: {
