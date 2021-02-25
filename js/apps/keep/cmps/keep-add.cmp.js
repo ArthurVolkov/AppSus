@@ -16,7 +16,7 @@ export default {
             <!-- <textarea :rows="rowsCount"  v-model="keepToAddTxt"></textarea> -->
 
 
-            <input v-for="(row, idx) in keep.info.txts.length+1" :key="idx" :ref="'element' + idx" @keydown="newLine($event, idx)" type="text" v-model="keep[idx]" />
+            <input v-for="(row, idx) in keep.info.txts.length+2" :key="idx" :ref="idx" @keydown="newLine($event, idx)" type="text" v-model="keep[idx]" />
 
 
         </div>
@@ -82,21 +82,14 @@ export default {
             this.isTodo = !this.isTodo
         },
         newLine(ev, idx) {
-            console.log('idx:', idx)
-            // console.log('ev:', ev)
             if (ev.which === 13) {
-                
-                // this.index ++
-                
-                let rowidx = 'element' + idx
+                idx = idx + 1 + '';
                 this.keep.info.txts.push('')
-                 this.$refs[rowidx].focus()
-                console.log('this.$refs.idx:', this.$refs[rowidx])
+                this.$refs[idx][0].focus()
             }
         }
     },
     created() {
         this.keep = keepService.getEmptyKeep();
-    },
-    
+    },    
 }
