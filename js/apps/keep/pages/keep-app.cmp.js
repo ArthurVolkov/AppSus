@@ -1,16 +1,13 @@
-import noteTxt from '../cmps/note-text.cmp.js'
-import noteImg from '../cmps/note-img.cmp.js'
-import noteTodos from '../cmps/note-todo.cmp.js'
-import noteVideo from '../cmps/note-video.cmp.js'
+import keepList from '../cmps/keep-list.cmp.js'
+import keepAdd from '../cmps/keep-add.cmp.js'
 import { keepService } from '../sevices/keep.service.js'
 
 
 export default {
     template: `
         <section class="keep-app">
-            <div v-for="(keep, idx) in keeps">
-                <component :is="keep.type" :keep="keep"></component>
-            </div>
+            <keep-add/>
+            <keep-list :keeps="keeps"/>
         </section>
     `,
     data() {
@@ -30,10 +27,8 @@ export default {
         }
     },
     components: {
-        noteTxt,
-        noteImg,
-        noteTodos,
-        noteVideo
+        keepAdd,
+        keepList
     }
 };
 
