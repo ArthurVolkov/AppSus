@@ -114,7 +114,7 @@ function initData() {
             info: {
                 label: "here i am",
                 txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
-                    { txt: "hey Me Baby!", doneAt: null}],
+                       { txt: "hey Me Baby!", doneAt: null}],
                 url: "https://robohash.org/itzik.png",
                 title: "Me playing Mi"
             },
