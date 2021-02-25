@@ -3,20 +3,19 @@ import { mailService } from "../sevices/mail.service.js";
 export default {
     props:['mail'],
     template:`
-    <li class="mail-preview flex justify-between">
+    <li class="mail-preview flex justify-between pointer">
         <div class="name-container flex align-center">
             <button :class="markedStar" class="mail-star" @click.stop="setStar">{{star}}</button>
             <p class="mail-name" :class="isReadedClass">{{name}}</p>
         </div>
 
-        <div class="flex justify-between grow">
+        <div class="flex justify-between align-center grow">
             <div class="flex justify-center align-center">
                 <p :class="isReadedClass" class="mail-subject">{{subject}}</p>
                 <p>{{body}}</p>
             </div>
             <p :class="isReadedClass">{{sentAt}}</p>
         </div>
-        <!-- <p>Is Read: {{mail.isReaded}}</p> -->
     </li>
     `,
     computed: {
@@ -27,15 +26,18 @@ export default {
             return this.mail.subject + '-'
         },
         body() {
-            return this.mail.body.slice(0,39) + '...'
+            return this.mail.body.slice(0,49) + '...'
         },
 
         isReadedClass() {
             return this.mail.isReaded ? '' : 'not-readed'
         },
         sentAt() {
+            const now = new Date(Date.now()) 
             const sentDate = new Date(this.mail.sentAt)
-            return sentDate.toISOString().substr(0, 10)
+            if (now.getDate() === sentDate.getDate() && now - sentDate < 1000*60*60*24) return sentDate.toTimeString().substr(0, 5)
+            else if (now.getFullYear() === sentDate.getFullYear()) return sentDate.toLocaleDateString('en-US', {month: 'short', day: 'numeric'})
+            else return sentDate.toISOString().substr(0, 10)
         },
         star() {
             return this.mail.isImporant ? '★' : '☆'

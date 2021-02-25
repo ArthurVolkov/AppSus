@@ -1,5 +1,4 @@
 import { mailService } from '../sevices/mail.service.js'
-// import mailFilter from '../cmps/mail-filter.cmp.js'
 import mailList from './mail-list.cmp.js'
 import mailSideBar from '../cmps/mail-side-bar.cmp.js'
 import mailEdit from './mail-edit.cmp.js'
@@ -46,23 +45,22 @@ export default {
     },
     computed: {
         mailsToShow() {
-            if (!this.filterBy) return this.mails
+            if (!this.filterBy) return this.mails.sort((date1, date2) => { return date2.sentAt - date1.sentAt })
 
             let filterParam = null
             if (this.filterBy.isIncoming) filterParam = ['isIncoming', true]
             else if (this.filterBy.isSent) filterParam = ['isIncoming', false]
             else if (this.filterBy.isImporant) filterParam = ['isImporant', true]
-            
+
 
             const searchStr = this.filterBy.bySubject.toLowerCase()
             const mailsToShow = this.mails.filter(mail => {
                 if (!filterParam) return mail.subject.toLowerCase().includes(searchStr)
                 else return mail.subject.toLowerCase().includes(searchStr) &&
                     mail[filterParam[0]] === filterParam[1]
-                    
-                    // mail.isIncoming === this.filterBy.isIncoming && 
-                    // mail.isImportant === this.filterBy.isStared
             })
+
+            mailsToShow.sort((date1, date2) => { return date2.sentAt - date1.sentAt })
 
             return mailsToShow
         }
@@ -71,7 +69,6 @@ export default {
         this.loadMails();
     },
     components: {
-        // mailFilter,
         mailList,
         mailSideBar,
         mailEdit

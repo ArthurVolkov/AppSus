@@ -10,7 +10,8 @@ export default {
             <button @click="setFilter()">All</button>
             <button @click="setFilter('isIncoming')">Inbox</button>
             <button @click="setFilter('isSent')">Sent</button>
-            <button @click="setFilter('isImporant')">Stared</button>
+            <button @click="setFilter('isImporant')">Unreaded</button>
+            <button @click="setFilter('isReaded')">Stared</button>
         </section>
     `,
     data() {
@@ -19,7 +20,8 @@ export default {
                 bySubject: '',
                 isIncoming: false,
                 isSent: false,
-                isImporant: false
+                isImporant: false,
+                isReaded: false,
             }
         }
     },
