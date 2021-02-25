@@ -2,7 +2,7 @@ export default {
     props: ["keep"],
     template: `
           <section>
-            <textarea v-model="val"></textarea>
+            <textarea rows="4" cols="50" v-model="val"></textarea>
           </section>
           `,
     data() {

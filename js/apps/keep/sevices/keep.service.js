@@ -35,11 +35,18 @@ function save(keep) {
 
 function getEmptyKeep() {
     return {
-        "id": '',
-        "type": '',
-        "isPinned": false,
-        "info": {"txt": ''}
-      }
+        type: "noteTxt",
+        isPinned: false,
+        info: {
+            label: '',
+            txts: [],
+        url: null,
+        title: ''
+        },
+        style: {
+            backgroundColor: ''
+        }
+    }
 }
 
 function getById(id) {
@@ -61,15 +68,22 @@ function initData() {
     var keepsList =
     [
        {
+            id: '11111',
             type: "noteTxt",
             isPinned: true,
             info: {
                 label: "here i am",
                 txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
-                       { txt: "hey Me Baby!", doneAt: null}]
+                       { txt: "hey Me Baby!", doneAt: null}],
+                url: null,
+                title: ''
+            },
+            style: {
+                backgroundColor: ''
             }
         },
         {
+            id: '22222',
             type: "noteTodos",
             info: {
                 label: "How was it:",
@@ -79,8 +93,13 @@ function initData() {
             }
         },
         {
+            id: '33333',
             type: "noteImg",
+            isPinned: false,
             info: {
+                label: "here i am",
+                txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
+                    { txt: "hey Me Baby!", doneAt: null}],
                 url: "https://robohash.org/arthur.png",
                 title: "Me playing Mi"
             },
@@ -88,19 +107,14 @@ function initData() {
                 backgroundColor: "blue"
             }
         },
-        // {
-        //     type: "NoteVideo",
-        //     info: {
-        //         url: "https://robohash.org/arthur.png",
-        //         title: "Me playing Mi"
-        //     },
-        //     style: {
-        //         backgroundColor: "red"
-        //     }
-        // },
         {
+            id: '44444',
             type: "noteImg",
+            isPinned: false,
             info: {
+                label: "here i am",
+                txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
+                    { txt: "hey Me Baby!", doneAt: null}],
                 url: "https://robohash.org/itzik.png",
                 title: "Me playing Mi"
             },

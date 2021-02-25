@@ -6,7 +6,7 @@ import { keepService } from '../sevices/keep.service.js'
 export default {
     template: `
         <section class="keep-app">
-            <keep-add/>
+            <keep-add @addNewKeep="addNewKeep"/>
             <keep-list :keeps="keeps"/>
         </section>
     `,
@@ -24,6 +24,10 @@ export default {
                 .then(keeps => {
                     this.keeps = keeps
                 })
+        },
+        addNewKeep(keep){
+            console.log('keep to show:',keep);
+            keepService.save(keep);
         }
     },
     components: {

@@ -1,24 +1,45 @@
+import { keepService } from '../sevices/keep.service.js'
+
 export default {
     template: `
     <section class="keep-add">
         <label> add a keep: </label>    
-        <textarea id="w3review" name="w3review" rows="4" cols="50" v-model="keep.txt"></textarea>
-        <button @click="print">Add</button>        
+        <textarea rows="4" cols="50" v-model="keepToAddTxt"></textarea>
+        <button @click="openImg">img</button>
+        <button>todo</button>
+        <input type="text" v-if="isImg" v-model="src">
+        <button @click="addNewKeep">Add</button>        
     </section>
     `,
-    data() {
+
+data() {
         return {
-            keep: {
-                txt: '',
-            }
+            keep: null,
+            keepToAddTxt: '',
+            src: null,
+            isImg: false,
+            isVideo: false
         }
     },
     methods:{
-        print(){   
-            var lines = this.keep.txt.split(/\r|\r\n|\n/);
-            var count = lines.length;
-            console.log(count);
-            console.log(this.keep.txt);
+        openImg(){
+            this.isImg = !this.isImg;
+        },
+        addNewKeep(){ 
+            var lines = this.keepToAddTxt.split(/\r|\r\n|\n/);
+            for (var i=0;i<lines.length;i++){
+                this.keep.info.txts.push({txt:lines[i],doneAt:null})
+            }
+            this.keep.info.url = this.src;
+            if (this.isImg){
+                this.keep.type = "noteImg";
+            }else if (this.isVideo){
+                this.keep.type = "noteVideo";
+            }
+            this.$emit('addNewKeep', this.keep);
         }
+    },
+    created(){
+        this.keep = keepService.getEmptyKeep(); 
     }
 }
