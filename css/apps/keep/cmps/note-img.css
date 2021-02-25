@@ -1,0 +1,16 @@
+
+.note-img {
+    grid-column: auto / span 10;
+    grid-row: auto / span 12;
+}
+
+.note-img-container {
+    width: 200px;
+    height: 200px;
+}
+
+.note-img-container img {
+    width: 100%;
+    height: 100%;
+}
+

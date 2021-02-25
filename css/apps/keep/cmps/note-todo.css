@@ -1,0 +1,5 @@
+
+.note-todo {
+    grid-column: auto / span 10;
+    grid-row: auto / span 2;
+}

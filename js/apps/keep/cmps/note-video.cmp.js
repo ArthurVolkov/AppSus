@@ -1,14 +1,14 @@
 export default {
     template: `
-          <section>
-            <p>{{info.label}}</p>
-            <ul class="todo-list">
-                <li v-for="todo in info.todos" class="todo-preview-container" >
-                    <p>{{todo.txt}}</p>
-                    <p>{{todo.doneAt}}</p>
-                </li>
-            </ul>
-          </section>
+            <li>
+                <p>{{info.label}}</p>
+                <ul class="todo-list">
+                    <li v-for="todo in info.todos" class="todo-preview-container" >
+                        <p>{{todo.txt}}</p>
+                        <p>{{todo.doneAt}}</p>
+                    </li>
+                </ul>
+            </li>
           `,
     props: ["info"],
     data() {

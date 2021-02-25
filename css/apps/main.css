@@ -27,6 +27,9 @@
 @import './keep/cmps/note-img.css';
 @import './keep/cmps/note-text.css';
 @import './keep/cmps/note-todo.css';
+@import './keep/cmps/keep-list.css';
+@import './keep/cmps/note-video.css';
+@import './keep/cmps/keep-add.css';
 
 /* KEEP-PAGES */
 

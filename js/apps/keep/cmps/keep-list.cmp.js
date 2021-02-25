@@ -5,16 +5,20 @@ import noteVideo from './note-video.cmp.js'
 import { keepService } from '../sevices/keep.service.js'
 
 export default {
-    props:['keeps'],
+    props: ['keeps'],
     template: `
-        <section class="keep-list">
-            <div v-for="(keep, idx) in keeps">
-                <component :is="keep.type" :keep="keep"></component>
-            </div>
-        </section>
+            <ul class="keep-list clean-list" :keep="keep">
+                <component v-for="(keep, idx) in keeps" :key="keep.id" :is="keep.type" :keep="keep"></component>
+            </ul>
     `,
     data() {
         return {
+        }
+    },
+    computed: {
+        keep() {
+            console.log('keep-list props', this.keeps);
+            return this.keeps
         }
     },
     created() {
