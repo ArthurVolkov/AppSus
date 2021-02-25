@@ -2,4 +2,5 @@
 .mail-app {
     position: relative;
     min-height: 90vh;
+    padding-inline-end: 0;
 }

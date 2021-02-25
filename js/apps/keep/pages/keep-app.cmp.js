@@ -18,15 +18,15 @@ export default {
     methods: {
         loadKeeps() {
             keepService.query()
-            .then(keeps => {
+                .then(keeps => {
                     this.keeps = keeps
                     // console.log('keep to show:', this.keeps);
                 })
         },
-        addNewKeep(keep){
-            console.log('keep to show:',keep);
+        addNewKeep(keep) {
+            console.log('keep to show:', keep);
             keepService.save(keep)
-            .then (()=>loadKeeps())
+                .then(() => this.loadKeeps())
         }
     },
     components: {

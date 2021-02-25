@@ -1,10 +1,51 @@
 /* APP-HEADER */
 
 .app-header {
-    background-color: aqua;
+    background-color: aliceblue;
     height: 10vh;
 }
+
+.header {
+    height: 100%;
+}
+
+.main-logo {
+    font-size: 2.5em;
+    font-family: cursive;
+}
+
+.main-logo :first-child {
+    color: mediumpurple;
+}
+
+.main-logo :nth-child(2) {
+    color: royalblue;
+}
+
+.main-logo :nth-child(3) {
+    color: crimson;
+}
+
+.main-logo :nth-child(4) {
+    color: orange;
+}
+
+.main-logo :nth-child(5) {
+    color: gold;
+}
+
+.main-logo :nth-child(6) {
+    color: greenyellow;
+}
+
 
 .app-header .nav-bar li:not(:last-child){
     margin-inline-end: 30px;
 }
+
+.app-header .nav-bar a {
+    text-decoration: none;
+    color:  rgb(130, 130, 130);
+    font-size: 1.5em;
+}
+

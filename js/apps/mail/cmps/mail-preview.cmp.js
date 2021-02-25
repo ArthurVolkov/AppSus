@@ -14,7 +14,7 @@ export default {
                 <p :class="isReadedClass" class="mail-subject">{{subject}}</p>
                 <p>{{body}}</p>
             </div>
-            <p :class="isReadedClass">{{sentAt}}</p>
+            <p :class="isReadedClass" class="sent-at">{{sentAt}}</p>
         </div>
     </li>
     `,

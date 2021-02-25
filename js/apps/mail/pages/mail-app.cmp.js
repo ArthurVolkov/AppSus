@@ -15,7 +15,7 @@ export default {
     data() {
         return {
             mails: [],
-            filterBy: null,
+            filterBy: {isIncoming: true, bySubject: ''},
             isEdit: false
         }
     },
@@ -51,6 +51,7 @@ export default {
             if (this.filterBy.isIncoming) filterParam = ['isIncoming', true]
             else if (this.filterBy.isSent) filterParam = ['isIncoming', false]
             else if (this.filterBy.isImporant) filterParam = ['isImporant', true]
+            else if (this.filterBy.isReaded) filterParam = ['isReaded', false]
 
 
             const searchStr = this.filterBy.bySubject.toLowerCase()

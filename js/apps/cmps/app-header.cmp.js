@@ -19,7 +19,7 @@ export default {
     <header class="app-header">
         <div class="header main-container flex justify-between align-center">
             <div class="main logo">
-                <router-link tag="h1" to="/" class="pointer">AppSus</router-link>
+                <router-link tag="h1" to="/" class="main-logo pointer"><span>A</span><span>p</span><span>p</span><span>S</span><span>u</span><span>s</span></router-link>
             </div>
             <ul class="nav-bar clean-list flex">
                 <li>

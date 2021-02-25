@@ -15,6 +15,10 @@
     background-color: bisque;
 }
 
+.side-btns-container button:focus {
+    color: crimson;
+}
+
 .mail-side-bar .compose {
     margin-bottom: 30px;
     border-radius: 1.5em;
