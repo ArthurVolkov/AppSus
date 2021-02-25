@@ -1,9 +1,10 @@
 export default {
     props: ["keep"],
     template: `
-          <section>
-            <textarea rows="4" cols="50" v-model="val"></textarea>
-          </section>
+        <li class="note-text">
+            <!-- <textarea rows="5" v-model="val"></textarea> -->
+            <pre>{{val}}</pre>
+        </li>
           `,
     data() {
         return {
@@ -15,7 +16,8 @@ export default {
     computed: {
     },
     created() {
-        for (var i=0;i<this.keep.info.txts.length;i++){
+        console.log('prot in note-text', this.keep);
+        for (var i = 0; i < this.keep.info.txts.length; i++) {
             this.val += this.keep.info.txts[i].txt + '\n';
         }
     }

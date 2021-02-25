@@ -5,7 +5,7 @@ import { keepService } from '../sevices/keep.service.js'
 
 export default {
     template: `
-        <section class="keep-app">
+        <section class="keep-app main-container flex flex-col align-center">
             <keep-add @addNewKeep="addNewKeep"/>
             <keep-list :keeps="keeps"/>
         </section>
@@ -15,24 +15,27 @@ export default {
             keeps: []
         }
     },
-    created() {
-        this.loadKeeps();
-    },
     methods: {
         loadKeeps() {
             keepService.query()
-                .then(keeps => {
+            .then(keeps => {
                     this.keeps = keeps
+                    // console.log('keep to show:', this.keeps);
                 })
         },
         addNewKeep(keep){
-            console.log('keep to show:',keep);
-            keepService.save(keep);
+            keepService.save(keep)
+            .then((keep) => {
+                this.loadKeeps()
+                })
         }
     },
     components: {
         keepAdd,
         keepList
-    }
+    },
+    created() {
+        this.loadKeeps();
+    },
 };
 
