@@ -1,6 +1,6 @@
 
 .keep-add {
-    /* background-color: greenyellow; */
+    background-color: azure;
     width: 60%;
     margin-bottom: 10px;
     padding: 5px;
@@ -41,4 +41,11 @@
 .keep-add .text-area-container {
     border: 1px solid darkgray;
     border-radius: 5px;
+}
+
+.add-input-container * {
+    border: none;
+    outline: none;
+    font-size: 1.5em;
+    background-color: transparent;
 }

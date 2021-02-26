@@ -21,7 +21,9 @@ export default {
             <label for="upload" class="upload-label pointer">Image</label>
             <input type="file" id="upload" accept="image/*" @change="openImg" class="upload-img">
 
-            <button @click="addNewKeep">Add</button>        
+            <button @click="addNewKeep">Add</button>  
+            <button @click="clear">🧹</button>
+      
         </div>
     </section>
     `,
@@ -97,6 +99,9 @@ export default {
             keepService.remove(keep.id)
             .then(() => this.$emit('reload')) 
                 
+        },
+        clear() {
+            console.log('clear');
         }
     },
     created() {
