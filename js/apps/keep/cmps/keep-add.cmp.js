@@ -4,13 +4,15 @@ export default {
     template: `
     <section class="keep-add flex flex-col">
         <img v-if="curImage.imageUrl" :src="curImage.imageUrl" alt="image" />
-        <div class="add-textarea-container flex flex-col justify-center">
+        <div class="add-textarea-container flex justify-center">
             <ul v-if="keep.isTodo" class="checkbox-container clean-list">
                 <li v-for="row in rowsCount">
                     <input type="checkbox" />
                 </li>
             </ul>
-            <input v-for="(row, idx) in keep.info.txts.length" :key="idx" :ref="idx" @keydown="newLine($event, idx)" type="text" v-model="keep.info.txts[idx].txt" />
+            <div class="flex flex-col grow">
+                <input v-for="(row, idx) in keep.info.txts.length" :key="idx" :ref="idx" @keydown="newLine($event, idx)" type="text" v-model="keep.info.txts[idx].txt" />
+            </div>
         </div>
 
         <div class="add-input-container flex justify-around">

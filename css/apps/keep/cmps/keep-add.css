@@ -9,12 +9,15 @@
 .add-textarea-container {
     background-color: azure;
     margin: 10px 0;
-
+    font-size: 1em;
 }
 
-.checkbox-container {
-    padding: 10px;
+.checkbox-container * {
+    margin: .09em;
+}
 
+.checkbox-container :first-child{
+    margin-top: .16em;
 }
 
 .keep-add input {
