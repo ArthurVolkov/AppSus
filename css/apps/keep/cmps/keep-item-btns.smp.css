@@ -1,0 +1,19 @@
+
+
+.item-btns-container * {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 1em;
+}
+
+.item-btns-container .upload-img, .item-btns-container .set-color {
+    display: none;
+}
+
+.item-btns-container :last-child {
+    font-size: 1.2em;
+    padding: 0;
+    margin: 0;
+}
+

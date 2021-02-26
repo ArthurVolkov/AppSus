@@ -26,7 +26,7 @@ export default {
     },
     components: {
         noteTxt,
-        noteTodo
+        noteTodo,
     }
 };
 

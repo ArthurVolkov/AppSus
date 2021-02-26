@@ -9,7 +9,7 @@ export default {
     props: ['keeps'],
     template: `
             <ul class="keep-list clean-list">
-                <component v-for="(keep, idx) in keeps" :key="keep.id" :is="keep.type" :keep="keep" @click.native.stop="select(keep)"></component>
+                <component v-for="(keep, idx) in keeps" :key="keep.id" :is="keep.type" :keep="keep" @click.native.stop="select(keep)" class="keep-item"></component>
             </ul>
     `,
     data() {

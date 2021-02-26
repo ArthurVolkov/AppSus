@@ -1,9 +1,11 @@
 
 .keep-add {
-    background-color: greenyellow;
+    /* background-color: greenyellow; */
     width: 60%;
     margin-bottom: 10px;
     padding: 5px;
+    border: 1px solid darkgray;
+    border-radius: 10px;
 }
 
 .add-textarea-container {
@@ -34,4 +36,9 @@
 
 .keep-add .upload-label {
     background-color: azure;
+}
+
+.keep-add .text-area-container {
+    border: 1px solid darkgray;
+    border-radius: 5px;
 }

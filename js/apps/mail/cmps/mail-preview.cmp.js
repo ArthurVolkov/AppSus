@@ -23,7 +23,7 @@ export default {
             return this.mail.mailAddress.split('@')[0].replace('.', ' ')
         },
         subject() {
-            return this.mail.subject + '-'
+            return this.mail.subject + ' - '
         },
         body() {
             return this.mail.body.slice(0, 49) + '...'

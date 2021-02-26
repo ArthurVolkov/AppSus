@@ -11,7 +11,7 @@ export default {
                     <input type="checkbox" />
                 </li>
             </ul>
-            <div class="flex flex-col grow">
+            <div class="text-area-container flex flex-col grow">
                 <input v-for="(row, idx) in keep.info.txts.length" :key="idx" :ref="idx" @keydown="newLine($event, idx)" type="text" v-model="keep.info.txts[idx].txt" />
             </div>
         </div>

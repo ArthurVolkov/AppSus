@@ -1,3 +1,6 @@
+import itemBtns from './keep-item-btns.cmp.js'
+
+
 export default {
     template: `
             <li>
@@ -8,6 +11,7 @@ export default {
                         <p>{{todo.doneAt}}</p>
                     </li>
                 </ul>
+                <item-btns></item-btns>
             </li>
           `,
     props: ["info"],
@@ -20,6 +24,9 @@ export default {
     computed: {
     },
     created() {
+    },
+    components: {
+        itemBtns
     }
 };
 
