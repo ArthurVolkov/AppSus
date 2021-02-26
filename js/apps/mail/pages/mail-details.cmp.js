@@ -15,7 +15,7 @@ export default {
                         <pre v-if="mail.isIncoming">⇩ Incoming</pre>
                         <pre v-else>⇧ Sent</pre>
                     </div>
-                    <div>
+                    <div class="from-to">
                         <p v-if="mail.isIncoming">from: {{name(mail)}} <{{mail.mailAddress}}></p>
                         <p v-else>from: {{self.name}} <{{self.mailAddress}}></p>
                     </div>

@@ -28,7 +28,7 @@
    
 }
 
-.keep-list > * {
+.keep-list > *:not(:last-child){
     margin-bottom: 15px;
 }
 

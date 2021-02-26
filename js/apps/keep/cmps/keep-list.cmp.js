@@ -11,9 +11,9 @@ export default {
     template: `
             <ul class="keep-list clean-list">
             <!-- <component v-for="(keep, idx) in keeps" :key="keep.id" :is="keep.type" :keep="keep" @click.native.stop="select(keep)" class="keep-item"></component> -->
-                <div v-for="(keep, idx) in keeps" :key="keep.id" class="keep-item">
+                <div v-for="(keep, idx) in keeps" :key="keep.id" class="keep-item" :style="{backgroundColor: keep.style.backgroundColor}">
                     <component :is="keep.type" :keep="keep" @click.native.stop="select(keep)"></component>
-                    <item-btns></item-btns>
+                    <item-btns :keep="keep"></item-btns>
                 </div>
             </ul>
     `,

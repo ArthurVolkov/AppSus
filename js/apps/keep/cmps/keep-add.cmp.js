@@ -102,12 +102,41 @@ export default {
             .then(() => this.$emit('reload')) 
                 
         },
+        removeKeep(keep) {
+            keepService.remove(keep.id)
+            .then(() => this.$emit('reload')) 
+        },
+        pinKeep(keep) {
+            keep.isPinned = !keep.isPinned;
+            keepService.update(keep)
+            .then(() => this.$emit('reload'))
+        },
+        colorKeep(keep,color) {
+            keep.style.backgroundColor = color;
+            keepService.update(keep)
+            .then(() => this.$emit('reload'))
+        },
+        imageKeep(keep,ev){
+            const file = ev.target.files[0];
+            this.image = file;
+            keep.type = 'noteImg';
+            this.curImage.imageUrl = URL.createObjectURL(file)
+            this.keep.info.url = this.curImage.imageUrl;
+            keepService.update(keep)
+            .then(() => this.$emit('reload'))
+            //??????this.curImage.imageUrl = null;
+        },
         clear() {
-            console.log('clear');
+            this.keep = keepService.getEmptyKeep();
         }
     },
     created() {
         eventBus.$on('selected', this.loadKeep)
+        eventBus.$on('remove', this.removeKeep)
+        eventBus.$on('pinned', this.pinKeep)
+        eventBus.$on('color', this.colorKeep)
+        eventBus.$on('image', this.imageKeep)
+
         this.keep = keepService.getEmptyKeep();
     },    
 }
