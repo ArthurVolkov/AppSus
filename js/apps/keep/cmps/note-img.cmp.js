@@ -5,7 +5,7 @@ export default {
     props: ["keep"],
     template: `
         <section>
-          <li :style="{backgroundColor: keep.style.backgroundColor}" class="note-img flex flex-col align-center">
+          <li :style="{backgroundColor: keep.style.backgroundColor}" class="note-img flex flex-col justify-center align-center">
                   <img :src="keep.info.url" />
           </li>
           <note-todo v-if="keep.isTodo" :keep="keep"/>

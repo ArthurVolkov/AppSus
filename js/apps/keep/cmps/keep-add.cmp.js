@@ -5,7 +5,7 @@ export default {
     template: `
     <section class="keep-add flex flex-col">
             <div class="add-image-container">
-        <img v-if="curImage.imageUrl" :src="curImage.imageUrl" alt="image" />
+                <img v-if="curImage.imageUrl" :src="curImage.imageUrl" alt="image" />
             </div>
         <div class="add-textarea-container flex justify-center">
             <ul v-if="keep.isTodo" class="checkbox-container clean-list">
