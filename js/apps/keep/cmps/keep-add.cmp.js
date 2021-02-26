@@ -5,12 +5,12 @@ export default {
     <section class="keep-add flex flex-col">
         <img v-if="curImage.imageUrl" :src="curImage.imageUrl" alt="image" />
         <div class="add-textarea-container flex flex-col justify-center">
-            <ul v-if="isTodo" class="checkbox-container clean-list">
+            <ul v-if="keep.isTodo" class="checkbox-container clean-list">
                 <li v-for="row in rowsCount">
                     <input type="checkbox" />
                 </li>
             </ul>
-            <input v-for="(row, idx) in keep.info.txts.length+1" :key="idx" :ref="idx" @keydown="newLine($event, idx)" type="text" v-model="keep.info.txts[idx]" />
+            <input v-for="(row, idx) in keep.info.txts.length" :key="idx" :ref="idx" @keydown="newLine($event, idx)" type="text" v-model="keep.info.txts[idx].txt" />
         </div>
 
         <div class="add-input-container flex justify-around">
@@ -31,9 +31,7 @@ export default {
             // src: null,
             isImg: false,
             isVideo: false,
-            isTodo: false,
             curImage: {
-                image: null,
                 imageUrl: null
             },
             // index: 1
@@ -42,12 +40,11 @@ export default {
     computed: {
         rowsCount() {            
             for (var i=0;i<this.keep.info.txts.length;i++){
-                if (this.keep.info.txts[i] === '') {
-                    this.keep.info.txts.splice(i,1)
-                    i--;
+                if (!this.keep.info.txts[i].txt) {
+                   this.keep.info.txts.splice(i,1);
+                   i--;
                 }
             }
-            console.log(this.keep.info.txts);
             return this.keep.info.txts.length;
         }
     },
@@ -65,17 +62,19 @@ export default {
                 this.keep.type = "noteImg";
             } else if (this.isVideo) {
                 this.keep.type = "noteVideo";
+            } else if (this.keep.isTodo) {
+                this.keep.type = "noteTodo";
             }
             this.$emit('addNewKeep', this.keep);
-            keepService.getEmptyKeep()
+            this.keep = keepService.getEmptyKeep()
         },
         toTodo() {
-            this.isTodo = !this.isTodo
+            this.keep.isTodo = !this.keep.isTodo;
         },
         //backspace 8 up 38 down 40
         newLine(ev, idx) {
             if (ev.which === 13) {
-                this.keep.info.txts.splice(idx+1,0,'')
+                this.keep.info.txts.splice(idx+1,0,{txt:'',doneAt: null})
                 idx = idx + 1 + '';
                 this.$refs[idx][0].focus()
             }
@@ -86,7 +85,7 @@ export default {
                 if (idx < this.keep.info.txts.length-1) this.$refs[idx+1][0].focus()
             }
             if (ev.which === 8 && this.keep.info.txts[idx] === '' && idx > 0) {
-                this.keep.info.txts.splice(idx,1,)
+                this.keep.info.txts.splice(idx,1)
                 idx = idx - 1 + '';
                 this.$refs[idx][0].focus()
             }
