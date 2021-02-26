@@ -2,7 +2,6 @@
 .keep-list {
     width: 100%;
     
-    
     /* background-color: hotpink; */
     /* display: grid;
     gap: .5em; */
@@ -22,6 +21,7 @@
 .keep-list > * {
     outline: 1px solid gold;
     margin: 10px;
+    padding: 10px;
     page-break-inside: avoid;
     break-inside: avoid;
    
