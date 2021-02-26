@@ -1,4 +1,5 @@
 export default {
+    props: ['keep'],
     template: `
         <ul class="item-btns-container clean-list flex justify-between align-center">
             <li>

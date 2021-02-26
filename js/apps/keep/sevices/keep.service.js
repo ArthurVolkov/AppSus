@@ -5,6 +5,8 @@ const gKeeps = _createKeeps();
 
 export const keepService = {
     query,
+    queryPined,
+    queryNotPinned,
     remove,
     save,
     getEmptyKeep,
@@ -15,6 +17,31 @@ export const keepService = {
 
 function query() {
     return storageService.query(DB_KEY)
+}
+
+function queryPined() {
+    return storageService.query(DB_KEY)
+    .then (res=>{ 
+        return res.filter(keep => {
+        if (keep.isPinned) return keep 
+        })
+    })
+}
+
+
+        //     const mailsToShow = this.mails.filter(mail => {
+        //         if (!filterParam) return mail.subject.toLowerCase().includes(searchStr)
+        //         else return mail.subject.toLowerCase().includes(searchStr) &&
+        //             mail[filterParam[0]] === filterParam[1]
+        //     })
+
+function queryNotPinned() {
+    return storageService.query(DB_KEY)
+    .then (res=>{ 
+        return res.filter(keep => {
+        if (!keep.isPinned) return keep 
+        })
+    })
 }
 
 function remove(keepId) {
