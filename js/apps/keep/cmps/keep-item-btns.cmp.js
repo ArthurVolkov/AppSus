@@ -40,7 +40,7 @@ export default {
             keep.type = 'noteImg';
             this.curImage.imageUrl = URL.createObjectURL(file)
             this.keep.info.url = this.curImage.imageUrl;
-            eventBus.$emit('image', keep, ev)
+            eventBus.$emit('image', keep)
         },
         setColor(ev,keep) {
             eventBus.$emit('color', keep, ev.target.value)
