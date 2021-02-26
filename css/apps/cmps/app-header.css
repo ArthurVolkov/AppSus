@@ -1,8 +1,11 @@
 /* APP-HEADER */
 
 .app-header {
+    position: fixed;
+    width: 100%;
     background-color: aliceblue;
     height: 10vh;
+    z-index: 50;
 }
 
 .header {

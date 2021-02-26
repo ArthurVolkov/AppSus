@@ -18,6 +18,8 @@
     margin: .09em;
 }
 
+
+
 .checkbox-container :first-child{
     margin-top: .16em;
 }
@@ -59,4 +61,10 @@
     outline: none;
     font-size: 1.5em;
     background-color: transparent;
+    padding: 5px;
+}
+
+.add-input-container *:hover {    
+    border-radius: 10px;
+    box-shadow: 0px 1px 10px 4px rgba(0,0,0,0.66);
 }

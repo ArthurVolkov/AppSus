@@ -8,7 +8,7 @@ import { eventBus } from '../../services/event-bus-service.js'
 
 export default {
     template: `
-        <section class="mail-app main-container flex justify-between">
+        <section class="mail-app main-container flex">
             <mail-side-bar @filtered="setFilter" @compose="openEdit"/>
 
             <router-view></router-view>

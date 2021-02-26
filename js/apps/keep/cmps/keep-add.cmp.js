@@ -19,8 +19,8 @@ export default {
         </div>
 
         <div class="add-input-container flex justify-around">
-            <button @click="toTodo">todo</button>
-            <label for="upload" class="upload-label pointer">Image</label>
+            <button @click="toTodo">ToDo</button>
+            <label for="upload" class="upload-label pointer">📁</label>
             <input type="file" id="upload" accept="image/*" @change="openImg" class="upload-img">
             <button @click="clear">🧹</button>
             <button @click="addNewKeep">Add</button>  
@@ -97,6 +97,7 @@ export default {
         loadKeep(keep) {
             this.keep = keep;
             this.curImage.imageUrl = this.keep.info.url
+            window.scrollTo({top: 0, behavior: "smooth"});
             keepService.remove(keep.id)
             .then(() => this.$emit('reload')) 
                 

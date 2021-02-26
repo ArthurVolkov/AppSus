@@ -2,5 +2,8 @@
 
 .mail-list {
     width: 75%;
+    /* padding-left: 25%; */
+    height: 85vh;
+    overflow: auto;
 }
 
