@@ -34,6 +34,17 @@
     display: none;
 }
 
+.add-image-container {
+    max-width: 300px;
+}
+
+.add-image-container {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    align-self: center;
+}
+
 .keep-add .upload-label {
     background-color: azure;
 }

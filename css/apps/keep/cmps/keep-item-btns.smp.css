@@ -4,7 +4,7 @@
     border: none;
     outline: none;
     background-color: transparent;
-    font-size: 1em;
+    font-size: 1.2em;
 }
 
 .item-btns-container .upload-img, .item-btns-container .set-color {
@@ -12,8 +12,11 @@
 }
 
 .item-btns-container :last-child {
-    font-size: 1.2em;
+    font-size: 1.4em;
+    font-weight: 700;
     padding: 0;
     margin: 0;
+    color: darkgray;
 }
+
 

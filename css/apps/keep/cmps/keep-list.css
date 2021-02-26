@@ -28,7 +28,8 @@
    
 }
 
-.keep-list * {
-    margin: 5px;
+.keep-list > * {
+    margin-bottom: 15px;
 }
+
 

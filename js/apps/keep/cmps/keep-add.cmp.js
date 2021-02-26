@@ -4,7 +4,9 @@ import { eventBus } from "../../services/event-bus-service.js"
 export default {
     template: `
     <section class="keep-add flex flex-col">
+            <div class="add-image-container">
         <img v-if="curImage.imageUrl" :src="curImage.imageUrl" alt="image" />
+            </div>
         <div class="add-textarea-container flex justify-center">
             <ul v-if="keep.isTodo" class="checkbox-container clean-list">
                 <li v-for="row in rowsCount">
@@ -20,9 +22,8 @@ export default {
             <button @click="toTodo">todo</button>
             <label for="upload" class="upload-label pointer">Image</label>
             <input type="file" id="upload" accept="image/*" @change="openImg" class="upload-img">
-
-            <button @click="addNewKeep">Add</button>  
             <button @click="clear">🧹</button>
+            <button @click="addNewKeep">Add</button>  
       
         </div>
     </section>

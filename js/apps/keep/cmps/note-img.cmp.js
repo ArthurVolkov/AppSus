@@ -6,9 +6,7 @@ export default {
     template: `
         <section>
           <li :style="{backgroundColor: keep.style.backgroundColor}" class="note-img flex flex-col align-center">
-            <div class="note-img-container">
                   <img :src="keep.info.url" />
-            </div>
           </li>
           <note-todo v-if="keep.isTodo" :keep="keep"/>
           <note-txt v-else :keep="keep"/>
