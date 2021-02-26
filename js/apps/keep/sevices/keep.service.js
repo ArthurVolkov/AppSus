@@ -39,13 +39,15 @@ function getEmptyKeep() {
         isPinned: false,
         info: {
             label: '',
-            txts: [],
+            txts: [{txt:'',doneAt: null},
+                   {txt:'',doneAt: null}],
         url: null,
         title: ''
         },
         style: {
             backgroundColor: ''
-        }
+        },
+        isTodo: false
     }
 }
 
@@ -80,7 +82,8 @@ function initData() {
             },
             style: {
                 backgroundColor: ''
-            }
+            },
+            isTodo: false
         },
         {
             id: '22222',
@@ -89,8 +92,14 @@ function initData() {
                 label: "How was it:",
                 txts: [
                         { txt: "Do that", doneAt: null },
-                        { txt: "Do this", doneAt: 187111111 }]
-            }
+                        { txt: "Do this", doneAt: 187111111 }],
+                url: null,
+                title: ''
+            },
+            style: {
+                backgroundColor: ''
+            },
+            isTodo: true
         },
         {
             id: '33333',
@@ -99,13 +108,14 @@ function initData() {
             info: {
                 label: "here i am",
                 txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
-                    { txt: "hey Me Baby!", doneAt: null}],
+                       { txt: "hey Me Baby!", doneAt: null}],
                 url: "https://robohash.org/arthur.png",
                 title: "Me playing Mi"
             },
             style: {
                 backgroundColor: "blue"
-            }
+            },
+            isTodo: true
         },
         {
             id: '44444',
@@ -120,7 +130,8 @@ function initData() {
             },
             style: {
                 backgroundColor: "yellow"
-            }
+            },
+            isTodo: false
         }
     ]
     return keepsList;

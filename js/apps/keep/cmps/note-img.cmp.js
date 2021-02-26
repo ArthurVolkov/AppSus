@@ -1,26 +1,32 @@
+import noteTxt from './note-text.cmp.js'
+import noteTodo from './note-todo.cmp.js'
+
 export default {
-  props: ["keep"],
-  template: `
+    props: ["keep"],
+    template: `
+        <section>
           <li :style="{backgroundColor: keep.style.backgroundColor}" class="note-img flex flex-col align-center">
             <div class="note-img-container">
-              <img :src="keep.info.url" />
+                  <img :src="keep.info.url" />
             </div>
-            <textarea rows="4" v-model="val"></textarea>
-            <p>{{keep.info.label}}</p>
           </li>
+          <note-todo v-if="keep.isTodo" :keep="keep"/>
+          <note-txt v-else :keep="keep"/>
+        </section>
           `,
-  data() {
-    return {
-      val: ""
-    };
-  },
-  methods: {
-  },
-  computed: {
-  },
-  created() {
-    for (var i = 0; i < this.keep.info.txts.length; i++) {
-      this.val += this.keep.info.txts[i].txt + '\n';
+    data() {
+        return {
+        };
+    },
+    methods: {
+    },
+    computed: {
+    },
+    created() {
+    },
+    components: {
+        noteTxt,
+        noteTodo
     }
-  }
-}
+};
+
