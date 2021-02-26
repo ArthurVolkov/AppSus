@@ -86,12 +86,13 @@ export default {
             if (ev.which === 40) {
                 if (idx < this.keep.info.txts.length-1) this.$refs[idx+1][0].focus()
             }
-            if (ev.which === 8 && this.keep.info.txts[idx] === '' && idx > 0) {
-                this.keep.info.txts.splice(idx,1)
-                idx = idx - 1 + '';
-                this.$refs[idx][0].focus()
+            if (ev.which === 8 && 
+                this.keep.info.txts[idx].txt === '' &&
+                idx > 0) {
+                    this.keep.info.txts.splice(idx,1)
+                    idx = idx - 1 + '';
+                    this.$refs[idx][0].focus()
             }
-
         }
     },
     created() {
