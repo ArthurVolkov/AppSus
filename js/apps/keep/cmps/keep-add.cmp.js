@@ -1,4 +1,5 @@
 import { keepService } from '../sevices/keep.service.js'
+import { eventBus } from "../../services/event-bus-service.js"
 
 export default {
     template: `
@@ -16,9 +17,7 @@ export default {
         </div>
 
         <div class="add-input-container flex justify-around">
-            <!-- <button @click="openImg">img</button> -->
             <button @click="toTodo">todo</button>
-            <!-- <input type="text" v-if="isImg" v-model="src"> -->
             <label for="upload" class="upload-label pointer">Image</label>
             <input type="file" id="upload" accept="image/*" @change="openImg" class="upload-img">
 
@@ -30,13 +29,11 @@ export default {
     data() {
         return {
             keep: null,
-            // src: null,
             isImg: false,
             isVideo: false,
             curImage: {
                 imageUrl: null
             },
-            // index: 1
         }
     },
     computed: {
@@ -48,7 +45,7 @@ export default {
                 }
             }
             return this.keep.info.txts.length;
-        }
+        },
     },
     methods: {
         openImg(ev) {
@@ -58,14 +55,15 @@ export default {
             this.curImage.imageUrl = URL.createObjectURL(file)
         },
         addNewKeep() {
-            // this.keep.info.url = this.src;
             this.keep.info.url = this.curImage.imageUrl;
+            this.curImage.imageUrl = null;
             if (this.isImg) {
                 this.keep.type = "noteImg";
             } else if (this.isVideo) {
                 this.keep.type = "noteVideo";
-            } else if (this.keep.isTodo) {
-                this.keep.type = "noteTodo";
+            } 
+            else if (this.keep.isTodo) {
+               this.keep.type = "noteTodos";
             }
             this.$emit('addNewKeep', this.keep);
             this.keep = keepService.getEmptyKeep()
@@ -73,7 +71,6 @@ export default {
         toTodo() {
             this.keep.isTodo = !this.keep.isTodo;
         },
-        //backspace 8 up 38 down 40
         newLine(ev, idx) {
             if (ev.which === 13) {
                 this.keep.info.txts.splice(idx+1,0,{txt:'',doneAt: null})
@@ -93,9 +90,17 @@ export default {
                     idx = idx - 1 + '';
                     this.$refs[idx][0].focus()
             }
+        },
+        loadKeep(keep) {
+            this.keep = keep;
+            this.curImage.imageUrl = this.keep.info.url
+            keepService.remove(keep.id)
+            .then(() => this.$emit('reload')) 
+                
         }
     },
     created() {
+        eventBus.$on('selected', this.loadKeep)
         this.keep = keepService.getEmptyKeep();
     },    
 }
