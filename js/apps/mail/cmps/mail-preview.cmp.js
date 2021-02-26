@@ -20,7 +20,7 @@ export default {
     `,
     computed: {
         name() {
-            return this.mail.mailAddress.split('@')[0]
+            return this.mail.mailAddress.split('@')[0].replace('.', ' ')
         },
         subject() {
             return this.mail.subject + '-'
