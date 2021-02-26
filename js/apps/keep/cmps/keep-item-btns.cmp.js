@@ -32,7 +32,8 @@ export default {
         openImg(ev) {
             console.log('openImg');
         },
-        setColor() {
+        setColor(ev) {
+            // console.log('ev:', ev)
             console.log('setColor');
         },
         remove() {

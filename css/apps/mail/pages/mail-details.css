@@ -1,0 +1,16 @@
+
+
+.details-subject {
+    font-size: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.details-subject pre {
+    border: 1px solid gray;
+    background-color: lightgrey;
+    border-radius: 5px;
+    margin-inline-start: 1em;
+    padding: 0 5px 0 5px;
+    margin-top: .15em;
+    font-size: .7em;
+}

@@ -8,11 +8,17 @@ export default {
     <section class="mail-details-container flex">
         <!-- <mail-side-bar></mail-side-bar> -->
         <div>
-            <h3>{{mailSubject}}</h3>
-            <ul class="review-list">
+            <ul class="review-list clean-list">
                 <li v-for="mail in mails" class="mail-preview-container" >
-                    <p>Id: {{mail.id}}</p>
-                    <p>Subject: {{mail.subject}}</p>
+                    <div class="details-subject flex align-center">
+                        <p>{{mailSubject}}</p>
+                        <pre v-if="mail.isIncoming">⇩ Incoming</pre>
+                        <pre v-else>⇧ Sent</pre>
+                    </div>
+                    <div>
+                        <p v-if="mail.isIncoming">from: {{name(mail)}} <{{mail.mailAddress}}></p>
+                        <p v-else>from: {{self.name}} <{{self.mailAddress}}></p>
+                    </div>
                     <p>Body: {{mail.body}}</p>
                     <p>Is Read: {{mail.isRead}}</p>
                     <p>Timestamp: {{sentAtToShow(mail.sentAt)}}</p>
@@ -25,7 +31,11 @@ export default {
     data() {
         return {
             mails: [],
-            mailSubject: null
+            mailSubject: null,
+            self: {
+                name: 'Abraham Linkoln',
+                mailAddress: 'appsus.gmail.com'
+            }
         }
     },
     methods: {
@@ -43,9 +53,13 @@ export default {
         sentAtToShow(sentAt) {
             const sentDate = new Date(sentAt)
             return sentDate.toISOString().substr(0, 10)
-        }
+        },
+        name(mail) {
+            return mail.mailAddress.split('@')[0].replace('.', ' ')
+        },
     },
     computed: {
+ 
     },
     // watch: {
     //     '$route.params.mailId'(id) {
