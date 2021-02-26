@@ -7,7 +7,7 @@ import { keepService } from '../sevices/keep.service.js'
 export default {
     props: ['keeps'],
     template: `
-            <ul class="keep-list clean-list" :keep="keep">
+            <ul class="keep-list clean-list">
                 <component v-for="(keep, idx) in keeps" :key="keep.id" :is="keep.type" :keep="keep"></component>
             </ul>
     `,
@@ -16,10 +16,10 @@ export default {
         }
     },
     computed: {
-        keep() {
-            console.log('keep-list props', this.keeps);
-            return this.keeps
-        }
+        // keep() {
+        //     console.log('keep-list props', this.keeps);
+        //     return this.keeps
+        // }
     },
     created() {
     },

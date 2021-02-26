@@ -6,7 +6,7 @@ import { keepService } from '../sevices/keep.service.js'
 export default {
     template: `
         <section class="keep-app main-container flex flex-col align-center">
-            <keep-add @addNewKeep="addNewKeep"/>
+            <keep-add :keeps="keeps" @addNewKeep="addNewKeep"/>
             <keep-list :keeps="keeps"/>
         </section>
     `,
