@@ -18,15 +18,15 @@ function query() {
 }
 
 function remove(keepId) {
-    return storageService.remove(DB_KEY, keepId)
+  return storageService.remove(DB_KEY, keepId)
 }
 
-function getNextId(keepId) {
-    return storageService.getNextId(DB_KEY, keepId)
+function getNextId(keepId){
+  return storageService.getNextId(DB_KEY, keepId)
 }
 
-function getPrevId(keepId) {
-    return storageService.getPrevId(DB_KEY, keepId)
+function getPrevId(keepId){
+  return storageService.getPrevId(DB_KEY, keepId)
 }
 
 function save(keep) {
@@ -39,194 +39,100 @@ function getEmptyKeep() {
         isPinned: false,
         info: {
             label: '',
-            txts: [],
-            url: null,
-            title: ''
+            txts: [{txt:'',doneAt: null},
+                   {txt:'',doneAt: null}],
+        url: null,
+        title: ''
         },
         style: {
             backgroundColor: ''
-        }
+        },
+        isTodo: false
     }
 }
 
 function getById(id) {
-    return storageService.get(DB_KEY, id)
+  return storageService.get(DB_KEY, id)
 }
 
 function _createKeeps() {
     storageService.query(DB_KEY)
-        .then(keeps => {
-            if (!keeps || !keeps.length) {
-                keeps = initData();
-                storageService.postMany(DB_KEY, keeps)
-            }
-            return keeps;
-        })
+    .then (keeps => {
+        if (!keeps || !keeps.length) {
+            keeps = initData();
+            storageService.postMany(DB_KEY,keeps)
+        }
+        return keeps;
+    })
 }
 
 function initData() {
     var keepsList =
-        [
-            {
-                id: '101',
-                type: "noteTxt",
-                isPinned: true,
-                info: {
-                    label: "here i am",
-                    txts: [{ txt: "Fullstack Me Baby!", doneAt: null },
-                    { txt: "hey Me Baby!", doneAt: null }],
-                    url: null,
-                    title: ''
-                },
-                style: {
-                    backgroundColor: ''
-                }
+    [
+       {
+            id: '11111',
+            type: "noteTxt",
+            isPinned: true,
+            info: {
+                label: "here i am",
+                txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
+                       { txt: "hey Me Baby!", doneAt: null}],
+                url: null,
+                title: ''
             },
-            {
-                id: '102',
-                type: "noteTodos",
-                info: {
-                    label: "How was it:",
-                    txts: [
+            style: {
+                backgroundColor: ''
+            },
+            isTodo: false
+        },
+        {
+            id: '22222',
+            type: "noteTodos",
+            info: {
+                label: "How was it:",
+                txts: [
                         { txt: "Do that", doneAt: null },
-                        { txt: "Do this", doneAt: 187111111 }]
-                }
+                        { txt: "Do this", doneAt: 187111111 }],
+                url: null,
+                title: ''
             },
-            {
-                id: '103',
-                type: "noteImg",
-                isPinned: false,
-                info: {
-                    label: "here i am",
-                    txts: [{ txt: "Fullstack Me Baby!", doneAt: null },
-                    { txt: "hey Me Baby!", doneAt: null }],
-                    url: "https://robohash.org/arthur.png",
-                    title: "Me playing Mi"
-                },
-                style: {
-                    backgroundColor: "blue"
-                }
+            style: {
+                backgroundColor: ''
             },
-            {
-                id: '104',
-                type: "noteTodos",
-                info: {
-                    label: "How was it:",
-                    txts: [
-                        { txt: "Do that", doneAt: null },
-                        { txt: "Do this", doneAt: 187111111 }]
-                }
+            isTodo: true
+        },
+        {
+            id: '33333',
+            type: "noteImg",
+            isPinned: false,
+            info: {
+                label: "here i am",
+                txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
+                       { txt: "hey Me Baby!", doneAt: null}],
+                url: "https://robohash.org/arthur.png",
+                title: "Me playing Mi"
             },
-            {
-                id: '105',
-                type: "noteTxt",
-                isPinned: true,
-                info: {
-                    label: "here i am",
-                    txts: [{ txt: "Fullstack Me Baby!", doneAt: null },
-                    { txt: "hey Me Baby!", doneAt: null }],
-                    url: null,
-                    title: ''
-                },
-                style: {
-                    backgroundColor: ''
-                }
+            style: {
+                backgroundColor: "blue"
             },
-            {
-                id: '106',
-                type: "noteTodos",
-                info: {
-                    label: "How was it:",
-                    txts: [
-                        { txt: "Do that", doneAt: null },
-                        { txt: "Do this", doneAt: 187111111 }]
-                }
+            isTodo: true
+        },
+        {
+            id: '44444',
+            type: "noteImg",
+            isPinned: false,
+            info: {
+                label: "here i am",
+                txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
+                       { txt: "hey Me Baby!", doneAt: null}],
+                url: "https://robohash.org/itzik.png",
+                title: "Me playing Mi"
             },
-            {
-                id: '107',
-                type: "noteImg",
-                isPinned: false,
-                info: {
-                    label: "here i am",
-                    txts: [{ txt: "Fullstack Me Baby!", doneAt: null },
-                    { txt: "hey Me Baby!", doneAt: null }],
-                    url: "https://robohash.org/arthur.png",
-                    title: "Me playing Mi"
-                },
-                style: {
-                    backgroundColor: "blue"
-                }
+            style: {
+                backgroundColor: "yellow"
             },
-            {
-                id: '108',
-                type: "noteImg",
-                isPinned: false,
-                info: {
-                    label: "here i am",
-                    txts: [{ txt: "Fullstack Me Baby!", doneAt: null },
-                    { txt: "hey Me Baby!", doneAt: null }],
-                    url: "https://robohash.org/itzik.png",
-                    title: "Me playing Mi"
-                },
-                style: {
-                    backgroundColor: "yellow"
-                }
-            },
-            {
-                id: '109',
-                type: "noteImg",
-                isPinned: false,
-                info: {
-                    label: "here i am",
-                    txts: [{ txt: "Fullstack Me Baby!", doneAt: null },
-                    { txt: "hey Me Baby!", doneAt: null }],
-                    url: "https://robohash.org/arthur.png",
-                    title: "Me playing Mi"
-                },
-                style: {
-                    backgroundColor: "blue"
-                }
-            },
-            {
-                id: '110',
-                type: "noteTodos",
-                info: {
-                    label: "How was it:",
-                    txts: [
-                        { txt: "Do that", doneAt: null },
-                        { txt: "Do this", doneAt: 187111111 }]
-                }
-            },
-            {
-                id: '111',
-                type: "noteImg",
-                isPinned: false,
-                info: {
-                    label: "here i am",
-                    txts: [{ txt: "Fullstack Me Baby!", doneAt: null },
-                    { txt: "hey Me Baby!", doneAt: null }],
-                    url: "https://robohash.org/arthur.png",
-                    title: "Me playing Mi"
-                },
-                style: {
-                    backgroundColor: "blue"
-                }
-            },
-            {
-                id: '112',
-                type: "noteImg",
-                isPinned: false,
-                info: {
-                    label: "here i am",
-                    txts: [{ txt: "Fullstack Me Baby!", doneAt: null },
-                    { txt: "hey Me Baby!", doneAt: null }],
-                    url: "https://robohash.org/itzik.png",
-                    title: "Me playing Mi"
-                },
-                style: {
-                    backgroundColor: "yellow"
-                }
-            }
-        ]
+            isTodo: false
+        }
+    ]
     return keepsList;
 }
