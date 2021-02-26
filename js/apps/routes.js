@@ -4,6 +4,7 @@ import mailApp from './mail/pages/mail-app.cmp.js'
 import keepApp from './keep/pages/keep-app.cmp.js'
 import mailDetails from './mail/pages/mail-details.cmp.js'
 import mailEdit from './mail/pages/mail-edit.cmp.js'
+import keepAdd from './keep/cmps/keep-add.cmp.js'
 
 
 const routes = [
@@ -30,6 +31,10 @@ const routes = [
     {
         path: '/keep',
         component: keepApp
+    },
+    {
+        path: '/keep/edit/:keepId?',
+        component: keepAdd,
     },
 ]
 
