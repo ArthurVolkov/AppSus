@@ -5,7 +5,7 @@ const gKeeps = _createKeeps();
 
 export const keepService = {
     query,
-    queryPined,
+    queryPinned,
     queryNotPinned,
     remove,
     save,
@@ -20,7 +20,7 @@ function query() {
     return storageService.query(DB_KEY)
 }
 
-function queryPined() {
+function queryPinned() {
     return storageService.query(DB_KEY)
     .then (res=>{ 
         return res.filter(keep => {
@@ -28,13 +28,6 @@ function queryPined() {
         })
     })
 }
-
-
-        //     const mailsToShow = this.mails.filter(mail => {
-        //         if (!filterParam) return mail.subject.toLowerCase().includes(searchStr)
-        //         else return mail.subject.toLowerCase().includes(searchStr) &&
-        //             mail[filterParam[0]] === filterParam[1]
-        //     })
 
 function queryNotPinned() {
     return storageService.query(DB_KEY)
@@ -120,6 +113,7 @@ function initData() {
         {
             id: '102',
             type: "noteTodos",
+            isPinned: true,
             info: {
                 label: "How was it:",
                 txts: [
@@ -200,6 +194,7 @@ function initData() {
         {
             id: '107',
             type: "noteTodos",
+            isPinned: true,
             info: {
                 label: "How was it:",
                 txts: [
