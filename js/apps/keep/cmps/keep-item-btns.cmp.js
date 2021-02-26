@@ -1,20 +1,22 @@
+import { eventBus } from "../../services/event-bus-service.js"
+
 export default {
     props: ['keep'],
     template: `
         <ul class="item-btns-container clean-list flex justify-between align-center">
             <li>
-                <button @click.stop="setPin">📌</button>
+                <button @click="setPin(keep)">📌</button>
             </li>
             <li>
-                <label for="upload" @click.stop="" class="upload-label pointer">📁</label>
-                <input type="file" id="upload" accept="image/*" @change="openImg" class="upload-img">
+                <label for="upload" class="upload-label pointer">📁</label>
+                <input type="file" id="upload" accept="image/*" @change="openImg($event,keep)" class="upload-img">
             </li>
             <li>
-                <label for="color" @click.stop="" class="upload-label pointer">🎨</label>
-                <input type="color" id="color" @click.stop="" @change="setColor" class="set-color">
+                <label for="keep.id" class="upload-label pointer">🎨</label>
+                <input type="color" id="keep.id" @change="setColor($event,keep)" class="set-color">
             </li>
             <li>
-                <button @click.stop="remove">🗑</button>
+                <button @click="remove(keep)">🗑</button>
             </li>
         </ul>
     `,
@@ -27,17 +29,27 @@ export default {
 
     },
     methods: {
-        setPin() {
-            console.log('setPin');
+        setPin(keep) {
+            console.log('keep',keep.id)
+            console.log('this.keep',this.keep.id);
+            eventBus.$emit('pinned', keep)
         },
-        openImg(ev) {
-            console.log('openImg');
+        openImg(ev,keep) {
+            console.log('keep',keep.id)
+            console.log('this.keep',this.keep.id);
+            eventBus.$emit('color', keep, ev)
         },
-        setColor() {
-            console.log('setColor');
+        setColor(ev,keep) {
+            console.log('keep',keep.id)
+            console.log('this.keep',this.keep.id);
+            eventBus.$emit('color', keep, ev.target.value)
         },
-        remove() {
-            console.log('remove');
+        remove(keep) {
+            console.log('keep',keep.id)
+            console.log('this.keep',this.keep.id);
+            eventBus.$emit('remove', keep)
         }
-    }
+    },
+    created(){
+   }
 }

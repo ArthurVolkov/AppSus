@@ -9,6 +9,7 @@ export const keepService = {
     queryNotPinned,
     remove,
     save,
+    update,
     getEmptyKeep,
     getById,
     getNextId,
@@ -58,6 +59,10 @@ function getPrevId(keepId){
 
 function save(keep) {
     return storageService.post(DB_KEY, keep)
+}
+
+function update(keep) {
+    return storageService.put(DB_KEY,keep);
 }
 
 function getEmptyKeep() {
