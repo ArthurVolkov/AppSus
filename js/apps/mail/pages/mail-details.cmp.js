@@ -1,20 +1,25 @@
 import { mailService } from '../sevices/mail.service.js'
+// import mailSideBar from '../cmps/mail-side-bar.cmp.js'
+
 // import { eventBus } from '../services/event-bus.service.js'
 
 export default {
     template: `
-    <section class="mail-details-container">
-        <h3>{{mailSubject}}</h3>
-        <ul class="review-list">
-            <li v-for="mail in mails" class="mail-preview-container" >
-                <p>Id: {{mail.id}}</p>
-                <p>Subject: {{mail.subject}}</p>
-                <p>Body: {{mail.body}}</p>
-                <p>Is Read: {{mail.isRead}}</p>
-                <p>Timestamp: {{sentAtToShow(mail.sentAt)}}</p>
-            </li>
-        </ul>
-    <button @click="closeDetails" class="close-btn">X</button>
+    <section class="mail-details-container flex">
+        <!-- <mail-side-bar></mail-side-bar> -->
+        <div>
+            <h3>{{mailSubject}}</h3>
+            <ul class="review-list">
+                <li v-for="mail in mails" class="mail-preview-container" >
+                    <p>Id: {{mail.id}}</p>
+                    <p>Subject: {{mail.subject}}</p>
+                    <p>Body: {{mail.body}}</p>
+                    <p>Is Read: {{mail.isRead}}</p>
+                    <p>Timestamp: {{sentAtToShow(mail.sentAt)}}</p>
+                </li>
+            </ul>
+        <button @click="closeDetails" class="close-btn">X</button>
+        </div>
     </section>        
     `,
     data() {
@@ -33,7 +38,7 @@ export default {
                 })
         },
         closeDetails() {
-             this.$router.push(`/mail`)
+             this.$router.push(`/mail/list`)
         },
         sentAtToShow(sentAt) {
             const sentDate = new Date(sentAt)
@@ -51,6 +56,6 @@ export default {
         this.loadMails()
     },
     components: {
-
+        // mailSideBar
     }
 }

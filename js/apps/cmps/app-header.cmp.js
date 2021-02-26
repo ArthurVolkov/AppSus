@@ -23,7 +23,7 @@ export default {
             </div>
             <ul class="nav-bar clean-list flex">
                 <li>
-                    <router-link to="/mail/">Mail</router-link>
+                    <router-link to="/mail/list">Mail</router-link>
                 </li>
                 <li>
                     <router-link to="/keep">Keep</router-link>

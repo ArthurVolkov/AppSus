@@ -1,8 +1,8 @@
 import { mailService } from "../sevices/mail.service.js";
 
 export default {
-    props:['mail'],
-    template:`
+    props: ['mail'],
+    template: `
     <li class="mail-preview flex justify-between pointer">
         <div class="name-container flex align-center">
             <button :class="markedStar" class="mail-star" @click.stop="setStar">{{star}}</button>
@@ -26,17 +26,17 @@ export default {
             return this.mail.subject + '-'
         },
         body() {
-            return this.mail.body.slice(0,49) + '...'
+            return this.mail.body.slice(0, 49) + '...'
         },
 
         isReadedClass() {
             return this.mail.isReaded ? '' : 'not-readed'
         },
         sentAt() {
-            const now = new Date(Date.now()) 
+            const now = new Date(Date.now())
             const sentDate = new Date(this.mail.sentAt)
-            if (now.getDate() === sentDate.getDate() && now - sentDate < 1000*60*60*24) return sentDate.toTimeString().substr(0, 5)
-            else if (now.getFullYear() === sentDate.getFullYear()) return sentDate.toLocaleDateString('en-US', {month: 'short', day: 'numeric'})
+            if (now.getDate() === sentDate.getDate() && now - sentDate < 1000 * 60 * 60 * 24) return sentDate.toTimeString().substr(0, 5)
+            else if (now.getFullYear() === sentDate.getFullYear()) return sentDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
             else return sentDate.toISOString().substr(0, 10)
         },
         star() {

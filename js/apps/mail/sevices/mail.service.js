@@ -42,7 +42,7 @@ function getEmptyMail() {
         'subject': '',
         'mailAddress': '',
         'body': '',
-        'isReaded': false,
+        'isReaded': true,
         'isImporant': false,
         'isIncoming': false,
         'sentAt': null
@@ -117,7 +117,7 @@ function initData() {
                 'sentAt': 0,
                 'isImporant': true,
                 'isIncoming': false,
-                'isReaded': false,
+                'isReaded': true,
                 'sentAt' : Date.now() - 1000*60*60*24*8
             },
             {
@@ -149,7 +149,7 @@ function initData() {
                 'mailAddress': 'vernon.ramos@example.com',
                 'body': `why we learn programming? It doesn't have a whole lot of information. What we don't have at this point is, for people who are new to programming they can just start a discussion with code. I can say to people a lot about whether an app or a Twitter account has a lot to gain from doing a bit of programming and how to achieve this. I would say all programming is probably going to be for doing code. But, even though programming is a lot harder than just knowing the language, I think this should be seen as a choice as well: do we focus on one thing, or does it make sense to focus on this? Do it have to be the same thing, or even put in the same thread and try and make a better version of it?`,
                 'sentAt': 0,
-                'isImporant': true,
+                'isImporant': false,
                 'isIncoming': true,
                 'isReaded': true,
                 'sentAt' : Date.now() - 1000*60*60*24*43
@@ -170,9 +170,9 @@ function initData() {
                 'mailAddress': 'toni.miles@example.com',
                 'body': `And here we are. It's a new American invention that had a long career as "President." In fact, it didn't really have any chance to have a very successful presidency. It was simply a modern invention. I was a couple of years into my career in the office of the Senate. I went back when I was in my late 40's. I had already known President Nixon of the United States because I had a very small brain. I didn't know how much I had been aware of what was going on, of course. I remember going to visit our new country. I was surprised by the fact that he had no idea what was going on. But I was also shocked that he hadn't told me about the new Constitution. He was one of the most respected men in Congress. And I'm not sure what to do about that. The answer is simple. I don't know.`,
                 'sentAt': 0,
-                'isImporant': true,
-                'isIncoming': true,
-                'isReaded': false,
+                'isImporant': false,
+                'isIncoming': false,
+                'isReaded': true,
                 'sentAt' : Date.now() - 1000*60*60*24*6
             },
             {
@@ -215,7 +215,7 @@ function initData() {
                 'body': `I am a white man who believed in the removal of whites from parts of this country. I feel sorry for him personally and I wish him the very best in future. I feel that the people in that position are being unjustly dealt with." The "Undecided Person" emails were to have been sent at the last minute. I received this email from the person who sent the email, who is identified only by the name "J.Dinty." On the same day, in a letter from an e-mail address, I received an e-mail from another white guy writing: The best place to start is on our side and help people make the world a better place. Let's work together to bring these communities together and make something happen. — Tom Udall (@tommythson) May 18, 2017 I don't just want to be a little racist but also, I want to be the only person capable of telling a story about how racist you have become for the benefit of all of us. That's how you achieve racial justice. But you also are capable of being the only person capable of telling a story about what you did. And you are responsible for ensuring that this country stays prosperous. If I were an American, I'd be the president of the United States of America. Let's get started today with a new generation of people who stand up for the things that can be done to help people in this country. We're not getting to the bottom of racial issues; we're not getting to the top of a lot of the problems. You've never seen this type of issue before. Now we have a whole new generation who have an idea of how to fix those things to ensure that these problems aren't reversed and continue to exist in the future. Because if we can improve the quality of life for people across the country and get these issues addressed as a result of these changes, we'll get the same result. Every white person is going to be better equipped to tackle systemic problems and that's precisely what we're doing. But there is no time for complacency for anyone. And we still have people who've been in the office who're going to tell stories about how racist they are. That speaks to what the country wants and is doing right now. I want to thank them for serving us and that's why I'm so grateful for this week's column. I don't know if I'd be able to tell an African-American you can't believe it or tell you can't believe it. But for those of us who haven't come here before, I want to thank you for giving some of your attention to the issues that are most important to us in a way that we believe can't be misconstrued or ignored. By any means, I have no doubt that the people I've spoken to believe and worked for in this country will continue to speak freely about racial injustice`,
                 'sentAt': 0,
                 'isImporant': true,
-                'isIncoming': true,
+                'isIncoming': false,
                 'isReaded': true,
                 'sentAt' : Date.now() - 1000*60*60*50
             },
@@ -247,7 +247,7 @@ function initData() {
                 'mailAddress': 'deanna.terry@example.comm',
                 'body': `Our aim is to make the most of the food you eat, in the restaurants you frequent and the places you go. We are committed to creating a great dining experience for your guests and our staff. We are committed to creating a great dining experience for your guests and our staff. We are committed to creating a great dining experience for your guests and our staff.`,
                 'sentAt': 0,
-                'isImporant': true,
+                'isImporant': false,
                 'isIncoming': true,
                 'isReaded': true,
                 'sentAt' : Date.now() - 1000*60*60*24*12
@@ -269,8 +269,8 @@ function initData() {
                 'mailAddress': 'layla.brewer@example.com',
                 'body': `Our main objective is to provide quality wines by the bottle in a relaxed, warm, family-friendly environment with comfortable chairs. The small dining area opens up into a private room which has beautiful tiling work from the outside of the wall as well as soft lighting. Guests can enjoy meals or other activities during the day such like watching movies at night. A real treat awaits diners returning back home after their adventure abroad!`,
                 'sentAt': 0,
-                'isImporant': true,
-                'isIncoming': true,
+                'isImporant': false,
+                'isIncoming': false,
                 'isReaded': true,
                 'sentAt' : Date.now() - 1000*60*60*12
             },
@@ -281,7 +281,7 @@ function initData() {
                 'body': `The company is called: We are located in the village of Lomisco which is almost exactly 90 kilometres from Rio Grande Valley on the right hand side of Rio Grande (Lominsh). Our aim is simple, if there was an easy way to get around here then everyone living this island could enjoy their life as they please... But due too many challenges at home/work/ school all attempts have been fruitless until now...`,
                 'sentAt': 0,
                 'isImporant': true,
-                'isIncoming': true,
+                'isIncoming': false,
                 'isReaded': true,
                 'sentAt' : Date.now() - 1000*60*60*5
             },
@@ -292,7 +292,7 @@ function initData() {
                 'body': `To keep things simple at a distance from everything else going on in town and enjoy some good old-fashioned fun. If you’ve read any of our previous posts about taking care yourself (hereandhere) you know how busy life can get these days – especially when all your work is focused one place instead being surrounded by family and friends while working through the week. It doesn&apost always make sense but sometimes finding time during that crazy weekday evening commute just isn&Apropriate either!`,
                 'sentAt': 0,
                 'isImporant': true,
-                'isIncoming': true,
+                'isIncoming': false,
                 'isReaded': true,
                 'sentAt' : Date.now() - 1000*60*60*24*23
             },
@@ -314,7 +314,7 @@ function initData() {
                 'body': `We are a family of six, but we have many years of experience working with kids from our life in Finland. Our staff provides services for our customers from organising our trips - to booking our flights and accommodation, to organising our trips - to finding the best activities and the best scenery to organise them. We are a company of Finnish, German, Swedish, Irish, American, Canadian, and British nationalities. We are a team of family who have lived together in Finland for a long time, some 20 years.`,
                 'sentAt': 0,
                 'isImporant': true,
-                'isIncoming': true,
+                'isIncoming': false,
                 'isReaded': true,
                 'sentAt' : Date.now() - 1000*60*60*24*1
             },
@@ -335,8 +335,8 @@ function initData() {
                 'mailAddress': 'brian.jacobs@example.com',
                 'body': `We are a family friendly, green touristic enterprise. We provide a daily tour of the forest through the forest, a morning or evening safari, and the opportunity to live in the forest for a day, afternoon or evening. We also have a special day each year for all the children to set off to the forest.`,
                 'sentAt': 0,
-                'isImporant': true,
-                'isIncoming': true,
+                'isImporant': false,
+                'isIncoming': false,
                 'isReaded': true,
                 'sentAt' : Date.now() - 1000*60*60*24*43
             },
@@ -346,8 +346,8 @@ function initData() {
                 'mailAddress': 'stephen.chavez@example.com',
                 'body': `We are a team of experienced individuals who are passionate about their work. We are here to ensure that you enjoy your holiday with us, without compromising on the quality of the holiday. Our team has worked in the tourism industry for over 20 years and have developed an amazing rapport with our clients, with whom we have made many relationships. We are here to take care of your trip, so that you can take it to the next level.`,
                 'sentAt': 0,
-                'isImporant': true,
-                'isIncoming': true,
+                'isImporant': false,
+                'isIncoming': false,
                 'isReaded': true,
                 'sentAt' : Date.now() - 1000*60*60*24*32
             },
@@ -358,7 +358,7 @@ function initData() {
                 'body': `As the name implies, the concert is a celebration of the Schola Chorale. It is an event that reflects a rich cultural heritage. As a musical ensemble, the Schola is regarded as one of the leading choirs of the world and a classical music institution in London. The ensemble has been active since the 16th century and is recognised as one of the most outstanding choirs of the 19th century.`,
                 'sentAt': 0,
                 'isImporant': true,
-                'isIncoming': true,
+                'isIncoming': false,
                 'isReaded': true,
                 'sentAt' : Date.now() - 1000*60*60*24*76
             },

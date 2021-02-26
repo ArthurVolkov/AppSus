@@ -1,5 +1,5 @@
 import { mailService } from '../sevices/mail.service.js'
-// import { eventBus } from '../../services/event-bus-service'
+import {eventBus} from '../../services/event-bus-service.js'
 
 export default {
     props: ['mailToEdit'],
@@ -49,7 +49,8 @@ export default {
                     mail.body = this.body
                     mail.sentAt = Date.now()
                     mailService.save(mail)
-                        .then(() => this.$emit('afterSend'))
+                        .then(() => eventBus.$emit('afterSend'))
+                        // .then(() => this.$emit('afterSend'))
                 })
 
             // const newMail = {
