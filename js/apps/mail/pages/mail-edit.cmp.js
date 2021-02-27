@@ -83,7 +83,6 @@ export default {
             mailService.getById(id)
                 .then(mail => {
                     this.mail = mail
-                    console.log('this.mail:', this.mail)
                     this.mailAddress = mail.mailAddress
                     this.subject = mail.subject
                 })

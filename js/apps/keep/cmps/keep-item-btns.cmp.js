@@ -11,11 +11,11 @@ export default {
                 <button title="Todo" @click="setTodo(keep)">☑</button>
             </li>
             <li>
-                <label :for="keep.id+1" class="upload-label pointer">📷</label>
+                <label title="Image" :for="keep.id+1" class="upload-label pointer">📷</label>
                 <input type="file" :id="keep.id+1" accept="image/*" @change="openImg($event,keep)" class="upload-img">
             </li>
             <li>
-                <label :for="keep.id" class="upload-label pointer">🎨</label>
+                <label title="Color" :for="keep.id" class="upload-label pointer">🎨</label>
                 <input type="color" :id="keep.id" @change="setColor($event,keep)" class="set-color">
             </li>
             <li>
@@ -56,7 +56,5 @@ export default {
         remove(keep) {
             eventBus.$emit('remove', keep)
         }
-    },
-    created(){
-   }
+    }
 }

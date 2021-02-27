@@ -8,7 +8,7 @@ export default {
         <div class="name-container flex align-center">
             <button title="Important" :class="markedStar" class="mail-star" @click.stop="setStar">{{star}}</button>
             <button title="Delete" @click.stop="remove(mail)" class="remove-btn">🗑</button>
-            <button title="Read\Unread" @click.stop="unRead(mail)" class="remove-btn">📨</button>
+            <button title="Read/Unread" @click.stop="unRead(mail)" class="remove-btn">📨</button>
             <p class="mail-name" :class="isReadedClass">{{name}}</p>
         </div>
         <div class="flex justify-between align-center grow">

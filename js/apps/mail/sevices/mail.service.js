@@ -81,7 +81,6 @@ function _createMails() {
         })
 }
 
-
 function initData() {
     var mailsList =
         [

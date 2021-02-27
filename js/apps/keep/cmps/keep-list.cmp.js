@@ -72,5 +72,5 @@ export default {
         noteVideo,
         itemBtns
     }
-};
+}
 
