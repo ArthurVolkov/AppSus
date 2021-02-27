@@ -26,13 +26,9 @@ export default {
         <div class="add-input-container flex justify-around">
             <button title="Pin" @click="setPin" :class="pinIcon" class="pin">🖈</button>
             <button title="Todo" @click="toTodo">☑</button>
-            <label for="upload" class="upload-label pointer">📷</label>
+            <label title="Image" for="upload" class="upload-label pointer">📷</label>
             <input title="Add Image" type="file" id="upload" accept="image/*" @change="openImg" class="upload-img">
-
-            <!-- <label for="uploadvi" class="upload-label pointer">🎥</label>
-            <input type="file" id="uploadvi" accept="video/*" @change="openVid" class="upload-img"> -->
-
-            <label for="color-add" class="upload-label pointer">🎨</label>
+            <label title="Color" for="color-add" class="upload-label pointer">🎨</label>
             <input title="Change Color" type="color" id="color-add" @change="setColor" class="set-color">
 
             <button title="Clear" @click="clear">🗑</button>
@@ -57,17 +53,14 @@ export default {
     },
     computed: {
         rowsCount() {            
-            for (var i=0;i<this.keep.info.txts.length;i++){
+            for (var i=0;i<this.keep.info.txts.length-1;i++){
                 if (!this.keep.info.txts[i].txt) {
                    this.keep.info.txts.splice(i,1);
                    i--;
                 }
             }
-            if (!this.keep.info.txts.length){
-                 this.keep.info.txts.push({txt:'',daneAt:null});
-                 return this.keep.info.txts.length;
-            }
-            return this.keep.info.txts.length;
+            this.keep.info.txts.push({txt:'',doneAt:null});
+            return this.keep.info.txts.length-1;
         },
         pinIcon(){
             return this.keep.isPinned ? 'pined' : '';
@@ -83,7 +76,6 @@ export default {
         },
         openImg(ev) {
             const file = ev.target.files[0]
-            //this.image = file
             this.isImg = true
             this.isVideo = false
             this.curImage.imageUrl = URL.createObjectURL(file)

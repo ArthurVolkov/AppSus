@@ -1,13 +1,10 @@
 import { mailService } from '../sevices/mail.service.js'
 import { eventBus } from '../../services/event-bus-service.js'
 import mailEdit from './mail-edit.cmp.js'
-// import mailSideBar from '../cmps/mail-side-bar.cmp.js'
-
 
 export default {
     template: `
     <section class="mail-details-container flex">
-        <!-- <mail-side-bar></mail-side-bar> -->
         <div v-if="isEdit">
             <mail-edit :isNew="false" @afterSend='afterSend'></mail-edit>
         </div>
@@ -57,7 +54,6 @@ export default {
     methods: {
         loadMails() {
             const id = this.$route.params.mailId
-            console.log('ID:',id)
             mailService.getChainById(id)
                 .then(mails => {
                     this.mails = mails.sort((mail1, mail2)=> {return mail2.sentAt - mail1.sentAt})
@@ -74,8 +70,6 @@ export default {
                 type: 'success'
             }
             eventBus.$emit('show-msg', msg)
-
-//             this.$router.push(`/mail/list`)
         },
         sentAtToShow(sentAt) {
             const sentDate = new Date(sentAt)
@@ -86,7 +80,6 @@ export default {
         },
         replay() {
             eventBus.$emit('reply', this.mails)
-            console.log('reply');
             this.isEdit = true
         },
         afterSend() {
@@ -94,19 +87,10 @@ export default {
             this.loadMails()
         }
     },
-    computed: {
- 
-    },
-    // watch: {
-    //     '$route.params.mailId'(id) {
-    //         this.loadMail()
-    //     }
-    // },
     created() {
         this.loadMails()
     },
     components: {
         mailEdit
-        // mailSideBar
     }
 }
