@@ -4,8 +4,9 @@ import { eventBus } from "../../services/event-bus-service.js"
 export default {
     template: `
     <section class="keep-add flex flex-col">
-            <div class="add-image-container">
+            <div  class="add-image-container">
                 <img v-if="curImage.imageUrl" :src="curImage.imageUrl" alt="image" />
+                <video v-if="curVideo.videoUrl" :src="curvideo.videoUrl" controls></video>
             </div>
         <div class="add-textarea-container flex justify-center">
             <ul v-if="keep.isTodo" class="checkbox-container clean-list">
@@ -25,6 +26,10 @@ export default {
             <button @click="toTodo">☑</button>
             <label for="upload" class="upload-label pointer">📷</label>
             <input type="file" id="upload" accept="image/*" @change="openImg" class="upload-img">
+
+            <label for="uploadvi" class="upload-label pointer">🎥</label>
+            <input type="file" id="uploadvi" accept="video/*" @change="openVid" class="upload-img">
+
             <label for="color-add" class="upload-label pointer">🎨</label>
             <input type="color" id="color-add" @change="setColor" class="set-color">
 
@@ -42,6 +47,9 @@ export default {
             isVideo: false,
             curImage: {
                 imageUrl: null
+            },
+            curVideo: {
+                videoUrl: null
             },
         }
     },
@@ -73,13 +81,21 @@ export default {
         },
         openImg(ev) {
             const file = ev.target.files[0]
-            this.image = file
+            //this.image = file
             this.isImg = true
+            this.isVideo = false
             this.curImage.imageUrl = URL.createObjectURL(file)
+        },
+        openVid(ev) {
+            const file = ev.target.files[0]
+            this.isVideo = true
+            this.isImg = false
+            this.curVideo.videoUrl = URL.createObjectURL(file)
         },
         addNewKeep() {
             this.keep.info.url = this.curImage.imageUrl;
             this.curImage.imageUrl = null;
+            this.curVideo.videoUrl = null;
             if (this.isImg) {
                 this.keep.type = "noteImg";
             } else if (this.isVideo) {
@@ -125,14 +141,22 @@ export default {
                 keepService.save(this.keep)
                 .then(() => {
                     this.keep = keep;
-                    this.curImage.imageUrl = this.keep.info.url
+                    if (this.keep.type = 'noteImg'){
+                        this.curImage.imageUrl = this.keep.info.url                        
+                    } else if (this.keep.type = 'noteVideo') {
+                        this.curVideo.videoUrl = this.keep.info.url
+                    }
                     window.scrollTo({top: 0, behavior: "smooth"});
                     keepService.remove(keep.id)
                     .then(() => this.$emit('reload'))         
             })     
             }else{
                 this.keep = keep;
-                this.curImage.imageUrl = this.keep.info.url
+                if (this.keep.type = 'noteImg'){
+                    this.curImage.imageUrl = this.keep.info.url                        
+                } else if (this.keep.type = 'noteVideo') {
+                    this.curVideo.videoUrl = this.keep.info.url
+                }
                 window.scrollTo({top: 0, behavior: "smooth"});
                 keepService.remove(keep.id)
                 .then(() => this.$emit('reload'))     
@@ -178,6 +202,7 @@ export default {
         clear() {
             this.keep = keepService.getEmptyKeep();
             this.curImage.imageUrl = null;
+            this.curVideo.videoUrl = null;
         }
     },
     created() {
