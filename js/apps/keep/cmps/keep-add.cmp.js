@@ -10,11 +10,16 @@ export default {
         <div class="add-textarea-container flex justify-center">
             <ul v-if="keep.isTodo" class="checkbox-container clean-list">
                 <li v-for="row in rowsCount">
-                    <input type="checkbox" />
+                    <input type="checkbox" @click.stop="toggleTodo(row-1)"/>
                 </li>
             </ul>
             <div class="text-area-container flex flex-col grow">
-                <input v-for="(row, idx) in keep.info.txts.length" :key="idx" :ref="idx" @keydown="newLine($event, idx)" type="text" v-model="keep.info.txts[idx].txt" />
+                <input v-for="(row, idx) in keep.info.txts.length" :key="idx" :ref="idx" @keydown="newLine($event, idx)" type="text" v-model="keep.info.txts[idx].txt" :class="{'is-selected': keep.info.txts[idx].doneAt}" />
+
+
+
+                <!-- @click.stop="toggleTodo(keep,idx)"-->
+
             </div>
         </div>
 
@@ -51,6 +56,13 @@ export default {
         },
     },
     methods: {
+        toggleTodo(idx) {
+            if (this.keep.info.txts[idx].doneAt){
+                this.keep.info.txts[idx].doneAt = null;
+            }else {
+                this.keep.info.txts[idx].doneAt = Date.now();
+            }
+        },
         openImg(ev) {
             const file = ev.target.files[0]
             this.image = file
@@ -116,12 +128,22 @@ export default {
             keepService.update(keep)
             .then(() => this.$emit('reload'))
         },
-        imageKeep(keep,ev){
+        imageKeep(keep){
+            keepService.update(keep)
+            .then(() => this.$emit('reload'))
+        },
+        todoKeep(keep,idx){
+            if (keep.info.txts[idx].doneAt){
+                keep.info.txts[idx].doneAt = null;
+            }else {
+                keep.info.txts[idx].doneAt = Date.now();
+            }
             keepService.update(keep)
             .then(() => this.$emit('reload'))
         },
         clear() {
             this.keep = keepService.getEmptyKeep();
+            this.curImage.imageUrl = null;
         }
     },
     created() {
@@ -130,7 +152,7 @@ export default {
         eventBus.$on('pinned', this.pinKeep)
         eventBus.$on('color', this.colorKeep)
         eventBus.$on('image', this.imageKeep)
-
+        eventBus.$on('todo', this.todoKeep)
         this.keep = keepService.getEmptyKeep();
     },    
 }

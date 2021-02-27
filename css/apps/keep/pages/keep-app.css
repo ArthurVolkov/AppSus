@@ -3,3 +3,9 @@
     min-height: 90vh;
     padding-top: 12vh;
 }
+
+.keep-app .keep-pin {
+    border-bottom: 2px solid darkgray;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+}

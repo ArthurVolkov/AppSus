@@ -7,20 +7,27 @@ export default {
     template: `
         <section class="keep-app main-container flex flex-col align-center">
             <keep-add  @reload="reload" @addNewKeep="addNewKeep" />
-            <keep-list :keeps="keeps"/>
+            <keep-list class="keep-pin" :keeps="keepsPin"/>
+            <keep-list :keeps="keepsNoPin"/>
         </section>
     `,
     data() {
         return {
-            keeps: null,
+            keepsPin: null,
+            keepsNoPin: null
         }
     },
     methods: {
         loadKeeps() {
-            keepService.query()
-                .then(keeps => {
-                    this.keeps = keeps
-                })
+            keepService.queryPinned()
+            .then(keeps => {
+                this.keepsPin = keeps
+            })
+            keepService.queryNotPinned()
+            .then(keeps => {
+                this.keepsNoPin = keeps
+            })
+
         },
         addNewKeep(keep) {
             keepService.save(keep)

@@ -5,7 +5,7 @@ export default {
     template: `
         <ul class="item-btns-container clean-list flex justify-between align-center">
             <li>
-                <button @click="setPin(keep)">📌</button>
+                <button @click="setPin(keep)">{{pinIcon}}</button>
             </li>
             <li>
                 <label :for="keep.id+1" class="upload-label pointer">📁</label>
@@ -28,10 +28,14 @@ export default {
         }
     },
     computed: {
-
+        pinIcon(){
+            return this.keep.isPinned ? '📌' : '🖈';
+        }
     },
     methods: {
         setPin(keep) {
+            console.log('pinned', keep.id)
+            console.log('pinned', keep.isPinned)
             eventBus.$emit('pinned', keep)
         },
         openImg(ev,keep) {
@@ -40,7 +44,7 @@ export default {
             keep.type = 'noteImg';
             this.curImage.imageUrl = URL.createObjectURL(file)
             this.keep.info.url = this.curImage.imageUrl;
-            eventBus.$emit('image', keep, ev)
+            eventBus.$emit('image', keep)
         },
         setColor(ev,keep) {
             eventBus.$emit('color', keep, ev.target.value)
