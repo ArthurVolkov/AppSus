@@ -1,5 +1,5 @@
 import { mailService } from '../sevices/mail.service.js'
-import {eventBus} from '../../services/event-bus-service.js'
+import { eventBus } from '../../services/event-bus-service.js'
 
 export default {
     props: ['mailToEdit'],
@@ -30,7 +30,8 @@ export default {
             isFull: false,
             mailAddress: '',
             subject: '',
-            body: ''
+            body: '',
+            mailId: null
         }
     },
 
@@ -45,12 +46,11 @@ export default {
             mailService.getEmptyMail()
                 .then(mail => {
                     mail.mailAddress = this.mailAddress,
-                    mail.subject = this.subject,
-                    mail.body = this.body
+                        mail.subject = this.subject,
+                        mail.body = this.body
                     mail.sentAt = Date.now()
                     mailService.save(mail)
                         .then(() => eventBus.$emit('afterSend'))
-                        // .then(() => this.$emit('afterSend'))
                 })
 
             // const newMail = {
@@ -84,16 +84,24 @@ export default {
     computed: {
         isFullClass() {
             return this.isFull ? 'edit-full' : ''
-        }
+        },
         // title() {
         //     return this.carId ? 'Car Edit' : 'Car Add'
         // },
-        // carId() {
-        //     return this.$route.params.carId
+        // mailId() {
+        //     return this.$route.params.mailId
         // }
     },
     created() {
-        this.male = this.mailToEdit
+        // this.male = this.mailToEdit
+        // console.log('this.mailToEdit:', this.mailToEdit)
+        const id = this.$route.params.mailId
+
+        mailService.getById(id)
+            .then(mail => this.mail = mail)
+        
+
+
         // if (this.carId) {
         //     carService.getById(this.carId).then(car => this.carToEdit = car)
         // } else {

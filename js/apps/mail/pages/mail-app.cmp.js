@@ -15,7 +15,7 @@ export default {
 
 
             <!-- <mail-list :mails="mailsToShow" @selected="isReaded"/> -->
-            <mail-edit v-if="isEdit" @closeEdit="closeEdit" @afterSend="afterSend" />
+            <mail-edit v-if="isEdit" @closeEdit="closeEdit" @reply="reply" @afterSend="afterSend" />
 
         </section>
     `,
@@ -48,6 +48,13 @@ export default {
         afterSend() {
             // this.loadMails()
             this.closeEdit()
+        },
+        reply(mails) {
+            console.log('reply');
+            console.log('mails:', mails)
+
+
+            // this.isEdit === true
         }
     },
     computed: {
@@ -75,6 +82,7 @@ export default {
     },
     created() {
         eventBus.$on('afterSend', this.closeEdit)
+        eventBus.$on('reply', this.reply)
 
         // this.loadMails();
     },

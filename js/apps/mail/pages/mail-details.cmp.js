@@ -1,12 +1,16 @@
 import { mailService } from '../sevices/mail.service.js'
+import { eventBus } from '../../services/event-bus-service.js'
+import mailEdit from './mail-edit.cmp.js'
 // import mailSideBar from '../cmps/mail-side-bar.cmp.js'
 
-// import { eventBus } from '../services/event-bus.service.js'
 
 export default {
     template: `
     <section class="mail-details-container flex">
         <!-- <mail-side-bar></mail-side-bar> -->
+        <div v-if="isEdit">
+            <mail-edit></mail-edit>
+        </div>
         <div>
             <ul class="review-list clean-list">
                 <li v-for="mail in mails" class="mail-preview-container" >
@@ -15,16 +19,29 @@ export default {
                         <pre v-if="mail.isIncoming">⇩ Incoming</pre>
                         <pre v-else>⇧ Sent</pre>
                     </div>
-                    <div class="from-to">
-                        <p v-if="mail.isIncoming">from: {{name(mail)}} <{{mail.mailAddress}}></p>
-                        <p v-else>from: {{self.name}} <{{self.mailAddress}}></p>
+                    <div class="from-to flex align-center justify-between">
+                        <div class="flex align-center">
+                            <div>
+                                <pre v-if="mail.isIncoming">{{name(mail)}} </pre>
+                                <pre v-else>{{self.name}} </pre>
+                            </div>
+                            <div>
+                                <p class="flex align-center" v-if="mail.isIncoming"><{{mail.mailAddress}}></p>
+                                <p class="flex align-center" v-else><{{self.mailAddress}}></p>
+                            </div>
+                        </div>
+                        <div class='details-btns-container flex align-center'>
+                            <p class='flex align-center'>{{sentAtToShow(mail.sentAt)}}</p>
+                            
+                            <button @click="replay" class="close-btn">↶</button>
+                            <button @click="closeDetails" class="close-btn">X</button>
+                        </div>
                     </div>
-                    <p>Body: {{mail.body}}</p>
+       
+                    <p>{{mail.body}}</p>
                     <p>Is Read: {{mail.isRead}}</p>
-                    <p>Timestamp: {{sentAtToShow(mail.sentAt)}}</p>
                 </li>
             </ul>
-        <button @click="closeDetails" class="close-btn">X</button>
         </div>
     </section>        
     `,
@@ -35,7 +52,8 @@ export default {
             self: {
                 name: 'Abraham Linkoln',
                 mailAddress: 'appsus.gmail.com'
-            }
+            },
+            isEdit: false,
         }
     },
     methods: {
@@ -52,11 +70,16 @@ export default {
         },
         sentAtToShow(sentAt) {
             const sentDate = new Date(sentAt)
-            return sentDate.toISOString().substr(0, 10)
+            return sentDate.toLocaleDateString('en-UK', { month: 'short', day: 'numeric', year: 'numeric', hour12: false,  hour: '2-digit', minute: '2-digit'})
         },
         name(mail) {
             return mail.mailAddress.split('@')[0].replace('.', ' ')
         },
+        replay() {
+            eventBus.$emit('reply', this.mails)
+            console.log('reply');
+            this.isEdit = true
+        }
     },
     computed: {
  
@@ -70,6 +93,7 @@ export default {
         this.loadMails()
     },
     components: {
+        mailEdit
         // mailSideBar
     }
 }

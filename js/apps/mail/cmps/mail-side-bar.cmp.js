@@ -29,6 +29,9 @@ export default {
         setFilter(by) {
             this.filterBy.secFilter = by
             eventBus.$emit('mailFilter', this.filterBy)
+            console.log('this.$router.currentRoute():', this.$router.currentRoute)
+            if (this.$router.currentRoute.path !== '/mail/list') 
+            this.$router.push(`/mail/list`)
         },
         setSearch() {
             eventBus.$emit('mailFilter', this.filterBy)

@@ -1,4 +1,7 @@
-
+.mail-details-container {
+    padding: 10px;
+    font-size: .8em;
+}
 
 .details-subject {
     font-size: 1.5em;
@@ -17,4 +20,25 @@
 
 .review-list .from-to {
     margin-bottom: 1em;
+}
+
+.from-to pre{
+    font-family: sans-serif;
+    font-weight: 900;
+}
+
+.from-to * {
+    min-height: 1.5em;
+}
+
+.details-btns-container * {
+    margin: 0px 5px;
+}
+
+.details-btns-container button{
+    background-color: transparent;
+    border: none;
+    font-size: 1.5em;
+    font-weight: 900;
+
 }

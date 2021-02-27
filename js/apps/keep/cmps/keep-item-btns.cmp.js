@@ -8,12 +8,12 @@ export default {
                 <button @click="setPin(keep)">📌</button>
             </li>
             <li>
-                <label :for="keep.id+'file'" class="upload-label pointer">📁</label>
-                <input type="file" :id="keep.id+'file'" accept="image/*" @change="openImg($event ,keep)" class="upload-img">
+                <label :for="keep.id+1" class="upload-label pointer">📁</label>
+                <input type="file" :id="keep.id+1" accept="image/*" @change="openImg($event,keep)" class="upload-img">
             </li>
             <li>
                 <label :for="keep.id" class="upload-label pointer">🎨</label>
-                <input type="color" :id="keep.id" @change.prevent="setColor($event, keep)" class="set-color">
+                <input type="color" :id="keep.id" @change="setColor($event,keep)" class="set-color">
             </li>
             <li>
                 <button @click="remove(keep)">🗑</button>
@@ -22,7 +22,9 @@ export default {
     `,
     data() {
         return {
-
+            curImage: {
+                imageUrl: null
+            }
         }
     },
     computed: {
@@ -30,25 +32,20 @@ export default {
     },
     methods: {
         setPin(keep) {
-            console.log('keep',keep.id)
-            console.log('this.keep',this.keep.id);
             eventBus.$emit('pinned', keep)
         },
-        openImg(ev, keep) {
-            console.log('ev:', ev)
-            console.log('keep',keep.id)
-            console.log('this.keep',this.keep.id);
-            eventBus.$emit('color', keep, ev)
+        openImg(ev,keep) {
+            const file = ev.target.files[0];
+            this.image = file;
+            keep.type = 'noteImg';
+            this.curImage.imageUrl = URL.createObjectURL(file)
+            this.keep.info.url = this.curImage.imageUrl;
+            eventBus.$emit('image', keep, ev)
         },
         setColor(ev,keep) {
-            console.log('ev:', ev)
-            console.log('keep',keep.id)
-            console.log('this.keep',this.keep.id);
             eventBus.$emit('color', keep, ev.target.value)
         },
         remove(keep) {
-            console.log('keep',keep.id)
-            console.log('this.keep',this.keep.id);
             eventBus.$emit('remove', keep)
         }
     },

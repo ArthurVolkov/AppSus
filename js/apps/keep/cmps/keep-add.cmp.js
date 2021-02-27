@@ -117,14 +117,8 @@ export default {
             .then(() => this.$emit('reload'))
         },
         imageKeep(keep,ev){
-            const file = ev.target.files[0];
-            this.image = file;
-            keep.type = 'noteImg';
-            this.curImage.imageUrl = URL.createObjectURL(file)
-            this.keep.info.url = this.curImage.imageUrl;
             keepService.update(keep)
             .then(() => this.$emit('reload'))
-            //??????this.curImage.imageUrl = null;
         },
         clear() {
             this.keep = keepService.getEmptyKeep();

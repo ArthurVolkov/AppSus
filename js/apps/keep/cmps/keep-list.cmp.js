@@ -28,7 +28,7 @@ export default {
     methods: {
         select(keep) {
             eventBus.$emit('selected', keep)
-        }
+        },
     },
     components: {
         noteTxt,
