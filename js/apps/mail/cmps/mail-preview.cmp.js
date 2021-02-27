@@ -1,14 +1,16 @@
 import { mailService } from "../sevices/mail.service.js";
+import { eventBus } from '../../services/event-bus-service.js'
 
 export default {
     props: ['mail'],
     template: `
     <li class="mail-preview flex justify-between pointer">
+        <button @click.stop="remove(mail)" class="remove-btn">🗑</button>
+        <button @click.stop="unRead(mail)" class="remove-btn">📨</button>
         <div class="name-container flex align-center">
             <button :class="markedStar" class="mail-star" @click.stop="setStar">{{star}}</button>
             <p class="mail-name" :class="isReadedClass">{{name}}</p>
         </div>
-
         <div class="flex justify-between align-center grow">
             <div class="flex justify-center align-center">
                 <p :class="isReadedClass" class="mail-subject">{{subject}}</p>
@@ -50,6 +52,12 @@ export default {
         setStar() {
             this.mail.isImporant = !this.mail.isImporant
             mailService.update(this.mail)
+        },
+        remove(mail){
+            this.$emit('remove', mail)
+        },
+        unRead(mail){
+            this.$emit('unRead', mail)
         }
     }
 }

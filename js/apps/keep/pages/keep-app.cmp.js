@@ -41,8 +41,8 @@ export default {
         reload() {
             this.loadKeeps()
         },
-        setFilter() {
-            console.log('Set filter');
+        setFilter(filterBy) {
+            this.filterBy = filterBy
         }
     },
     components: {

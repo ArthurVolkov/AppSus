@@ -117,12 +117,22 @@ export default {
             }
         },
         loadKeep(keep) {
-            this.keep = keep;
-            this.curImage.imageUrl = this.keep.info.url
-            window.scrollTo({top: 0, behavior: "smooth"});
-            keepService.remove(keep.id)
-            .then(() => this.$emit('reload')) 
-                
+            if (this.keep.id) {
+                keepService.save(this.keep)
+                .then(() => {
+                    this.keep = keep;
+                    this.curImage.imageUrl = this.keep.info.url
+                    window.scrollTo({top: 0, behavior: "smooth"});
+                    keepService.remove(keep.id)
+                    .then(() => this.$emit('reload'))         
+            })     
+            }else{
+                this.keep = keep;
+                this.curImage.imageUrl = this.keep.info.url
+                window.scrollTo({top: 0, behavior: "smooth"});
+                keepService.remove(keep.id)
+                .then(() => this.$emit('reload'))     
+            }                
         },
         removeKeep(keep) {
             keepService.remove(keep.id)

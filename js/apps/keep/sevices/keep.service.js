@@ -60,6 +60,7 @@ function update(keep) {
 
 function getEmptyKeep() {
     return {
+        id: null,
         type: "noteTxt",
         isPinned: false,
         info: {
