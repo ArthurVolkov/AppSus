@@ -62,6 +62,10 @@
     content: "🔎";
 }
 
+.inbox-filter-btn {
+    white-space: nowrap;
+}
+
 
 /* .details-btns-container button:hover {  
     transform: translateY(-.3em);

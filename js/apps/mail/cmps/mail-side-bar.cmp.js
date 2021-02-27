@@ -8,7 +8,7 @@ export default {
             </div>
             <div class="side-btns-container flex flex-col">
                 <button @click="setFilter('all')" :class="{active : currFilter === 'all'}">All</button>
-                <button @click="setFilter('isIncoming')" :class="{active : currFilter === 'isIncoming'}">Inbox ({{unReadCount}})</button>
+                <button @click="setFilter('isIncoming')" :class="{active : currFilter === 'isIncoming'}" class="inbox-filter-btn">Inbox ({{unReadCount}})</button>
                 <button @click="setFilter('isSent')" :class="{active : currFilter === 'isSent'}">Sent</button>
                 <button @click="setFilter('isReaded')" :class="{active : currFilter === 'isReaded'}">Unreaded</button>
                 <button @click="setFilter('isImporant')" :class="{active : currFilter === 'isImporant'}">Stared</button>
