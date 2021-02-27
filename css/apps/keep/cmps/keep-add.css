@@ -14,11 +14,6 @@
     font-size: 1em;
 }
 
-.text-area-container :last-child {
-    /* pointer-events: none;
-    display: none; */
-}
-
 .checkbox-container * {
     margin: .09em;
 }
@@ -38,6 +33,10 @@
     display: none;
 }
 
+.keep-add .upload-video {
+    display: none;
+}
+
 .add-image-container {
     max-width: 300px;
     align-self: center;
@@ -45,7 +44,20 @@
     /* max-height: 300px; */
 }
 
+.add-video-container {
+    max-width: 300px;
+    align-self: center;
+}
+
 .add-image-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+
+}
+
+.add-video-container video{
     width: 100%;
     height: 100%;
     object-fit: cover;

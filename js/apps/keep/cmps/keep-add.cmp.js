@@ -4,8 +4,11 @@ import { eventBus } from "../../services/event-bus-service.js"
 export default {
     template: `
     <section class="keep-add flex flex-col">
-            <div class="add-image-container">
-                <img v-if="curImage.imageUrl" :src="curImage.imageUrl" alt="image" />
+            <div v-if="curImage.imageUrl" class="add-image-container">
+                <img  :src="curImage.imageUrl" alt="image" />
+            </div>
+            <div v-if="curVideo.videoUrl" class="add-video-container">
+                <video  :src="curVideo.videoUrl" controls></video>
             </div>
         <div class="add-textarea-container flex justify-center">
             <ul v-if="keep.isTodo" class="checkbox-container clean-list">
@@ -25,6 +28,10 @@ export default {
             <button @click="toTodo">☑</button>
             <label for="upload" class="upload-label pointer">📷</label>
             <input type="file" id="upload" accept="image/*" @change="openImg" class="upload-img">
+
+            <label for="uploadvi" class="upload-label pointer">🎥</label>
+            <input type="file" id="uploadvi" accept="video/*" @change="openVid" class="upload-img">
+
             <label for="color-add" class="upload-label pointer">🎨</label>
             <input type="color" id="color-add" @change="setColor" class="set-color">
 
@@ -43,6 +50,9 @@ export default {
             curImage: {
                 imageUrl: null
             },
+            curVideo: {
+                videoUrl: null
+            },
         }
     },
     computed: {
@@ -52,6 +62,10 @@ export default {
                    this.keep.info.txts.splice(i,1);
                    i--;
                 }
+            }
+            if (!this.keep.info.txts.length){
+                 this.keep.info.txts.push({txt:'',daneAt:null});
+                 return this.keep.info.txts.length;
             }
             return this.keep.info.txts.length;
         },
@@ -69,13 +83,21 @@ export default {
         },
         openImg(ev) {
             const file = ev.target.files[0]
-            this.image = file
+            //this.image = file
             this.isImg = true
+            this.isVideo = false
             this.curImage.imageUrl = URL.createObjectURL(file)
+        },
+        openVid(ev) {
+            const file = ev.target.files[0]
+            this.isVideo = true
+            this.isImg = false
+            this.curVideo.videoUrl = URL.createObjectURL(file)
         },
         addNewKeep() {
             this.keep.info.url = this.curImage.imageUrl;
             this.curImage.imageUrl = null;
+            this.curVideo.videoUrl = null;
             if (this.isImg) {
                 this.keep.type = "noteImg";
             } else if (this.isVideo) {
@@ -85,6 +107,11 @@ export default {
                this.keep.type = "noteTodos";
             }
             this.$emit('addNewKeep', this.keep);
+            const msg = {
+                txt: 'keep added',
+                type: 'success'
+            }
+            eventBus.$emit('show-msg', msg)
             this.keep = keepService.getEmptyKeep()
         },
         toTodo() {
@@ -121,14 +148,22 @@ export default {
                 keepService.save(this.keep)
                 .then(() => {
                     this.keep = keep;
-                    this.curImage.imageUrl = this.keep.info.url
+                    if (this.keep.type = 'noteImg'){
+                        this.curImage.imageUrl = this.keep.info.url                        
+                    } else if (this.keep.type = 'noteVideo') {
+                        this.curVideo.videoUrl = this.keep.info.url
+                    }
                     window.scrollTo({top: 0, behavior: "smooth"});
                     keepService.remove(keep.id)
                     .then(() => this.$emit('reload'))         
             })     
             }else{
                 this.keep = keep;
-                this.curImage.imageUrl = this.keep.info.url
+                if (this.keep.type = 'noteImg'){
+                    this.curImage.imageUrl = this.keep.info.url                        
+                } else if (this.keep.type = 'noteVideo') {
+                    this.curVideo.videoUrl = this.keep.info.url
+                }
                 window.scrollTo({top: 0, behavior: "smooth"});
                 keepService.remove(keep.id)
                 .then(() => this.$emit('reload'))     
@@ -136,7 +171,14 @@ export default {
         },
         removeKeep(keep) {
             keepService.remove(keep.id)
-            .then(() => this.$emit('reload')) 
+            .then(() => {
+                this.$emit('reload')
+                const msg = {
+                    txt: 'keep removed',
+                    type: 'success'
+                }
+                eventBus.$emit('show-msg', msg)
+            })
         },
         pinKeep(keep) {
             keep.isPinned = !keep.isPinned;
@@ -174,6 +216,7 @@ export default {
         clear() {
             this.keep = keepService.getEmptyKeep();
             this.curImage.imageUrl = null;
+            this.curVideo.videoUrl = null;
         }
     },
     created() {
