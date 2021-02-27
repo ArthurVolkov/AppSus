@@ -1,0 +1,51 @@
+.keep-side-bar {
+    margin: 5px 5px 0 0;
+    width: 25%;
+}
+
+.keep-side-bar button {
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.keep-side-bar button:hover {
+    background-color: bisque;
+}
+
+.side-btns-container button:focus {
+    color: crimson;
+}
+
+.keep-side-bar .compose {
+    margin-bottom: 30px;
+    border-radius: 1.5em;
+    font-size: 1.5em;
+
+}
+
+.keep-side-bar .compose::before {
+    content: "+";
+    font-size: 2em;
+    color: green;
+}
+
+.keep-filter {
+    background-color: beige;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.keep-filter input {
+    border: none;
+    outline: none;
+    font-size: 1.2em;
+    background-color: transparent;
+}
+
+.keep-filter::before {
+    content: "🔎";
+}
