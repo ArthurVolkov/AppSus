@@ -29,8 +29,8 @@ export default {
             <label for="upload" class="upload-label pointer">📷</label>
             <input type="file" id="upload" accept="image/*" @change="openImg" class="upload-img">
 
-            <label for="uploadvi" class="upload-label pointer">🎥</label>
-            <input type="file" id="uploadvi" accept="video/*" @change="openVid" class="upload-img">
+            <!-- <label for="uploadvi" class="upload-label pointer">🎥</label>
+            <input type="file" id="uploadvi" accept="video/*" @change="openVid" class="upload-img"> -->
 
             <label for="color-add" class="upload-label pointer">🎨</label>
             <input type="color" id="color-add" @change="setColor" class="set-color">
