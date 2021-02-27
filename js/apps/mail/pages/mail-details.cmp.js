@@ -9,9 +9,9 @@ export default {
     <section class="mail-details-container flex">
         <!-- <mail-side-bar></mail-side-bar> -->
         <div v-if="isEdit">
-            <mail-edit></mail-edit>
+            <mail-edit @afterSend='afterSend'></mail-edit>
         </div>
-        <div>
+        <div class="grow">
             <ul class="review-list clean-list">
                 <li v-for="mail in mails" class="mail-preview-container" >
                     <div class="details-subject flex align-center">
@@ -37,9 +37,7 @@ export default {
                             <button @click="closeDetails" class="close-btn">X</button>
                         </div>
                     </div>
-       
-                    <p>{{mail.body}}</p>
-                    <p>Is Read: {{mail.isRead}}</p>
+                    <pre class="details-body">{{mail.body}}</pre>
                 </li>
             </ul>
         </div>
@@ -79,6 +77,10 @@ export default {
             eventBus.$emit('reply', this.mails)
             console.log('reply');
             this.isEdit = true
+        },
+        afterSend() {
+            this.isEdit = false
+            this.loadMails()
         }
     },
     computed: {

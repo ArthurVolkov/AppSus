@@ -1,11 +1,17 @@
 .mail-details-container {
     padding: 10px;
     font-size: .8em;
+    width: 75%;
 }
 
 .details-subject {
     font-size: 1.5em;
     margin-bottom: 1.5em;
+}
+
+.details-body {
+    white-space: pre-wrap;
+    margin-bottom: 10px;
 }
 
 .details-subject pre {

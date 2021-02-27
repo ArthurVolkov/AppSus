@@ -37,7 +37,7 @@ export default {
 
     methods: {
         closeEdit() {
-            this.$emit('closeEdit')
+            this.$emit('afterSend')
         },
         toggleFull() {
             this.isFull = !this.isFull
@@ -50,15 +50,15 @@ export default {
                         mail.body = this.body
                     mail.sentAt = Date.now()
                     mailService.save(mail)
-                        .then(() => eventBus.$emit('afterSend'))
+                        .then(() => {
+                            this.$emit('afterSend')
+                            this.mail = null
+                            this.mailAddress = ''
+                            this.subject = ''
+                            this.body = ''
+                        })
                 })
 
-            // const newMail = {
-            //     mailAddress: this.mailAddress,
-            //     subject: this.subject,
-            //     body: this.body
-            // }
-            // console.log('newMail:', newMail)
         }
         // save() {
         //     carService.save(this.carToEdit)
@@ -98,8 +98,13 @@ export default {
         const id = this.$route.params.mailId
 
         mailService.getById(id)
-            .then(mail => this.mail = mail)
-        
+            .then(mail => {
+                this.mail = mail
+                console.log('this.mail:', this.mail)
+                this.mailAddress = mail.mailAddress
+                this.subject = mail.subject
+            })
+
 
 
         // if (this.carId) {

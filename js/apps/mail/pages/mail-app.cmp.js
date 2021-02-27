@@ -50,8 +50,8 @@ export default {
             this.closeEdit()
         },
         reply(mails) {
-            console.log('reply');
-            console.log('mails:', mails)
+            // console.log('reply');
+            // console.log('mails:', mails)
 
 
             // this.isEdit === true
@@ -81,8 +81,9 @@ export default {
         // }
     },
     created() {
-        eventBus.$on('afterSend', this.closeEdit)
+        // eventBus.$on('afterSend', this.closeEdit)
         eventBus.$on('reply', this.reply)
+        // eventBus.$on('afterSend', this.afterSend)
 
         // this.loadMails();
     },
