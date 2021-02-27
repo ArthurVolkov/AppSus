@@ -96,14 +96,15 @@ export default {
         // this.male = this.mailToEdit
         // console.log('this.mailToEdit:', this.mailToEdit)
         const id = this.$route.params.mailId
-
-        mailService.getById(id)
-            .then(mail => {
-                this.mail = mail
-                console.log('this.mail:', this.mail)
-                this.mailAddress = mail.mailAddress
-                this.subject = mail.subject
-            })
+        if (id) {
+            mailService.getById(id)
+                .then(mail => {
+                    this.mail = mail
+                    console.log('this.mail:', this.mail)
+                    this.mailAddress = mail.mailAddress
+                    this.subject = mail.subject
+                })
+        }
 
 
 
