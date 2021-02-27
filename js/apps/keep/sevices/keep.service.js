@@ -130,7 +130,7 @@ function initData() {
             isPinned: false,
             info: {
                 txts: [{ txt: "Fullstack Me Baby!", doneAt: null}],
-                url: "https://picsum.photos/200/300",
+                url: "https://picsum.photos/id/101/500/200",
             },
             style: {
                 backgroundColor: "blue"
@@ -144,7 +144,7 @@ function initData() {
             info: {
                 txts: [{ txt: "hit me baby", doneAt: null},
                        { txt: "on more time", doneAt: null}],
-                url: "https://picsum.photos/200/300",
+                url: "https://picsum.photos/id/77/500/200",
             },
             style: {
                 backgroundColor: "yellow"
@@ -168,16 +168,16 @@ function initData() {
         {
             id: '106',
             type: "noteImg",
-            isPinned: false,
+            isPinned: true,
             info: {
                 txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
                        { txt: "hey Me Baby!", doneAt: null}],
-                url: "https://picsum.photos/200/300",
+                url: "https://picsum.photos/id/52/500/200",
             },
             style: {
                 backgroundColor: "blue"
             },
-            isTodo: true
+            isTodo: false
         },
         {
             id: '107',
@@ -202,12 +202,12 @@ function initData() {
             info: {
                 txts: [{ txt: "this is a very", doneAt: null},
                        { txt: "nice picture", doneAt: null}],
-                url: "https://picsum.photos/200/300",
+                url: "https://picsum.photos/id/29/500/200",
             },
             style: {
                 backgroundColor: "blue"
             },
-            isTodo: true
+            isTodo: false
         },
         {
             id: '109',
@@ -218,7 +218,7 @@ function initData() {
                 url: null,
             },
             style: {
-                backgroundColor: ''
+                backgroundColor: "pink"
             },
             isTodo: false
         },
@@ -229,7 +229,7 @@ function initData() {
             info: {
                 txts: [{ txt: "there is something", doneAt: null},
                        { txt: "i dont know why", doneAt: null}],
-                url: "https://picsum.photos/200/300",
+                url: "https://picsum.photos/id/18/500/200",
             },
             style: {
                 backgroundColor: "pink"
@@ -243,12 +243,12 @@ function initData() {
             info: {
                 txts: [{ txt: "Vue is the king", doneAt: null},
                        { txt: "or not!!", doneAt: null}],
-                url: "https://picsum.photos/200/300",
+                url: "https://picsum.photos/id/6/500/200",
             },
             style: {
                 backgroundColor: "blue"
             },
-            isTodo: true
+            isTodo: false
         },
               {
             id: '112',
