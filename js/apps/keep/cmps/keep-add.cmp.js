@@ -51,6 +51,10 @@ export default {
                    i--;
                 }
             }
+            if (!this.keep.info.txts.length){
+                 this.keep.info.txts.push({txt:'',daneAt:null});
+                 return this.keep.info.txts.length;
+            }
             return this.keep.info.txts.length;
         },
         pinIcon(){
