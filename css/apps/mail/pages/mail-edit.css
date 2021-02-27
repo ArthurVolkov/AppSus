@@ -6,7 +6,6 @@
     width: 65%;
     height: 60vh;
     border-radius: 10px 10px 0 0;
-    /* border: 1px solid rgb(46, 7, 7); */
     box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, -6px 4px 10px -5px rgba(0,0,0,0.7);
 }
 
@@ -49,7 +48,19 @@
     padding: 5px 10px;
     border: none;
     outline: none;
+    width: 100%;
 }
+
+.edit-input-container p {
+    background-color: white;
+    border-bottom: 1px solid rgb(46, 7, 7);
+    font-size: .8em;
+    height: 100%;
+    padding-top: .5em;
+    padding-left: .5em;
+    color:grey
+}
+
 
 .edit-input-container input {
     border-bottom: 1px solid rgb(46, 7, 7);

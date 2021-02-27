@@ -1,6 +1,86 @@
 .keep-side-bar {
+    align-self: flex-start;
+    width: 20%;
+}
+
+.keep-side-bar button {
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 1em;
+    font-weight: 600;
+    color: mediumpurple;
+}
+
+.keep-side-bar button:hover {
+    background-color: lavender;
+    border-radius: 5px;
+    transform: translateY(-.15em);
+    transition: transform .3s, box-shadow .3s;
+    box-shadow: 0px 1px 3px 2px rgba(0,0,0,0.66);
+}
+
+
+.keep-side-bar * {
+    background-color: lavender;
+    margin: 3px 0;
+}
+
+.keep-side-bar .side-btns-container {
+    border-radius: 5px;
+}
+
+.side-btns-container .active {
+    color: crimson;
+    border-bottom: 2px solid crimson;
+}
+
+
+.keep-filter {
+    background-color: lavender;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.keep-filter input {
+    border: none;
+    outline: none;
+    font-size: 1.2em;
+    background-color: transparent;
+}
+
+.keep-filter::before {
+    content: "🔎";
+}
+
+.inbox-filter-btn {
+    white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+.keep-side-bar {
     width: 20%;
     align-self: flex-start;
+}
+
+.keep-side-bar * {
+    background-color: lavender;
+    margin: 3px 0;
 }
 
 .keep-side-bar button {
@@ -12,10 +92,17 @@
 }
 
 .keep-side-bar button:hover {
+    border-radius: 5px;
     transform: translateY(-.15em);
     transition: transform .3s, box-shadow .3s;
     box-shadow: 0px 1px 3px 2px rgba(0,0,0,0.66);
 }
+
+.keep-side-bar .side-btns-container {
+    border-radius: 5px;
+}
+
+
 
 .side-btns-container button:focus {
     color: crimson;
@@ -35,7 +122,7 @@
 }
 
 .keep-filter {
-    background-color: beige;
+    background-color: lavender;
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
@@ -50,4 +137,4 @@
 
 .keep-filter::before {
     content: "🔎";
-}
+} */
