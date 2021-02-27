@@ -21,14 +21,14 @@ export default {
             <div class="main logo">
                 <router-link tag="h1" to="/" class="main-logo pointer"><span>A</span><span>p</span><span>p</span><span>S</span><span>u</span><span>s</span></router-link>
             </div>
-            <ul class="nav-bar clean-list flex">
-                <li>
+            <ul class="nav-bar clean-list flex align-center">
+                <li class="flex align-center">
                     <router-link to="/mail/list">Mail</router-link>
                 </li>
-                <li>
+                <li class="flex align-center">
                     <router-link to="/keep">Keep</router-link>
                 </li>
-                <li>
+                <li class="flex align-center">
                     <router-link to="/about">About</router-link>
                 </li>
             </ul>

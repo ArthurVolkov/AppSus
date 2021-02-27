@@ -52,3 +52,19 @@
     font-size: 1.5em;
 }
 
+.app-header ul, .app-header li {
+    height: 100%;
+}
+
+.app-header li {
+    padding: 0 5px;
+}
+
+/* .app-header a {
+    height: 100%;
+} */
+
+.app-header li:hover, .main-logo:hover{
+    transform: scale(1.1);
+    transition: .4s;
+}

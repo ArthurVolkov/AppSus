@@ -1,7 +1,15 @@
 
 .item-btns-container {
-    padding-top: .5em
+    padding-top: .5em;
+    opacity: 0;
+    transition: .5s;
 }
+
+.item-btns-container:hover {
+    opacity: 1;
+}
+
+
 
 .item-btns-container * {
     border: none;

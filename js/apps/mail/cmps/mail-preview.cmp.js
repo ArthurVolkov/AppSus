@@ -5,10 +5,10 @@ export default {
     props: ['mail'],
     template: `
     <li class="mail-preview flex justify-between pointer">
-        <button @click.stop="remove(mail)" class="remove-btn">🗑</button>
-        <button @click.stop="unRead(mail)" class="remove-btn">📨</button>
         <div class="name-container flex align-center">
             <button :class="markedStar" class="mail-star" @click.stop="setStar">{{star}}</button>
+            <button @click.stop="remove(mail)" class="remove-btn">🗑</button>
+            <button @click.stop="unRead(mail)" class="remove-btn">📨</button>
             <p class="mail-name" :class="isReadedClass">{{name}}</p>
         </div>
         <div class="flex justify-between align-center grow">
