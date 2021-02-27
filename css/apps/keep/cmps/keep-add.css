@@ -1,7 +1,7 @@
 
 .keep-add {
     background-color: azure;
-    width: 60%;
+    width: 95%;
     margin-bottom: 10px;
     padding: 5px;
     border: 1px solid darkgray;
@@ -18,8 +18,6 @@
     margin: .09em;
 }
 
-
-
 .checkbox-container :first-child{
     margin-top: .16em;
 }
@@ -30,7 +28,6 @@
     outline: none;
     font-size: 1em;
 }
-
 
 .keep-add .upload-img {
     display: none;
@@ -79,4 +76,12 @@
 
 .set-color {
     display: none;
+}
+
+.keep-add .pin {
+    color: rgb(59, 57, 57);
+}
+
+.keep-add .pined {
+    color: crimson;
 }
