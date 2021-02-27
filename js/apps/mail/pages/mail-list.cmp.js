@@ -1,3 +1,102 @@
+// import mailPreview from '../cmps/mail-preview.cmp.js'
+// import { mailService } from '../sevices/mail.service.js'
+// import { eventBus } from '../../services/event-bus-service.js'
+
+
+// export default {
+//     template: `
+//     <ul class="mail-list clean-list">
+//         <mail-preview v-for="mail in mails" :mail="mail" :key="mail.id"  @click.native.stop="select(mail)" class="mail-preview-container" />
+//     </ul>
+//     `,
+//     data() {
+//         return {
+//             mails: [],
+//             filterBy: {
+//                 bySubject: '',
+//                 secFilter: '',
+//             },
+//             isEdit: false,
+//         }
+//     },
+//     methods: {
+//         select(mail) {
+//             mail.isReaded = true
+//             mailService.update(mail)
+//                 .then(() => this.loadMails)
+//             this.$emit('selected', mail)
+//             this.$router.push(`/mail/${mail.id}`)
+//         },
+//         loadMails() {
+//             mailService.query()
+//                 .then(mails => this.mails = mails)
+//         },
+//         mailFilter(filterBy) {
+//             // if (filterBy.secFilter) this.filterBy = filterBy
+//             // else this.filterBy.bySubject = filterBy.bySubject
+//             mailService.query()
+//                 .then(mails => {
+//                     this.mails = mails
+//                     this.filterBy = filterBy
+//                     console.log('mailFilter', filterBy.secFilter);
+//                     this.mails = this.mailsToShow(filterBy)
+//                 })
+
+//                 if (this.$router.currentRoute.path !== '/mail/list') this.$router.push(`/mail/list`);
+
+//             //this.filterBy.bySubject = filterBy.bySubject
+
+//         },
+//         afterSend() {
+//             this.loadMails()
+//         },
+//         mailsToShow(filterBy) {
+//             // console.log('mailsToShow');
+//             // if(!this.mails.length) return //////////////////////
+//             const searchStr = filterBy.bySubject.toLowerCase()
+//             const filterParam = filterBy.secFilter
+//             const mailsToShow = this.mails.filter(mail => {
+//                 if (filterParam === 'all') return mail.subject.toLowerCase().includes(searchStr)
+//                 else if (filterParam === 'isSent') {
+//                     return mail.subject.toLowerCase().includes(searchStr) &&
+//                         mail['isIncoming'] === false
+//                 } else if (filterParam === 'isReaded') {
+//                     return mail.subject.toLowerCase().includes(searchStr) &&
+//                         mail['isReaded'] === false
+//                 } else return mail.subject.toLowerCase().includes(searchStr) &&
+//                     mail[filterParam] === true
+//             })
+//             mailsToShow.sort((date1, date2) => { return date2.sentAt - date1.sentAt })
+//             // console.log('mailsToShow:', mailsToShow)
+//             console.log('mails to show', mailsToShow.length);
+//             return mailsToShow
+//         }
+//     },
+//     computed: {
+//     },
+//     components: {
+//         mailPreview
+//     },
+//     mounted() {
+        
+//     },
+//     created() {
+//         this.loadMails();
+//         // console.log('created');
+//         eventBus.$on('afterSend', this.afterSend)
+//         eventBus.$on('mailFilter', this.mailFilter)
+//     },
+//     // destroyed() {
+//     //     eventBus.$off('afterSend', this.afterSend)
+//     //     eventBus.$off('mailFilter', this.mailFilter) 
+//     // }
+// }
+
+
+
+
+
+
 import mailPreview from '../cmps/mail-preview.cmp.js'
 import { mailService } from '../sevices/mail.service.js'
 import { eventBus } from '../../services/event-bus-service.js'
@@ -32,8 +131,16 @@ export default {
                 .then(mails => this.mails = mails)
         },
         mailFilter(filterBy) {
-            if (filterBy.secFilter) this.filterBy = filterBy
-            else this.filterBy.bySubject = filterBy.bySubject
+            // if (filterBy.secFilter) this.filterBy = filterBy
+            // else this.filterBy.bySubject = filterBy.bySubject
+            // this.loadMails()
+            this.filterBy = filterBy
+            console.log('mailFilter', filterBy.secFilter);
+
+            if (this.$router.currentRoute.path !== '/mail/list') this.$router.push(`/mail/list`);
+
+            //this.filterBy.bySubject = filterBy.bySubject
+
         },
         afterSend() {
             this.loadMails()
@@ -50,6 +157,8 @@ export default {
     },
     computed: {
         mailsToShow() {
+            // console.log('mailsToShow');
+            if(!this.mails.length) return //////////////////////
             const searchStr = this.filterBy.bySubject.toLowerCase()
             const filterParam = this.filterBy.secFilter
             const mailsToShow = this.mails.filter(mail => {
@@ -57,20 +166,28 @@ export default {
                 else if (filterParam === 'isSent') {
                     return mail.subject.toLowerCase().includes(searchStr) &&
                         mail['isIncoming'] === false
+                } else if (filterParam === 'isReaded') {
+                    return mail.subject.toLowerCase().includes(searchStr) &&
+                        mail['isReaded'] === false
                 } else return mail.subject.toLowerCase().includes(searchStr) &&
                     mail[filterParam] === true
             })
             mailsToShow.sort((date1, date2) => { return date2.sentAt - date1.sentAt })
             // console.log('mailsToShow:', mailsToShow)
+            console.log('mails to show', mailsToShow);
             return mailsToShow
         }
     },
     components: {
         mailPreview
     },
+    mounted() {
+        
+    },
     created() {
         this.loadMails();
-        eventBus.$on('mailFilter', this.mailFilter)
+        console.log('created');
         eventBus.$on('afterSend', this.afterSend)
+        eventBus.$on('mailFilter', this.mailFilter)
     },
 }

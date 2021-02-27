@@ -98,7 +98,7 @@ function initData() {
        {
             id: '101',
             type: "noteTxt",
-            isPinned: true,
+            isPinned: false,
             info: {
                 label: "here i am",
                 txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
@@ -147,7 +147,7 @@ function initData() {
         {
             id: '104',
             type: "noteImg",
-            isPinned: false,
+            isPinned: true,
             info: {
                 label: "here i am",
                 txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
@@ -163,7 +163,7 @@ function initData() {
         {
             id: '105',
             type: "noteTxt",
-            isPinned: true,
+            isPinned: false,
             info: {
                 label: "here i am",
                 txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
@@ -212,7 +212,7 @@ function initData() {
         {
             id: '108',
             type: "noteImg",
-            isPinned: false,
+            isPinned: true,
             info: {
                 label: "here i am",
                 txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
