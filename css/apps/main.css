@@ -130,6 +130,11 @@
     .mail-filter {
         margin-top: 10px;
     }
+
+    .mail-edit {
+        width: 100%;
+        right: 0;
+    }
 }
 
 @media (max-width: 630px) {

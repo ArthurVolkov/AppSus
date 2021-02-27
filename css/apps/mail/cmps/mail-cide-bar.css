@@ -23,12 +23,13 @@
 
 .mail-side-bar * {
     background-color: lavender;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     margin: 3px 0;
 }
 
-.side-btns-container button:focus {
+.side-btns-container .active {
     color: crimson;
+    border-bottom: 2px solid crimson;
 }
 
 .mail-side-bar .compose {
