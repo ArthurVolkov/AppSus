@@ -96,14 +96,14 @@ function initData() {
        {
             id: '101',
             type: "noteTxt",
-            isPinned: false,
+            isPinned: true,
             info: {
                 txts: [{ txt: "what can i do!", doneAt: null},
                        { txt: "im eddicted to you", doneAt: null}],
                 url: null,
             },
             style: {
-                backgroundColor: ''
+                backgroundColor: 'purple'
             },
             isTodo: false
         },
@@ -115,12 +115,12 @@ function initData() {
                 txts: [
                         { txt: "go to shop", doneAt: 187111111 },
                         { txt: "Do this", doneAt: null },
-                        { txt: "go to shop", doneAt: null },
-                        { txt: "go to shop", doneAt: null }],
+                        { txt: "Do that", doneAt: null },
+                        { txt: "go home", doneAt: null }],
                 url: null,
             },
             style: {
-                backgroundColor: ''
+                backgroundColor: "pink"
             },
             isTodo: true
         },
@@ -129,9 +129,8 @@ function initData() {
             type: "noteImg",
             isPinned: false,
             info: {
-                txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
-                       { txt: "hey Me Baby!", doneAt: null}],
-                url: "https://robohash.org/arthur.png",
+                txts: [{ txt: "Fullstack Me Baby!", doneAt: null}],
+                url: "https://picsum.photos/200/300",
             },
             style: {
                 backgroundColor: "blue"
@@ -143,26 +142,26 @@ function initData() {
             type: "noteImg",
             isPinned: true,
             info: {
-                txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
-                       { txt: "hey Me Baby!", doneAt: null}],
-                url: "https://robohash.org/itzik.png",
+                txts: [{ txt: "hit me baby", doneAt: null},
+                       { txt: "on more time", doneAt: null}],
+                url: "https://picsum.photos/200/300",
             },
             style: {
                 backgroundColor: "yellow"
             },
-            isTodo: false
+            isTodo: true
         },
         {
             id: '105',
             type: "noteTxt",
             isPinned: false,
             info: {
-                txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
-                       { txt: "hey Me Baby!", doneAt: null}],
+                txts: [{ txt: "sprint 3", doneAt: null},
+                       { txt: "go to sleep", doneAt: null}],
                 url: null,
             },
             style: {
-                backgroundColor: ''
+                backgroundColor: 'grey'
             },
             isTodo: false
         },
@@ -173,7 +172,7 @@ function initData() {
             info: {
                 txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
                        { txt: "hey Me Baby!", doneAt: null}],
-                url: "https://robohash.org/106.png",
+                url: "https://picsum.photos/200/300",
             },
             style: {
                 backgroundColor: "blue"
@@ -186,8 +185,9 @@ function initData() {
             isPinned: true,
             info: {
                 txts: [
-                        { txt: "Do that", doneAt: null },
-                        { txt: "Do this", doneAt: 187111111 }],
+                        { txt: "keep", doneAt: 187111111 },
+                        { txt: "mail", doneAt: null },
+                        { txt: "mail", doneAt: null }],
                 url: null,
             },
             style: {
@@ -200,9 +200,9 @@ function initData() {
             type: "noteImg",
             isPinned: true,
             info: {
-                txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
-                       { txt: "hey Me Baby!", doneAt: null}],
-                url: "https://robohash.org/108.png",
+                txts: [{ txt: "this is a very", doneAt: null},
+                       { txt: "nice picture", doneAt: null}],
+                url: "https://picsum.photos/200/300",
             },
             style: {
                 backgroundColor: "blue"
@@ -214,8 +214,7 @@ function initData() {
             type: "noteTxt",
             isPinned: true,
             info: {
-                txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
-                       { txt: "hey Me Baby!", doneAt: null}],
+                txts: [{ txt: "I love JS", doneAt: null}],
                 url: null,
             },
             style: {
@@ -228,12 +227,12 @@ function initData() {
             type: "noteImg",
             isPinned: false,
             info: {
-                txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
-                       { txt: "hey Me Baby!", doneAt: null}],
-                url: "https://robohash.org/110.png",
+                txts: [{ txt: "there is something", doneAt: null},
+                       { txt: "i dont know why", doneAt: null}],
+                url: "https://picsum.photos/200/300",
             },
             style: {
-                backgroundColor: "yellow"
+                backgroundColor: "pink"
             },
             isTodo: false
         },
@@ -242,9 +241,9 @@ function initData() {
             type: "noteImg",
             isPinned: false,
             info: {
-                txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
-                       { txt: "hey Me Baby!", doneAt: null}],
-                url: "https://robohash.org/111.png",
+                txts: [{ txt: "Vue is the king", doneAt: null},
+                       { txt: "or not!!", doneAt: null}],
+                url: "https://picsum.photos/200/300",
             },
             style: {
                 backgroundColor: "blue"
@@ -256,12 +255,12 @@ function initData() {
             type: "noteTxt",
             isPinned: true,
             info: {
-                txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
-                       { txt: "hey Me Baby!", doneAt: null}],
+                txts: [{ txt: "see at sprint 4", doneAt: null},
+                       { txt: "and go to work", doneAt: null}],
                 url: null,
             },
             style: {
-                backgroundColor: ''
+                backgroundColor: 'red'
             },
             isTodo: false
         },

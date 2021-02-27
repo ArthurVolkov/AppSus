@@ -13,6 +13,7 @@ export default {
     },
     methods: {
         setMsg(msg) {
+            console.log('msg:',msg)
             this.msg = msg
             setTimeout(() => {
                 this.msg = null
