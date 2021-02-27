@@ -49,6 +49,7 @@ export default {
     methods: {
         setStar() {
             this.mail.isImporant = !this.mail.isImporant
+            mailService.update(this.mail)
         }
     }
 }

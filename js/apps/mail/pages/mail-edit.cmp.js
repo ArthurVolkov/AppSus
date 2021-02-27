@@ -52,7 +52,7 @@ export default {
                     mailService.save(mail)
                         .then(() => {
                             this.$emit('afterSend')
-                            this.mail = null
+                            eventBus.$emit('afterSend')
                             this.mailAddress = ''
                             this.subject = ''
                             this.body = ''

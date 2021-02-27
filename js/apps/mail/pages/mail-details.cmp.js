@@ -59,7 +59,7 @@ export default {
             const id = this.$route.params.mailId
             mailService.getChainById(id)
                 .then(mails => {
-                    this.mails = mails.sort((mail1, mail2)=> {return mail1.sentAt - mail2.sentAt})
+                    this.mails = mails.sort((mail1, mail2)=> {return mail2.sentAt - mail1.sentAt})
                     this.mailSubject = this.mails[0].subject;
                 })
         },

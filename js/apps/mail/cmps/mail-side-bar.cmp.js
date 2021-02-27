@@ -21,17 +21,17 @@ export default {
         return {
             filterBy: {
                 bySubject: '',
-                secFilter: ''
+                secFilter: 'isIncoming'
             }
         }
     },
     methods: {
         setFilter(by) {
             this.filterBy.secFilter = by
+            // if (this.$router.currentRoute.path !== '/mail/list') this.$router.push(`/mail/list`);
             eventBus.$emit('mailFilter', this.filterBy)
-            console.log('this.$router.currentRoute():', this.$router.currentRoute)
-            if (this.$router.currentRoute.path !== '/mail/list') 
-            this.$router.push(`/mail/list`)
+            // this.$router.currentRoute()
+            // console.log('this.$router.currentRoute():', this.$router.currentRoute)
         },
         setSearch() {
             eventBus.$emit('mailFilter', this.filterBy)

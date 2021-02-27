@@ -22,7 +22,7 @@ export default {
     data() {
         return {
             mails: [],
-            filterBy: { isIncoming: true, bySubject: '' },
+            // filterBy: { isIncoming: true, bySubject: '' },
             isEdit: false,
         }
     },
@@ -49,13 +49,13 @@ export default {
             // this.loadMails()
             this.closeEdit()
         },
-        reply(mails) {
-            // console.log('reply');
-            // console.log('mails:', mails)
+        // reply(mails) {
+        //     // console.log('reply');
+        //     // console.log('mails:', mails)
 
 
-            // this.isEdit === true
-        }
+        //     // this.isEdit === true
+        // }
     },
     computed: {
         // mailsToShow() {
@@ -80,16 +80,20 @@ export default {
         //     return mailsToShow
         // }
     },
-    created() {
-        // eventBus.$on('afterSend', this.closeEdit)
-        eventBus.$on('reply', this.reply)
-        // eventBus.$on('afterSend', this.afterSend)
-
-        // this.loadMails();
-    },
     components: {
         // mailList,
         mailSideBar,
         mailEdit
-    }
+    },
+    // created() {
+    //     // eventBus.$on('afterSend', this.closeEdit)
+    //     eventBus.$on('reply', this.reply)
+    //     // eventBus.$on('afterSend', this.afterSend)
+
+    //     // this.loadMails();
+    // },
+    // destroyed() {
+    //     eventBus.$off('reply', this.reply)
+
+    // }
 }

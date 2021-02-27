@@ -14,7 +14,9 @@ export default {
                 </li>
             </ul>
             <div class="text-area-container flex flex-col grow">
-                <input v-for="(row, idx) in keep.info.txts.length" :key="idx" :ref="idx" @keydown="newLine($event, idx)" type="text" v-model="keep.info.txts[idx].txt" :class="{'is-selected': keep.info.txts[idx].doneAt && keep.isTodo}" />
+                <input v-for="(row, idx) in keep.info.txts.length" :key="idx" :ref="idx" 
+                    @keydown="newLine($event, idx)" type="text" v-model="keep.info.txts[idx].txt" 
+                    :class="{'is-selected': keep.info.txts[idx].doneAt && keep.isTodo}" />
             </div>
         </div>
 

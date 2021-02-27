@@ -10,6 +10,7 @@ export default {
             <keep-side-bar @filtered="setFilter"/>
             <div class="keep-list-container flex flex-col align-center">
                 <keep-add  @reload="reload" @addNewKeep="addNewKeep" />
+                <pre class="pined-keeps">     Pined keeps:     </pre>
                 <keep-list class="keep-pin" :keeps="keepsPin"/>
                 <keep-list :keeps="keepsNoPin"/>
             </div>
