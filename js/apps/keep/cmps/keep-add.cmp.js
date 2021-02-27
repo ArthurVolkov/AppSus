@@ -14,7 +14,7 @@ export default {
                 </li>
             </ul>
             <div class="text-area-container flex flex-col grow">
-                <input v-for="(row, idx) in keep.info.txts.length" :key="idx" :ref="idx" @keydown="newLine($event, idx)" type="text" v-model="keep.info.txts[idx].txt" :class="{'is-selected': keep.info.txts[idx].doneAt}" />
+                <input v-for="(row, idx) in keep.info.txts.length" :key="idx" :ref="idx" @keydown="newLine($event, idx)" type="text" v-model="keep.info.txts[idx].txt" :class="{'is-selected': keep.info.txts[idx].doneAt && keep.isTodo}" />
 
 
 
@@ -141,6 +141,16 @@ export default {
             keepService.update(keep)
             .then(() => this.$emit('reload'))
         },
+        setTodoKeep(keep){
+            keep.isTodo = !keep.isTodo;
+            if (keep.type === 'noteTxt'){
+                keep.type = 'noteTodos';
+            } else if (keep.type === 'noteTodos'){
+                keep.type = 'noteTxt';
+            }
+            keepService.update(keep)
+            .then(() => this.$emit('reload'))    
+        },
         clear() {
             this.keep = keepService.getEmptyKeep();
             this.curImage.imageUrl = null;
@@ -153,6 +163,7 @@ export default {
         eventBus.$on('color', this.colorKeep)
         eventBus.$on('image', this.imageKeep)
         eventBus.$on('todo', this.todoKeep)
+        eventBus.$on('setTodo', this.setTodoKeep)
         this.keep = keepService.getEmptyKeep();
     },    
 }
