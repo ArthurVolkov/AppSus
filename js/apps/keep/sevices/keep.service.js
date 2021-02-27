@@ -205,7 +205,7 @@ function initData() {
                 url: "https://picsum.photos/id/29/500/200",
             },
             style: {
-                backgroundColor: "blue"
+                backgroundColor: "green"
             },
             isTodo: false
         },

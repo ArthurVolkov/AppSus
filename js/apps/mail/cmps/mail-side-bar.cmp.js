@@ -1,6 +1,5 @@
 import {eventBus} from '../../services/event-bus-service.js'
 
-
 export default {
     template: `
         <section class="mail-side-bar flex flex-col">
@@ -38,6 +37,12 @@ export default {
         },
         compose() {
             this.$emit('compose')
+        },
+        unRead(num){
+            return num;
         }
     },
+    created() {
+        eventBus.$on('unread', this.unRead)
+    }
 }

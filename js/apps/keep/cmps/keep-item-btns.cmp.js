@@ -5,10 +5,10 @@ export default {
     template: `
         <ul class="item-btns-container clean-list flex justify-between align-center">
             <li>
-                <button @click="setPin(keep)" :class="pinIcon" class="pin">🖈</button>
+                <button title="Pin" @click="setPin(keep)" :class="pinIcon" class="pin">🖈</button>
             </li>
             <li>
-                <button @click="setTodo(keep)">☑</button>
+                <button title="Todo" @click="setTodo(keep)">☑</button>
             </li>
             <li>
                 <label :for="keep.id+1" class="upload-label pointer">📷</label>
@@ -19,7 +19,7 @@ export default {
                 <input type="color" :id="keep.id" @change="setColor($event,keep)" class="set-color">
             </li>
             <li>
-                <button @click="remove(keep)" class="remove-btn">🗑</button>
+                <button title="Delete" @click="remove(keep)" class="remove-btn">🗑</button>
             </li>
         </ul>
     `,

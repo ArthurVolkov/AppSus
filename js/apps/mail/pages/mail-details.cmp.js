@@ -33,8 +33,8 @@ export default {
                         <div class='details-btns-container flex align-center'>
                             <p class='flex align-center'>{{sentAtToShow(mail.sentAt)}}</p>
                             
-                            <button @click="replay" class="close-btn">↶</button>
-                            <button @click="closeDetails(mail,idx)" class="close-btn">X</button>
+                            <button title="Reply" @click="replay" class="close-btn">↶</button>
+                            <button title="Delete" @click="closeDetails(mail,idx)" class="close-btn">X</button>
                         </div>
                     </div>
                     <pre class="details-body">{{mail.body}}</pre>
