@@ -8,7 +8,7 @@ export default {
             </div>
             <div class="side-btns-container flex flex-col">
                 <button @click="setFilter('all')" :class="{active : currFilter === 'all'}">All</button>
-                <button @click="setFilter('isIncoming')" :class="{active : currFilter === 'isIncoming'}">Inbox</button>
+                <button @click="setFilter('isIncoming')" :class="{active : currFilter === 'isIncoming'}">Inbox ({{unReadCount}})</button>
                 <button @click="setFilter('isSent')" :class="{active : currFilter === 'isSent'}">Sent</button>
                 <button @click="setFilter('isReaded')" :class="{active : currFilter === 'isReaded'}">Unreaded</button>
                 <button @click="setFilter('isImporant')" :class="{active : currFilter === 'isImporant'}">Stared</button>
@@ -22,17 +22,15 @@ export default {
                 bySubject: '',
                 secFilter: 'isIncoming'
             },
-            currFilter: 'isIncoming'
+            currFilter: 'isIncoming',
+            unReadCount: 0
         }
     },
     methods: {
         setFilter(by) {
             this.filterBy.secFilter = by
-            // if (this.$router.currentRoute.path !== '/mail/list') this.$router.push(`/mail/list`);
             eventBus.$emit('mailFilter', this.filterBy)
             this.currFilter = by
-            // this.$router.currentRoute()
-            // console.log('this.$router.currentRoute():', this.$router.currentRoute)
         },
         setSearch() {
             eventBus.$emit('mailFilter', this.filterBy)
@@ -40,8 +38,8 @@ export default {
         compose() {
             this.$emit('compose')
         },
-        unRead(num){
-            return num;
+        unRead(unReadCount) {
+             this.unReadCount = unReadCount;
         }
     },
     created() {

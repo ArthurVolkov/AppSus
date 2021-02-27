@@ -9,15 +9,7 @@ import { keepService } from '../sevices/keep.service.js'
 export default {
     props: ['keeps'],
     template: `
-            <!-- <ul class="keep-list clean-list">
-                <component v-for="(keep, idx) in keeps" :key="keep.id" :is="keep.type" :keep="keep" @click.native.stop="select(keep)" class="keep-item"></component>
-                <transition name="component-fade" mode="out-in"v-for="(keep, idx) in keepsToShow(keeps)" :key="keep.id" class="keep-item" :style="{backgroundColor: keep.style.backgroundColor}">
-                    <component :is="keep.type" :keep="keep" @click.native.stop="select(keep)"></component>
-                    <item-btns :keep="keep"></item-btns>
-                </transition>
-            </ul> -->
             <ul class="keep-list clean-list">
-            <!-- <component v-for="(keep, idx) in keeps" :key="keep.id" :is="keep.type" :keep="keep" @click.native.stop="select(keep)" class="keep-item"></component> -->
                 <div v-for="(keep, idx) in keepsToShow(keeps)" :key="keep.id" class="keep-item" :style="{backgroundColor: keep.style.backgroundColor}">
                     <component :is="keep.type" :keep="keep" @click.native.stop="select(keep)"></component>
                     <item-btns :keep="keep"></item-btns>
@@ -31,11 +23,6 @@ export default {
                 secFilter: 'all',
             }
         }
-    },
-    computed: {
-    },
-    created() {
-        eventBus.$on('keepFilter', this.keepFilter)
     },
     methods: {
         select(keep) {
@@ -74,6 +61,9 @@ export default {
             }
             return keeps;
         }
+    },
+    created() {
+        eventBus.$on('keepFilter', this.keepFilter)
     },
     components: {
         noteTxt,
