@@ -5,8 +5,6 @@ import mailEdit from './mail-edit.cmp.js'
 import userMsg from '../../cmps/user-msg.cmp.js'
 import { eventBus } from '../../services/event-bus-service.js'
 
-
-
 export default {
     template: `
         <section class="mail-app main-container flex">
@@ -17,8 +15,8 @@ export default {
 
 
             <!-- <mail-list :mails="mailsToShow" @selected="isReaded"/> -->
-            <mail-edit v-if="isEdit" @closeEdit="closeEdit" @afterSend="afterSend" />
-
+            <!-- <mail-edit v-if="isEdit" @closeEdit="closeEdit" @reply="reply" @afterSend="afterSend" /> -->
+            <mail-edit :isNew="true" v-if="isEdit" @closeEdit="closeEdit" @afterSend="afterSend" />
         </section>
     `,
     data() {
