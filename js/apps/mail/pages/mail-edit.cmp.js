@@ -13,8 +13,14 @@ export default {
                 </div>
             </div>
             <form @submit="" class="edit-input-container flex flex-col">
-                <input v-model="mailAddress" type="email" class="to-input" placeholder="To" required>
-                <input v-model="subject" type="text" class="subject-input" placeholder="Subject" required>
+                <div class="flex">
+                    <p class="flex">To:</p>
+                    <input v-model="mailAddress" type="email" class="to-input" required>
+                </div>
+                <div class="flex">
+                    <p class="flex">Subject:</p>
+                    <input v-model="subject" type="text" class="subject-input" required>
+                </div>
                 <textarea v-model="body" class="mailbody-input" required></textarea>
                 <div class="form-btns-container flex justify-between">
                     <button @click.prevent="send" class="send-btn">Send</button>

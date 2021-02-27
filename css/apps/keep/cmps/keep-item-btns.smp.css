@@ -1,6 +1,5 @@
 
 .item-btns-container {
-    padding-top: .5em;
     opacity: 0;
     transition: .5s;
 }

@@ -44,6 +44,8 @@
 
 @media (max-width: 860px) {
 
+    /* MAIL_APP */
+
     .main-container {
         max-width: 720px;
     }
@@ -63,7 +65,7 @@
         font-size: .9em;
         background-color: lavender;
         border-radius: 10px;
-        padding: 0 10px;
+        padding: 10px;
     }
 
     .mail-side-bar * {
@@ -76,6 +78,7 @@
     }
     
     .mail-side-bar .compose {
+        font-size: 1.2em;
         margin: 0;
         border-radius: 0;
     }
@@ -84,7 +87,7 @@
         align-items: center;
         border: 1px solid darkgray;
         border-radius: 10px;
-        margin-bottom: 0;
+        margin: 0;
         margin-right: 5px;
     }
 
@@ -102,6 +105,55 @@
 
     .mail-details-container {
         width: 100%;
+    }
+
+    /* KEEP-APP */
+
+    .keep-app {
+        flex-direction: column;
+        padding-left: 0;
+    }
+
+    /* KEEP-LIST */
+
+    .keep-list-container {
+        width: 100%;
+    }
+
+    /* KEEP SIDE-BER */
+
+    .keep-side-bar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        font-size: .9em;
+        background-color: lavender;
+        border-radius: 10px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .keep-side-bar * {
+        background-color: transparent;
+    }
+
+
+    .side-btns-container {
+        flex-direction: row;
+    }
+    
+    .keep-side-bar .compose {
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .keep-filter {
+        align-items: center;
+        border: 1px solid darkgray;
+        border-radius: 10px;
+        margin: 0;
+        /* margin-right: 5px; */
     }
 }
 
