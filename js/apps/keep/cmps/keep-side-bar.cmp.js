@@ -8,10 +8,10 @@ export default {
             </div>
             <div class="side-btns-container flex flex-col">
                 <button @click="setFilter('all')">All</button>
-                <button @click="setFilter('noteTxt')">Inbox</button>
-                <button @click="setFilter('noteTodos')">Sent</button>
-                <button @click="setFilter('noteImg')">Unreaded</button>
-                <button @click="setFilter('noteVideo')">Stared</button>
+                <button @click="setFilter('noteTxt')">Text</button>
+                <button @click="setFilter('noteTodos')">Todos</button>
+                <button @click="setFilter('noteImg')">Images</button>
+                <button @click="setFilter('noteVideo')">Videos</button>
             </div>
         </section>
     `,

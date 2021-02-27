@@ -6,7 +6,7 @@ import { eventBus } from '../../services/event-bus-service.js'
 export default {
     template: `
     <ul class="mail-list clean-list">
-        <mail-preview v-for="mail in mailsToShow" :mail="mail" :key="mail.id"  @click.native.stop="select(mail)" class="mail-preview-container" />
+        <mail-preview v-for="mail in mailsToShow" :mail="mail" :key="mail.id"  @click.native.stop="select(mail)" @remove="remove(mail)" @unRead="unRead(mail)" class="mail-preview-container" />
     </ul>
     `,
     data() {
@@ -37,6 +37,15 @@ export default {
         },
         afterSend() {
             this.loadMails()
+        },
+        remove(mail){
+            mailService.remove(mail.id)
+            .then (()=>this.loadMails());
+        },
+        unRead(mail){
+            mail.isReaded = !mail.isReaded;
+            mailService.update(mail)
+            .then (()=>this.loadMails());
         }
     },
     computed: {
