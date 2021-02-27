@@ -15,19 +15,18 @@ export default {
             </ul>
             <div class="text-area-container flex flex-col grow">
                 <input v-for="(row, idx) in keep.info.txts.length" :key="idx" :ref="idx" @keydown="newLine($event, idx)" type="text" v-model="keep.info.txts[idx].txt" :class="{'is-selected': keep.info.txts[idx].doneAt && keep.isTodo}" />
-
-
-
-                <!-- @click.stop="toggleTodo(keep,idx)"-->
-
             </div>
         </div>
 
         <div class="add-input-container flex justify-around">
-            <button @click="toTodo">ToDo</button>
+            <button @click="setPin">{{pinIcon}}</button>
+            <button @click="toTodo">☑</button>
             <label for="upload" class="upload-label pointer">📁</label>
             <input type="file" id="upload" accept="image/*" @change="openImg" class="upload-img">
-            <button @click="clear">🧹</button>
+            <label for="color-add" class="upload-label pointer">🎨</label>
+            <input type="color" id="color-add" @change="setColor" class="set-color">
+
+            <button @click="clear">🗑</button>
             <button @click="addNewKeep">Add</button>  
       
         </div>
@@ -54,6 +53,9 @@ export default {
             }
             return this.keep.info.txts.length;
         },
+        pinIcon(){
+            return this.keep.isPinned ? '📌' : '🖈';
+        }
     },
     methods: {
         toggleTodo(idx) {
@@ -85,6 +87,12 @@ export default {
         },
         toTodo() {
             this.keep.isTodo = !this.keep.isTodo;
+        },
+        setPin(){
+            this.keep.isPinned = !this.keep.isPinned;
+        },
+        setColor(ev){
+            this.keep.style.backgroundColor = ev.target.value;
         },
         newLine(ev, idx) {
             if (ev.which === 13) {
