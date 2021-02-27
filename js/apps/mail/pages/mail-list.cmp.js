@@ -96,13 +96,7 @@ export default {
         
     },
     created() {
-<<<<<<< HEAD
-        this.loadMails();
-        console.log("mails", this.mails);
-        console.log('created');
-=======
         this.loadMails()
->>>>>>> 7b11125a375d190b1d343b53971d36baf7f4ae85
         eventBus.$on('afterSend', this.afterSend)
         eventBus.$on('mailFilter', this.mailFilter)
         eventBus.$emit('unRead', this.unReadCount)
