@@ -5,13 +5,13 @@ export default {
     template: `
         <ul class="item-btns-container clean-list flex justify-between align-center">
             <li>
-                <button @click="setPin(keep)">{{pinIcon}}</button>
+                <button @click="setPin(keep)" :class="pinIcon" class="pin">🖈</button>
             </li>
             <li>
                 <button @click="setTodo(keep)">☑</button>
             </li>
             <li>
-                <label :for="keep.id+1" class="upload-label pointer">📁</label>
+                <label :for="keep.id+1" class="upload-label pointer">📷</label>
                 <input type="file" :id="keep.id+1" accept="image/*" @change="openImg($event,keep)" class="upload-img">
             </li>
             <li>
@@ -19,7 +19,7 @@ export default {
                 <input type="color" :id="keep.id" @change="setColor($event,keep)" class="set-color">
             </li>
             <li>
-                <button @click="remove(keep)">🗑</button>
+                <button @click="remove(keep)" class="remove-btn">🗑</button>
             </li>
         </ul>
     `,
@@ -32,7 +32,7 @@ export default {
     },
     computed: {
         pinIcon(){
-            return this.keep.isPinned ? '📌' : '🖈';
+            return this.keep.isPinned ? 'pined' : '';
         }
     },
     methods: {

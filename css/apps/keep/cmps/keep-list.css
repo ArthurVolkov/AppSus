@@ -1,6 +1,13 @@
 
-.keep-list {
+
+.keep-list-container {
     width: 75%;
+    height: 85vh;
+    /* columns: 3; */
+}
+
+.keep-list {
+    width: 95%;
     height: 85vh;
     columns: 3;
 }
@@ -8,7 +15,7 @@
 .keep-list > * {
     border: 1px solid darkgray;
     border-radius: 10px;
-    margin: 10px;
+    /* margin: 10px; */
     padding: 10px;
     page-break-inside: avoid;
     break-inside: avoid;

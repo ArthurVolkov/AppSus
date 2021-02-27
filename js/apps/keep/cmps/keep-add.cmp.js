@@ -19,15 +19,15 @@ export default {
         </div>
 
         <div class="add-input-container flex justify-around">
-            <button @click="setPin">{{pinIcon}}</button>
+            <button @click="setPin" :class="pinIcon" class="pin">🖈</button>
             <button @click="toTodo">☑</button>
-            <label for="upload" class="upload-label pointer">📁</label>
+            <label for="upload" class="upload-label pointer">📷</label>
             <input type="file" id="upload" accept="image/*" @change="openImg" class="upload-img">
             <label for="color-add" class="upload-label pointer">🎨</label>
             <input type="color" id="color-add" @change="setColor" class="set-color">
 
             <button @click="clear">🗑</button>
-            <button @click="addNewKeep">Add</button>  
+            <button @click="addNewKeep">📁</button>  
       
         </div>
     </section>
@@ -54,7 +54,7 @@ export default {
             return this.keep.info.txts.length;
         },
         pinIcon(){
-            return this.keep.isPinned ? '📌' : '🖈';
+            return this.keep.isPinned ? 'pined' : '';
         }
     },
     methods: {
