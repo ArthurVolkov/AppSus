@@ -83,8 +83,8 @@
     position: fixed;
     top: -10px;
     right: 10px;
-    height: 300px;
-    width: 200px;
+    height: 200px;
+    width: 100px;
     background-color: mediumpurple;
     border-radius: 10px;
 }
@@ -109,4 +109,9 @@
 
 .component-fade-enter, .component-fade-leave-to {
     opacity: 0;
+}
+
+.app-header .nav-bar .router-link-active {
+    color: crimson;
+    border-bottom: 2px solid crimson;
 }
