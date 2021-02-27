@@ -186,6 +186,7 @@ export default {
     },
     created() {
         this.loadMails();
+        console.log("mails", this.mails);
         console.log('created');
         eventBus.$on('afterSend', this.afterSend)
         eventBus.$on('mailFilter', this.mailFilter)

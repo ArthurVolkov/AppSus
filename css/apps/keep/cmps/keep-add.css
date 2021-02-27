@@ -1,6 +1,6 @@
 
 .keep-add {
-    background-color: azure;
+    background-color: lavender;
     width: 95%;
     margin-bottom: 10px;
     padding: 5px;
@@ -9,7 +9,7 @@
 }
 
 .add-textarea-container {
-    background-color: azure;
+    background-color: lavender;
     margin: 10px 0;
     font-size: 1em;
 }
@@ -66,7 +66,7 @@
 }
 
 .keep-add .upload-label {
-    background-color: azure;
+    background-color: lavender;
 }
 
 .keep-add .text-area-container {
@@ -81,12 +81,13 @@
     font-weight: 800;
     background-color: transparent;
     padding: 5px;
+    width: 2em;
 }
 
 .add-input-container *:hover {    
-    transform: translateY(-.3em);
+    transform: translateY(-.15em);
     transition: transform .3s, box-shadow .3s;
-    border-radius: 50%;
+    border-radius: 5px;
     box-shadow: 0px 1px 10px 4px rgba(0,0,0,0.66);
 }
 
