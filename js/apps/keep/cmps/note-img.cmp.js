@@ -16,10 +16,6 @@ export default {
         return {
         };
     },
-    methods: {
-    },
-    computed: {
-    },
     components: {
         noteTxt,
         noteTodo,

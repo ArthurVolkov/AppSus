@@ -8,7 +8,7 @@ export default {
             </div>
             <div class="side-btns-container flex flex-col">
                 <button @click="setFilter('all')">All</button>
-                <button @click="setFilter('isIncoming')">Inbox</button>
+                <button @click="setFilter('isIncoming')">Inbox ({{unReadCount}})</button>
                 <button @click="setFilter('isSent')">Sent</button>
                 <button @click="setFilter('isReaded')">Unreaded</button>
                 <button @click="setFilter('isImporant')">Stared</button>
@@ -21,16 +21,14 @@ export default {
             filterBy: {
                 bySubject: '',
                 secFilter: 'isIncoming'
-            }
+            },
+            unReadCount: 0
         }
     },
     methods: {
         setFilter(by) {
             this.filterBy.secFilter = by
-            // if (this.$router.currentRoute.path !== '/mail/list') this.$router.push(`/mail/list`);
             eventBus.$emit('mailFilter', this.filterBy)
-            // this.$router.currentRoute()
-            // console.log('this.$router.currentRoute():', this.$router.currentRoute)
         },
         setSearch() {
             eventBus.$emit('mailFilter', this.filterBy)
@@ -38,8 +36,8 @@ export default {
         compose() {
             this.$emit('compose')
         },
-        unRead(num){
-            return num;
+        unRead(unReadCount) {
+             this.unReadCount = unReadCount;
         }
     },
     created() {

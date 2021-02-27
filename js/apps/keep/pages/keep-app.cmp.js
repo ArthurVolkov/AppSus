@@ -4,7 +4,6 @@ import keepSideBar from '../cmps/keep-side-bar.cmp.js'
 import userMsg from '../../cmps/user-msg.cmp.js'
 import { keepService } from '../sevices/keep.service.js'
 
-
 export default {
     template: `
         <section class="keep-app main-container flex align-center">
@@ -47,14 +46,14 @@ export default {
             this.filterBy = filterBy
         }
     },
+    created() {
+        this.loadKeeps();
+    },
     components: {
         keepAdd,
         keepList,
         keepSideBar,
         userMsg
-    },
-    created() {
-        this.loadKeeps();
-    },
-};
+    }
+}
 

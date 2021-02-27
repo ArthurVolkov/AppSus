@@ -12,17 +12,9 @@ export default {
           <note-txt v-else :keep="keep"/>
         </section>
           `,
-    data() {
-        return {
-        };
-    },
-    methods: {
-    },
-    computed: {
-    },
     components: {
         noteTxt,
         noteTodo,
     }
-};
+}
 
