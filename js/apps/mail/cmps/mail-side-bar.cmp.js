@@ -5,7 +5,7 @@ export default {
     template: `
         <section class="mail-side-bar flex flex-col">
             <div class="mail-filter flex">
-                <input type="text" @input="setSearch" v-model="filterBy.bySubject" placeholder="Search in mails" />
+                <input type="text" @input="setSearch" v-model="filterBy.bySubject" placeholder="Search..." />
             </div>
             <button @click="compose" class="compose flex align-center justify-around">Compose</button>
             <div class="side-btns-container flex flex-col">

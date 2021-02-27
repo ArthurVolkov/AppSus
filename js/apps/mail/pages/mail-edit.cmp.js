@@ -53,6 +53,12 @@ export default {
                         .then(() => {
                             this.$emit('afterSend')
                             eventBus.$emit('afterSend')
+                            const msg = {
+                                txt: 'mail sent',
+                                type: 'success'
+                            }
+                            eventBus.$emit('show-msg', msg)
+                
                             this.mailAddress = ''
                             this.subject = ''
                             this.body = ''

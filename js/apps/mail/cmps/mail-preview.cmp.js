@@ -55,6 +55,11 @@ export default {
         },
         remove(mail){
             this.$emit('remove', mail)
+            const msg = {
+                txt: 'mail removed',
+                type: 'success'
+            }
+            eventBus.$emit('show-msg', msg)
         },
         unRead(mail){
             this.$emit('unRead', mail)

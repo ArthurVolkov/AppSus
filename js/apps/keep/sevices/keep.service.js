@@ -64,11 +64,9 @@ function getEmptyKeep() {
         type: "noteTxt",
         isPinned: false,
         info: {
-            label: '',
             txts: [{txt:'',doneAt: null},
                    {txt:'',doneAt: null}],
         url: null,
-        title: ''
         },
         style: {
             backgroundColor: ''
@@ -100,11 +98,9 @@ function initData() {
             type: "noteTxt",
             isPinned: false,
             info: {
-                label: "here i am",
-                txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
-                       { txt: "hey Me Baby!", doneAt: null}],
+                txts: [{ txt: "what can i do!", doneAt: null},
+                       { txt: "im eddicted to you", doneAt: null}],
                 url: null,
-                title: ''
             },
             style: {
                 backgroundColor: ''
@@ -116,12 +112,12 @@ function initData() {
             type: "noteTodos",
             isPinned: true,
             info: {
-                label: "How was it:",
                 txts: [
-                        { txt: "Do that", doneAt: null },
-                        { txt: "Do this", doneAt: 187111111 }],
+                        { txt: "go to shop", doneAt: 187111111 },
+                        { txt: "Do this", doneAt: null },
+                        { txt: "go to shop", doneAt: null },
+                        { txt: "go to shop", doneAt: null }],
                 url: null,
-                title: ''
             },
             style: {
                 backgroundColor: ''
@@ -133,11 +129,9 @@ function initData() {
             type: "noteImg",
             isPinned: false,
             info: {
-                label: "here i am",
                 txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
                        { txt: "hey Me Baby!", doneAt: null}],
                 url: "https://robohash.org/arthur.png",
-                title: "Me playing Mi"
             },
             style: {
                 backgroundColor: "blue"
@@ -149,11 +143,9 @@ function initData() {
             type: "noteImg",
             isPinned: true,
             info: {
-                label: "here i am",
                 txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
                        { txt: "hey Me Baby!", doneAt: null}],
                 url: "https://robohash.org/itzik.png",
-                title: "Me playing Mi"
             },
             style: {
                 backgroundColor: "yellow"
@@ -165,11 +157,9 @@ function initData() {
             type: "noteTxt",
             isPinned: false,
             info: {
-                label: "here i am",
                 txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
                        { txt: "hey Me Baby!", doneAt: null}],
                 url: null,
-                title: ''
             },
             style: {
                 backgroundColor: ''
@@ -181,11 +171,9 @@ function initData() {
             type: "noteImg",
             isPinned: false,
             info: {
-                label: "here i am",
                 txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
                        { txt: "hey Me Baby!", doneAt: null}],
                 url: "https://robohash.org/106.png",
-                title: "Me playing Mi"
             },
             style: {
                 backgroundColor: "blue"
@@ -197,12 +185,10 @@ function initData() {
             type: "noteTodos",
             isPinned: true,
             info: {
-                label: "How was it:",
                 txts: [
                         { txt: "Do that", doneAt: null },
                         { txt: "Do this", doneAt: 187111111 }],
                 url: null,
-                title: ''
             },
             style: {
                 backgroundColor: ''
@@ -214,11 +200,9 @@ function initData() {
             type: "noteImg",
             isPinned: true,
             info: {
-                label: "here i am",
                 txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
                        { txt: "hey Me Baby!", doneAt: null}],
                 url: "https://robohash.org/108.png",
-                title: "Me playing Mi"
             },
             style: {
                 backgroundColor: "blue"
@@ -230,11 +214,9 @@ function initData() {
             type: "noteTxt",
             isPinned: true,
             info: {
-                label: "here i am",
                 txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
                        { txt: "hey Me Baby!", doneAt: null}],
                 url: null,
-                title: ''
             },
             style: {
                 backgroundColor: ''
@@ -246,11 +228,9 @@ function initData() {
             type: "noteImg",
             isPinned: false,
             info: {
-                label: "here i am",
                 txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
                        { txt: "hey Me Baby!", doneAt: null}],
                 url: "https://robohash.org/110.png",
-                title: "Me playing Mi"
             },
             style: {
                 backgroundColor: "yellow"
@@ -262,11 +242,9 @@ function initData() {
             type: "noteImg",
             isPinned: false,
             info: {
-                label: "here i am",
                 txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
                        { txt: "hey Me Baby!", doneAt: null}],
                 url: "https://robohash.org/111.png",
-                title: "Me playing Mi"
             },
             style: {
                 backgroundColor: "blue"
@@ -278,11 +256,9 @@ function initData() {
             type: "noteTxt",
             isPinned: true,
             info: {
-                label: "here i am",
                 txts: [{ txt: "Fullstack Me Baby!", doneAt: null},
                        { txt: "hey Me Baby!", doneAt: null}],
                 url: null,
-                title: ''
             },
             style: {
                 backgroundColor: ''

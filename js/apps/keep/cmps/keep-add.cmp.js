@@ -4,9 +4,11 @@ import { eventBus } from "../../services/event-bus-service.js"
 export default {
     template: `
     <section class="keep-add flex flex-col">
-            <div  class="add-image-container">
-                <img v-if="curImage.imageUrl" :src="curImage.imageUrl" alt="image" />
-                <video v-if="curVideo.videoUrl" :src="curvideo.videoUrl" controls></video>
+            <div v-if="curImage.imageUrl" class="add-image-container">
+                <img  :src="curImage.imageUrl" alt="image" />
+            </div>
+            <div v-if="curVideo.videoUrl" class="add-video-container">
+                <video  :src="curVideo.videoUrl" controls></video>
             </div>
         <div class="add-textarea-container flex justify-center">
             <ul v-if="keep.isTodo" class="checkbox-container clean-list">
@@ -105,6 +107,11 @@ export default {
                this.keep.type = "noteTodos";
             }
             this.$emit('addNewKeep', this.keep);
+            const msg = {
+                txt: 'keep added',
+                type: 'success'
+            }
+            eventBus.$emit('show-msg', msg)
             this.keep = keepService.getEmptyKeep()
         },
         toTodo() {
@@ -164,7 +171,14 @@ export default {
         },
         removeKeep(keep) {
             keepService.remove(keep.id)
-            .then(() => this.$emit('reload')) 
+            .then(() => {
+                this.$emit('reload')
+                const msg = {
+                    txt: 'keep removed',
+                    type: 'success'
+                }
+                eventBus.$emit('show-msg', msg)
+            })
         },
         pinKeep(keep) {
             keep.isPinned = !keep.isPinned;
