@@ -9,11 +9,11 @@ export default {
     <section class="mail-details-container flex">
         <!-- <mail-side-bar></mail-side-bar> -->
         <div v-if="isEdit">
-            <mail-edit @afterSend='afterSend'></mail-edit>
+            <mail-edit :isNew="false" @afterSend='afterSend'></mail-edit>
         </div>
         <div class="grow">
             <ul class="review-list clean-list">
-                <li v-for="mail in mails" class="mail-preview-container" >
+                <li v-for="(mail,idx) in mails" class="mail-preview-container" >
                     <div class="details-subject flex align-center">
                         <p>{{mailSubject}}</p>
                         <pre v-if="mail.isIncoming">⇩ Incoming</pre>
@@ -34,7 +34,7 @@ export default {
                             <p class='flex align-center'>{{sentAtToShow(mail.sentAt)}}</p>
                             
                             <button @click="replay" class="close-btn">↶</button>
-                            <button @click="closeDetails" class="close-btn">X</button>
+                            <button @click="closeDetails(mail,idx)" class="close-btn">X</button>
                         </div>
                     </div>
                     <pre class="details-body">{{mail.body}}</pre>
@@ -57,14 +57,25 @@ export default {
     methods: {
         loadMails() {
             const id = this.$route.params.mailId
+            console.log('ID:',id)
             mailService.getChainById(id)
                 .then(mails => {
                     this.mails = mails.sort((mail1, mail2)=> {return mail2.sentAt - mail1.sentAt})
                     this.mailSubject = this.mails[0].subject;
                 })
         },
-        closeDetails() {
-             this.$router.push(`/mail/list`)
+        closeDetails(mail,idx) {            
+            mailService.remove(mail.id)
+            .then (()=>{
+                this.mails.splice(idx,1);
+            });
+            const msg = {
+                txt: 'mail removed',
+                type: 'success'
+            }
+            eventBus.$emit('show-msg', msg)
+
+//             this.$router.push(`/mail/list`)
         },
         sentAtToShow(sentAt) {
             const sentDate = new Date(sentAt)

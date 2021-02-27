@@ -17,7 +17,6 @@ export default {
                 </transition>
             </ul> -->
             <ul class="keep-list clean-list">
-            <component v-for="(keep, idx) in keeps" :key="keep.id" :is="keep.type" :keep="keep" @click.native.stop="select(keep)" class="keep-item"></component>
                 <div v-for="(keep, idx) in keepsToShow(keeps)" :key="keep.id" class="keep-item" :style="{backgroundColor: keep.style.backgroundColor}">
                     <component :is="keep.type" :keep="keep" @click.native.stop="select(keep)"></component>
                     <item-btns :keep="keep"></item-btns>
