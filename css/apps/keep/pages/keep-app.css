@@ -32,3 +32,8 @@ pre.pined-keeps {
     padding-top: 12vh;
     justify-content: flex-end;
 } */
+
+
+.keep-app * {
+    transition: 1s;
+}
