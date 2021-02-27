@@ -63,14 +63,14 @@ export default {
             const searchStr = this.filterBy.bySubject.toLowerCase()
             const filterParam = this.filterBy.secFilter
             const mailsToShow = this.mails.filter(mail => {
-                if (filterParam === 'all') return mail.subject.toLowerCase().includes(searchStr)
+                if (filterParam === 'all') return mail.subject.toLowerCase().includes(searchStr) || mail.body.toLowerCase().includes(searchStr) || mail.mailAddress.toLowerCase().includes(searchStr)
                 else if (filterParam === 'isSent') {
-                    return mail.subject.toLowerCase().includes(searchStr) &&
+                    return mail.subject.toLowerCase().includes(searchStr) || mail.body.toLowerCase().includes(searchStr) || mail.mailAddress.toLowerCase().includes(searchStr) &&
                         mail['isIncoming'] === false
                 } else if (filterParam === 'isReaded') {
-                    return mail.subject.toLowerCase().includes(searchStr) &&
+                    return mail.subject.toLowerCase().includes(searchStr) || mail.body.toLowerCase().includes(searchStr) || mail.mailAddress.toLowerCase().includes(searchStr) &&
                         mail['isReaded'] === false
-                } else return mail.subject.toLowerCase().includes(searchStr) &&
+                } else return mail.subject.toLowerCase().includes(searchStr) || mail.body.toLowerCase().includes(searchStr) || mail.mailAddress.toLowerCase().includes(searchStr) &&
                     mail[filterParam] === true
             })
             mailsToShow.sort((date1, date2) => { return date2.sentAt - date1.sentAt })
