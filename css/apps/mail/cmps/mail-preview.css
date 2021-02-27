@@ -59,6 +59,11 @@
     min-width: 15em;
 }
 
+.mail-preview button:hover {
+    transform: scale(1.2);
+    transition: .3s;
+}
+
 .mail-star:hover {
     color: black;
 }

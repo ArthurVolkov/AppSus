@@ -50,6 +50,7 @@
 
     .mail-app {
         flex-direction: column;
+        padding-left: 0;
     }
 
     /* SIDE-BAR */
@@ -92,14 +93,48 @@
     .mail-list {
         width: 100%;
         padding-left: 0;
+        padding-right: 0;
         margin-left: 0;
     }
 }
 
 @media (max-width: 750px) {
+
+    .main-container {
+        max-width: 600px;
+    }
+
     .mail-side-bar {
         flex-direction: column;
         align-self: center;
-        width: 500px;
+        align-items: stretch;
+        max-width: 600px;
     }
+
+    .side-btns-container {
+        justify-content: space-between;
+    }
+
+    .mail-side-bar .compose {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .mail-filter {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 630px) {
+    .main-container {
+        max-width: 500px;
+    }
+
+    .mail-side-bar {
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 530px) {
+    
 }
