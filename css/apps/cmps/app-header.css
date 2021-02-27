@@ -3,7 +3,7 @@
 .app-header {
     position: fixed;
     width: 100%;
-    background-color: aliceblue;
+    background-color: lavender;
     height: 10vh;
     z-index: 50;
 }

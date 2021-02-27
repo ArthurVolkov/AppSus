@@ -1,12 +1,14 @@
 import keepList from '../cmps/keep-list.cmp.js'
 import keepAdd from '../cmps/keep-add.cmp.js'
 import keepSideBar from '../cmps/keep-side-bar.cmp.js'
+import userMsg from '../../cmps/user-msg.cmp.js'
 import { keepService } from '../sevices/keep.service.js'
 
 
 export default {
     template: `
         <section class="keep-app main-container flex align-center">
+            <user-msg></user-msg>
             <keep-side-bar @filtered="setFilter"/>
             <div class="keep-list-container flex flex-col align-center">
                 <keep-add  @reload="reload" @addNewKeep="addNewKeep" />
@@ -48,7 +50,8 @@ export default {
     components: {
         keepAdd,
         keepList,
-        keepSideBar
+        keepSideBar,
+        userMsg
     },
     created() {
         this.loadKeeps();

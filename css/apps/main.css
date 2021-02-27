@@ -39,3 +39,67 @@
 
 
 
+/* MEDIA-QUERYS */
+
+
+@media (max-width: 860px) {
+
+    .main-container {
+        max-width: 720px;
+    }
+
+    .mail-app {
+        flex-direction: column;
+    }
+
+    /* SIDE-BAR */
+
+    .mail-side-bar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        font-size: .9em;
+        background-color: lavender;
+        border-radius: 10px;
+        padding: 0 10px;
+    }
+
+    .mail-side-bar * {
+        background-color: transparent;
+    }
+
+
+    .side-btns-container {
+        flex-direction: row;
+    }
+    
+    .mail-side-bar .compose {
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .mail-filter {
+        align-items: center;
+        border: 1px solid darkgray;
+        border-radius: 10px;
+        margin-bottom: 0;
+        margin-right: 5px;
+    }
+
+    /* MAIL-LIST */
+
+    .mail-list {
+        width: 100%;
+        padding-left: 0;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 750px) {
+    .mail-side-bar {
+        flex-direction: column;
+        align-self: center;
+        width: 500px;
+    }
+}

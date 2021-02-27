@@ -1,6 +1,6 @@
 .mail-side-bar {
-    margin: 5px 5px 0 0;
-    width: 25%;
+    /* margin: 5px 5px 0 0; */
+    width: 20%;
 }
 
 .mail-side-bar button {
@@ -12,9 +12,18 @@
 }
 
 .mail-side-bar button:hover {
+    background-color: lavender;
+    border-radius: 5px;
     transform: translateY(-.3em);
     transition: transform .3s, box-shadow .3s;
     box-shadow: 0px 1px 3px 2px rgba(0,0,0,0.66);
+}
+
+
+.mail-side-bar * {
+    background-color: lavender;
+    border-radius: 5px;
+    margin: 3px 0;
 }
 
 .side-btns-container button:focus {
@@ -22,8 +31,8 @@
 }
 
 .mail-side-bar .compose {
-    margin-top: 30px;
-    border-radius: 1.5em;
+    margin-top: 20px;
+    /* border-radius: 1.5em; */
     font-size: 1.5em;
 
 }
@@ -35,7 +44,7 @@
 }
 
 .mail-filter {
-    background-color: beige;
+    background-color: lavender;
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 10px;

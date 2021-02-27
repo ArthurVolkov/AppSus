@@ -1,9 +1,11 @@
 /* MAIL-LIST */
 
 .mail-list {
-    width: 75%;
+    width: 80%;
     /* padding-left: 25%; */
     height: 85vh;
     overflow: auto;
+    padding: 10px;
+    margin-left: 10px;
 }
 

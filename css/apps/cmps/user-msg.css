@@ -1,8 +1,15 @@
 .user-msg {
-    position: absolute;
+    position: fixed;
     padding: 10px;
-    top: 0;
-    right: 0;
+    top: 10px;
+    right: 10px;
+    z-index: 100;
+    padding: 10px 30px;
+    border-radius: 10px;
+    font-size: 1.5em;
+    font-weight: 900;
+    font-family: cursive;
+    color: aliceblue;
 }
 
 .success{
@@ -11,4 +18,11 @@
 
 .error{
     background-color: red;
+}
+
+.component-fade-enter-active, .component-fade-leave-active {
+    transition: opacity .5s ease;
+}
+.component-fade-enter, .component-fade-leave-to {
+    opacity: 0;
 }

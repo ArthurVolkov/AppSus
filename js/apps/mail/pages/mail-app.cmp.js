@@ -2,6 +2,7 @@ import { mailService } from '../sevices/mail.service.js'
 import mailList from './mail-list.cmp.js'
 import mailSideBar from '../cmps/mail-side-bar.cmp.js'
 import mailEdit from './mail-edit.cmp.js'
+import userMsg from '../../cmps/user-msg.cmp.js'
 import { eventBus } from '../../services/event-bus-service.js'
 
 
@@ -9,13 +10,14 @@ import { eventBus } from '../../services/event-bus-service.js'
 export default {
     template: `
         <section class="mail-app main-container flex">
+            <user-msg></user-msg>
             <mail-side-bar @filtered="setFilter" @compose="openEdit"/>
 
             <router-view></router-view>
 
 
             <!-- <mail-list :mails="mailsToShow" @selected="isReaded"/> -->
-            <mail-edit v-if="isEdit" @closeEdit="closeEdit" @reply="reply" @afterSend="afterSend" />
+            <mail-edit v-if="isEdit" @closeEdit="closeEdit" @afterSend="afterSend" />
 
         </section>
     `,
@@ -83,7 +85,8 @@ export default {
     components: {
         // mailList,
         mailSideBar,
-        mailEdit
+        mailEdit,
+        userMsg
     },
     // created() {
     //     // eventBus.$on('afterSend', this.closeEdit)
