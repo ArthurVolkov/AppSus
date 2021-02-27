@@ -6,7 +6,8 @@ import mailList from './mail/pages/mail-list.cmp.js'
 import mailDetails from './mail/pages/mail-details.cmp.js'
 import mailEdit from './mail/pages/mail-edit.cmp.js'
 import keepAdd from './keep/cmps/keep-add.cmp.js'
-
+import bookApp from './book/pages/book-app.cmp.js'
+import bookDetails from './book/pages/book-details.cmp.js'
 
 const routes = [
     {
@@ -17,12 +18,6 @@ const routes = [
         path: '/about',
         component: about
     },
-    // {
-    //     path: '/mail',
-    //     component: mailApp,
-    // },
-
-
     {
         path: '/mail',
         component: mailApp,
@@ -37,15 +32,6 @@ const routes = [
             },
         ]
     },
-
-
-
-
-
-    // {
-    //     path: '/mail/:mailId',
-    //     component: mailDetails,
-    // },
     {
         path: '/mail/edit/:mailId?',
         component: mailEdit,
@@ -58,6 +44,14 @@ const routes = [
         path: '/keep/edit/:keepId?',
         component: keepAdd,
     },
+    {
+        path: '/book',
+        component: bookApp
+    },
+    {
+        path: '/book/:bookId',
+        component: bookDetails
+    }
 ]
 
 export const myRouter = new VueRouter({ routes })

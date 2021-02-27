@@ -1,20 +1,5 @@
 
 export default {
-//     template: `
-//    <header class="app-header">
-//        <div class="logo">
-//            <h1>AppSus</h1>
-//        </div>
-//        <nav>
-//            <!-- <router-link active-class="active-link" to="/" exact>Home</router-link> |
-//            <router-link to="/book">Books</router-link> |
-//            <router-link to="/about">About</router-link> -->
-//        </nav>
-//     </header>
-//     `,
-
-
-
     template: `
     <header class="app-header">
         <div class="header main-container flex justify-between align-center">
@@ -29,6 +14,9 @@ export default {
                     <router-link to="/keep">Keep</router-link>
                 </li>
                 <li class="flex align-center">
+                    <router-link to="/book">Book</router-link>
+                </li>
+                <li class="flex align-center">
                     <router-link to="/about">About</router-link>
                 </li>
             </ul>
@@ -40,6 +28,9 @@ export default {
                     </li>
                     <li class="flex align-center">
                         <router-link to="/keep">Keep</router-link>
+                    </li>
+                    <li class="flex align-center">
+                        <router-link to="/book">Book</router-link>
                     </li>
                     <li class="flex align-center">
                         <router-link to="/about">About</router-link>
