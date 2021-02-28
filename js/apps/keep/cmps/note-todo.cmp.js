@@ -6,7 +6,7 @@ export default {
     template: `
         <section class="flex">
             <li class="note-text flex flex-col">
-                <input v-for="(row, idx) in keep.info.txts.length-1" :key="idx" :ref="idx" class="pointer" 
+                <input v-for="(row, idx) in keep.info.txts.length" :key="idx" :ref="idx" class="pointer" 
                     @click.stop="toggleTodo(keep,idx)" type="checkbox" v-model="keep.info.txts[idx].doneAt" />
             </li>
             <note-txt :keep="keep"/>
