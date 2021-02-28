@@ -24,16 +24,16 @@ export default {
             <transition v-if="isOpen" name="component-fade" mode="out-in">
                 <ul class="nav-bar-burger clean-list flex flex-col align-center">
                     <li class="flex align-center">
-                        <router-link @click="isOpen = false" to="/mail/list">Mail</router-link>
+                        <router-link @click.native="isOpen = false" to="/mail/list" >Mail</router-link>
                     </li>
                     <li class="flex align-center">
-                        <router-link @click="isOpen = false" to="/keep">Keep</router-link>
+                        <router-link @click.native="isOpen = false" to="/keep">Keep</router-link>
                     </li>
                     <li class="flex align-center">
-                        <router-link @click="isOpen = false" to="/book">Book</router-link>
+                        <router-link @click.native="isOpen = false" to="/book">Book</router-link>
                     </li>
                     <li class="flex align-center">
-                        <router-link @click="isOpen = false" to="/about">About</router-link>
+                        <router-link @click.native="isOpen = false" to="/about">About</router-link>
                     </li>
                     <li class="flex align-center">
                         <button @click="isOpen = false" class="close-btn">Close</button>
