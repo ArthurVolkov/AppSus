@@ -6,7 +6,7 @@ export default {
     // props: ['book'],
     template: `
     <section v-if="book" class="book-details flex justify-between align-center">
-        <div class="book-details-cintainer main-container flex justify-between align-center">
+        <div class="book-details-cintainer book-main-container flex justify-between align-center">
             <div class="image-container">
                 <img :src="book.thumbnail" alt="book photo"/>
             </div>

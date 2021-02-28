@@ -4,7 +4,7 @@ import bookPreview from './book-preview.cmp.js'
 export default {
     props: ['books'],
     template: `
-    <ul class="book-list main-container clean-list ">
+    <ul class="book-list book-main-container clean-list ">
     <!-- <ul class="book-list main-container clean-list flex justify-center"> -->
         <!-- <li v-for="book in books" :key="book.id" @click.stop="select(book)" class="book-preview-container" > -->
             <book-preview :book="book" v-for="book in books" :key="book.id" @click.native.stop="select(book)" class="book-preview-container" />

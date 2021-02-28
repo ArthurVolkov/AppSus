@@ -39,9 +39,18 @@
 
 /* BOOK */
 
-@import './book/style.css';
+/* @import './book/style.css'; */
+
+
+
 
 /* MEDIA-QUERYS */
+
+@media (max-width: 1000px) {
+    .main-container {
+        max-width: 960px;
+    }
+}
 
 
 @media (max-width: 860px) {
@@ -120,6 +129,8 @@
 
     .keep-list-container {
         width: 105%;
+        /* overflow: visible; */
+
     }
 
     /* KEEP SIDE-BER */
