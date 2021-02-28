@@ -7,7 +7,7 @@
 
 .note-img {
     width: 100%;
-    height: 5em;
+    /* height: 5em; */
     border-radius: 5px;
     margin-bottom: 5px;
     /* overflow: hidden; */
@@ -18,7 +18,7 @@
     min-height: 100%; */
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 
