@@ -6,7 +6,7 @@ export default {
             <div class="main logo flex justify-center align-center">
                 <router-link tag="h1" to="/" class="main-logo pointer"><span>A</span><span>p</span><span>p</span><span>S</span><span>u</span><span>s</span></router-link>
             </div>
-            <ul v-if="windowWidth > 530" class="nav-bar clean-list flex align-center">
+            <ul v-if="windowWidth > 630" class="nav-bar clean-list flex align-center">
                 <li class="flex align-center">
                     <router-link to="/mail/list">Mail</router-link>
                 </li>

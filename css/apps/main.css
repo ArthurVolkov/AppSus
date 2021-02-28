@@ -37,7 +37,9 @@
 
 @import './keep/pages/keep-app.css';
 
+/* BOOK */
 
+@import './book/style.css';
 
 /* MEDIA-QUERYS */
 
@@ -259,11 +261,19 @@
 }
 
 @media (max-width: 530px) {
+
+    /* MAIL-APP */
     .main-container {
         margin: 0 10px;
     }
 
     .mail-side-bar .side-btns-container * {
         padding: 0 5px;
+    }
+
+    /* KEEP-LIST */
+
+    .keep-list {
+        columns: 1;
     }
 }
